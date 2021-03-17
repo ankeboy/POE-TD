@@ -77,6 +77,8 @@ public class turret : MonoBehaviour
             if (currentEquipment[i] == null)
             {
                 currentEquipment[i] = newItem;
+                if (onItemChangedCallBack != null)
+                    onItemChangedCallBack.Invoke();
                 return;
             }
         }

@@ -19,15 +19,12 @@ public class NodeUI : MonoBehaviour
     [Header("Turret Equipment")]
     public Transform equipmentParent;
     EquipmentSlot[] slots;
-    void Start()
-    {
-        //target.turret.GetComponent<turret>().onItemChangedCallBack += UpdateUI;
-
-        slots = equipmentParent.GetComponentsInChildren<EquipmentSlot>();
-    }
     public void SetTarget(node _target)
     {
         target = _target;
+
+        target.turret.GetComponent<turret>().onItemChangedCallBack += UpdateUI;
+        slots = equipmentParent.GetComponentsInChildren<EquipmentSlot>();
 
         transform.position = target.GetBuildPosition();
 
@@ -52,7 +49,6 @@ public class NodeUI : MonoBehaviour
         turretFireRate.text = target.turret.GetComponent<turret>().fireRate.ToString() + "/sec";
         turretSpecialEffect.text = target.turret.GetComponent<turret>().specialEffect.ToString();
 
-        target.turret.GetComponent<turret>().onItemChangedCallBack += UpdateUI;
         ui.SetActive(true);
     }
 
@@ -73,35 +69,21 @@ public class NodeUI : MonoBehaviour
         BuildManager.instance.DeselectNode();
     }
 
-    private void UpdateUI()
-    {
-        for (int i = 0; i < slots.Length; i++)
-        {
-            if (i < target.turret.GetComponent<turret>().currentEquipment.Length)
-            {
-                slots[i].AddItem(target.turret.GetComponent<turret>().currentEquipment[i]);
-            }
-            else
-            {
-                slots[i].ClearSlot();
-            }
-        }
-    }
     public void Equip(Item newItem)
     {
         Debug.Log("Called from NodeUI");
         target.turret.GetComponent<turret>().currentEquipment[0] = newItem;
-        /*
+
+    }
+
+    private void UpdateUI()
+    {
         for (int i = 0; i < target.turret.GetComponent<turret>().numSlots; i++)
         {
-            if (target.turret.GetComponent<turret>().currentEquipment[i] == null)
-            {
-                target.turret.GetComponent<turret>().currentEquipment[i] = newItem;
-                continue;
-            }
+            Debug.Log("Itemindex is " + i);
+            Debug.Log("Item is " + target.turret.GetComponent<turret>().currentEquipment[i]);
+            if (target.turret.GetComponent<turret>().currentEquipment[i] != null)
+                slots[i].AddItem(target.turret.GetComponent<turret>().currentEquipment[i]);
         }
-
-        Debug.Log("No Free slots");
-        */
     }
 }
