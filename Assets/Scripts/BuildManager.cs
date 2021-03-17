@@ -22,6 +22,7 @@ public class BuildManager : MonoBehaviour
     private TurretBlueprint turretToBuild;
     private node selectedNode;
     public NodeUI nodeUI;
+    public Inventory inventory;
 
     // check if a turret is selected
     public bool CanBuild { get { return turretToBuild != null; } } //property. We only allow it to get something. It can never be set. Return true if turretToBuild is not equal to null otherwise return false.
@@ -37,7 +38,9 @@ public class BuildManager : MonoBehaviour
         selectedNode = node;
         turretToBuild = null;
 
+        Debug.Log("BuildManager Node" + node);
         nodeUI.SetTarget(node); //open UI for the node when the selected node has a turret on it.
+        inventory.SetTarget(node);
     }
 
     public void DeselectNode()

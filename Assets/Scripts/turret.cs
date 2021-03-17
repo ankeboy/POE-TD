@@ -7,6 +7,8 @@ public class turret : MonoBehaviour
     [Header("Equipment")]
     public int numSlots = 2;
     public Item[] currentEquipment;
+    public delegate void OnItemChanged();
+    public OnItemChanged onItemChangedCallBack;     //whenever something is changing in the inventory, we call the function OnItemchangedCallBack
 
     [Header("Target")]
     private Transform target;
@@ -75,16 +77,11 @@ public class turret : MonoBehaviour
             if (currentEquipment[i] == null)
             {
                 currentEquipment[i] = newItem;
-                continue;
+                return;
             }
         }
-
-        Debug.Log("No Free slots");
     }
 
-    public delegate void OnItemChanged();
-    public OnItemChanged onItemChangedCallBack;     //whenever something is changing in the inventory, we call the function OnItemchangedCallBack
-    public List<Item> items = new List<Item>();
     // find the closest target
     void UpdateTarget()
     {

@@ -9,12 +9,12 @@ public class EquipmentCanvas : MonoBehaviour
     EquipmentSlot[] slots;
     void Start()
     {
-        equipmentManager = EquipmentManager.instance;
-        equipmentManager.onItemChangedCallBack += UpdateUI;
+        //equipmentManager = EquipmentManager.instance;
+        //equipmentManager.onItemChangedCallBack += UpdateUI;
 
-        //slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+        slots = itemsParent.GetComponentsInChildren<EquipmentSlot>();
     }
-
+    /*
     private void UpdateUI()
     {
         for (int i = 0; i < slots.Length; i++)
@@ -29,5 +29,5 @@ public class EquipmentCanvas : MonoBehaviour
             }
         }
     }
-
+    */
 }

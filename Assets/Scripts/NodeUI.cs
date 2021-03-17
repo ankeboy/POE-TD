@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class NodeUI : MonoBehaviour
 {
-    public static NodeUI instance;
     public turret turret;
     public GameObject ui;
     public Text upgradeCost;
@@ -18,9 +17,14 @@ public class NodeUI : MonoBehaviour
     public Text turretSpecialEffect;
 
     [Header("Turret Equipment")]
-    public Transform itemsParent;
+    public Transform equipmentParent;
     EquipmentSlot[] slots;
+    void Start()
+    {
+        //target.turret.GetComponent<turret>().onItemChangedCallBack += UpdateUI;
 
+        slots = equipmentParent.GetComponentsInChildren<EquipmentSlot>();
+    }
     public void SetTarget(node _target)
     {
         target = _target;
@@ -67,11 +71,6 @@ public class NodeUI : MonoBehaviour
     {
         target.SellTurret();
         BuildManager.instance.DeselectNode();
-    }
-    void Start()
-    {
-        slots = target.GetComponentsInChildren<EquipmentSlot>();
-        //slots = turret.GetComponent<turret>().numSlots;
     }
 
     private void UpdateUI()

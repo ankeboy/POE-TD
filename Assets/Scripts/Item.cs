@@ -3,26 +3,31 @@
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
 public class Item : ScriptableObject
 {
-    turret turret;
-    EquipmentManager equipmentManager;
-    Inventory inventory;
     new public string name = "New Item";
     public Sprite icon = null;
-    public bool isDefaultItem = false;
-    private NodeUI target;
+    //EquipmentManager equipmentManager;
 
-    public virtual void Use()
+    private node target;
+
+    public virtual void Use(node _target)
     {
-        target = NodeUI.instance;
-        Debug.Log("Equipped");
-        target.Equip(this);
-        //target.turret.GetComponent<turret>().Equip(this);
-        //target.turret.GetComponent<turret>().Add(this);
-        RemoveFromInventory();
+        target = _target;
+        int slotcount = target.turret.GetComponent<turret>().currentEquipment.Length - 1;
+        if (target.turret.GetComponent<turret>().currentEquipment[slotcount] == null)
+        {
+            Debug.Log("Equipped");
+            target.turret.GetComponent<turret>().Equip(this);
+            RemoveFromInventory();
+        }
+        else
+        {
+            Debug.Log("No Free slots");
+        }
     }
 
     public void RemoveFromInventory()
     {
-        inventory.Remove(this);
+        Inventory.instance.Remove(this);
     }
+
 }

@@ -2321,6 +2321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 178869328}
+  inventory: {fileID: 0}
 --- !u!114 &181077448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2947,7 +2948,7 @@ MonoBehaviour:
   turretRange: {fileID: 53053549}
   turretFireRate: {fileID: 483928501}
   turretSpecialEffect: {fileID: 542029958}
-  itemsParent: {fileID: 1185435374}
+  equipmentParent: {fileID: 1185435374}
 --- !u!1 &260496815
 GameObject:
   m_ObjectHideFlags: 0
@@ -3621,6 +3622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 849181469}
+  inventory: {fileID: 0}
 --- !u!114 &304274305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6040,6 +6042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 374289835}
+  inventory: {fileID: 0}
 --- !u!114 &502863104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7749,6 +7752,7 @@ MonoBehaviour:
   sellEffect: {fileID: 4733479883743065143, guid: 81df55b6fed219746ac1837f8684d1f9,
     type: 3}
   nodeUI: {fileID: 235279343}
+  inventory: {fileID: 665861282}
 --- !u!114 &665861279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7805,6 +7809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6c4888d17b50a47b386cda8af41c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   items: []
 --- !u!1001 &668007392
 PrefabInstance:
@@ -12480,6 +12485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 1817694317}
+  inventory: {fileID: 0}
 --- !u!114 &1055355990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21204,6 +21210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 80120114}
+  inventory: {fileID: 0}
 --- !u!114 &1754659039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21952,6 +21959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 8752626}
+  inventory: {fileID: 0}
 --- !u!114 &1782227046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24940,6 +24948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 1990095888}
+  inventory: {fileID: 665861282}
 --- !u!1001 &1982865623
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class Inventory : MonoBehaviour
 {
 
     public static Inventory instance;
+    public node target;
 
     void Awake()
     {
@@ -35,6 +36,11 @@ public class Inventory : MonoBehaviour
 
         if (onItemChangedCallBack != null)
             onItemChangedCallBack.Invoke();
+    }
+    public void SetTarget(node _target)
+    {
+        Debug.Log("Inventory SetTarget" + _target);
+        target = _target;
     }
 
 }

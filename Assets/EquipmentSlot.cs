@@ -26,12 +26,4 @@ public class EquipmentSlot : MonoBehaviour
     {
         Inventory.instance.Remove(item);
     }
-
-    public void UseItem()
-    {
-        if (item != null)
-        {
-            item.Use();
-        }
-    }
 }

@@ -141,5 +141,4 @@ public class node : MonoBehaviour
     {
         rend.material.color = startColor;
     }
-
 }
