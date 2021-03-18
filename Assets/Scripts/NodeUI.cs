@@ -50,6 +50,7 @@ public class NodeUI : MonoBehaviour
         turretSpecialEffect.text = target.turret.GetComponent<turret>().specialEffect.ToString();
 
         ui.SetActive(true);
+        UpdateUI();
     }
 
     public void Hide()
@@ -73,17 +74,21 @@ public class NodeUI : MonoBehaviour
     {
         Debug.Log("Called from NodeUI");
         target.turret.GetComponent<turret>().currentEquipment[0] = newItem;
-
     }
 
     private void UpdateUI()
     {
         for (int i = 0; i < target.turret.GetComponent<turret>().numSlots; i++)
         {
-            Debug.Log("Itemindex is " + i);
-            Debug.Log("Item is " + target.turret.GetComponent<turret>().currentEquipment[i]);
+            Debug.Log("Itemindex is " + i + ". Item is " + target.turret.GetComponent<turret>().currentEquipment[i]);
             if (target.turret.GetComponent<turret>().currentEquipment[i] != null)
+            {
                 slots[i].AddItem(target.turret.GetComponent<turret>().currentEquipment[i]);
+            }
+            else
+            {
+                slots[i].ClearSlot();
+            }
         }
     }
 }
