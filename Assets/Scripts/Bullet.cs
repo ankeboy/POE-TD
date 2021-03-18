@@ -65,7 +65,7 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision collisionInfo)
     {
-        Debug.Log(collisionInfo.collider.tag);
+        //Debug.Log(collisionInfo.collider.tag);
         if (collisionInfo.collider.tag == "Enemy")
         {
             GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);

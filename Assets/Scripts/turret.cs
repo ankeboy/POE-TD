@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class turret : MonoBehaviour
 {
     [Header("Equipment")]
@@ -30,9 +31,9 @@ public class turret : MonoBehaviour
     public float damage;
 
     [Header("Support Modifier")]
-    public float incRange = 1f;     //done
-    public float incFireRate = 1f;      //done
-    public float incDMG = 1f;       //done
+    public float incRange = 1.5f;     //done
+    public float incFireRate = 2f;      //done
+    public float incDMG = 1.5f;       //done
     public bool doubleAttack = false;       //done (doesnt work with laser tower)
     public bool critChance = false;     //crit chance and damage in one skill. Doesnt make sense when one gets crit damage before crit chance.
     public bool generosity = false;     //need to recode, since money gained is not tower specific.
@@ -63,15 +64,16 @@ public class turret : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        range = baserange * incRange;
-        fireRate = basefireRate * incFireRate;
-        damage = basedamage * incDMG;
+        range = baserange;
+        fireRate = basefireRate;
+        damage = basedamage;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
         currentEquipment = new Item[numSlots];
     }
 
     public void Equip(Item newItem)
     {
+        Debug.Log("current equipment: " + currentEquipment);
         for (int i = 0; i < numSlots; i++)
         {
             if (currentEquipment[i] == null)
@@ -79,6 +81,7 @@ public class turret : MonoBehaviour
                 currentEquipment[i] = newItem;
                 if (onItemChangedCallBack != null)
                     onItemChangedCallBack.Invoke();
+                Debug.Log("Added equipment at Slot : " + i + " is " + currentEquipment[i].name);
                 return;
             }
         }
@@ -116,10 +119,37 @@ public class turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //to be able to change even after turret is build
-        range = baserange * incRange;
-        fireRate = basefireRate * incFireRate;
-        damage = basedamage * incDMG;
+        //resets stats at the beginning of every update loop
+        /*
+        range = baserange;
+        fireRate = basefireRate;
+        damage = basedamage;
+        doubleAttack = false;
+        */
+
+        for (int i = 0; i < numSlots; i++)
+        {
+            if (currentEquipment[i] != null)
+            {
+                if (currentEquipment[i].name == "Increased Fire Rate")
+                {
+                    fireRate = fireRate * incFireRate;
+                }
+                else if (currentEquipment[i].name == "Increased Damage")
+                {
+                    damage = damage * incDMG;
+                }
+                else if (currentEquipment[i].name == "Double Attack")
+                {
+                    doubleAttack = true;
+                }
+                else
+                {
+                    Debug.Log(i);
+                }
+            }
+        }
+
         if (useSurroundAOE)
             AOEeffectPrefab.transform.localScale = new Vector3(range / 7, 1, range / 7);  //need to normalize it. Hard coding the base range to 7
 

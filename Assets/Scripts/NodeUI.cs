@@ -72,7 +72,7 @@ public class NodeUI : MonoBehaviour
 
     public void Equip(Item newItem)
     {
-        Debug.Log("Called from NodeUI");
+        //Debug.Log("Called from NodeUI");
         target.turret.GetComponent<turret>().currentEquipment[0] = newItem;
     }
 
@@ -80,7 +80,7 @@ public class NodeUI : MonoBehaviour
     {
         for (int i = 0; i < target.turret.GetComponent<turret>().numSlots; i++)
         {
-            Debug.Log("Itemindex is " + i + ". Item is " + target.turret.GetComponent<turret>().currentEquipment[i]);
+            //Debug.Log("Itemindex is " + i + ". Item is " + target.turret.GetComponent<turret>().currentEquipment[i]);
             if (target.turret.GetComponent<turret>().currentEquipment[i] != null)
             {
                 slots[i].AddItem(target.turret.GetComponent<turret>().currentEquipment[i]);
