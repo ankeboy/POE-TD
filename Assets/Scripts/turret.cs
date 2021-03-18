@@ -30,10 +30,10 @@ public class turret : MonoBehaviour
     [HideInInspector]
     public float damage;
 
-    [Header("Support Modifier")]
-    public float incRange = 1.5f;     //done
-    public float incFireRate = 2f;      //done
-    public float incDMG = 1.5f;       //done
+    [Header("Support Modifier")]    //need to make these private, otherwise got to change them on every turret
+    private float incRange = 1.5f;     //done
+    private float incFireRate = 1.5f;      //done
+    private float incDMG = 1.5f;       //done
     public bool doubleAttack = false;       //done (doesnt work with laser tower)
     public bool critChance = false;     //crit chance and damage in one skill. Doesnt make sense when one gets crit damage before crit chance.
     public bool generosity = false;     //need to recode, since money gained is not tower specific.
@@ -119,14 +119,13 @@ public class turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //resets stats at the beginning of every update loop
-        /*
+        //resets stats at the beginning of every update loop. Otherwise turret strength increases with every loop.
         range = baserange;
         fireRate = basefireRate;
         damage = basedamage;
         doubleAttack = false;
-        */
 
+        //Checking the stat change on every loop can prevent bugs and reduce complexity.
         for (int i = 0; i < numSlots; i++)
         {
             if (currentEquipment[i] != null)
@@ -255,6 +254,7 @@ public class turret : MonoBehaviour
     {
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
+        bullet.damage = damage;
 
         if (bullet != null)
             bullet.Seek(target);

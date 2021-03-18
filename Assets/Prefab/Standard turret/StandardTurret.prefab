@@ -77,7 +77,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2925b41a5cf8c064d8aee508c13d0b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baserange: 15
+  numSlots: 2
+  currentEquipment: []
+  baserange: 20
   basefireRate: 1
   basedamage: 20
   specialEffect: None
@@ -85,9 +87,6 @@ MonoBehaviour:
   range: 15
   fireRate: 3
   damage: 50
-  incRange: 1
-  incFireRate: 1
-  incDMG: 1
   doubleAttack: 0
   critChance: 0
   generosity: 0
@@ -107,7 +106,6 @@ MonoBehaviour:
   partToRotate: {fileID: 666413190856511382}
   turnSpeed: 10
   firePoint: {fileID: 666413192144765896}
-  items: []
 --- !u!1 &666413191165129894
 GameObject:
   m_ObjectHideFlags: 0

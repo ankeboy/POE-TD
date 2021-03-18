@@ -23,7 +23,7 @@ public class NodeUI : MonoBehaviour
     {
         target = _target;
 
-        target.turret.GetComponent<turret>().onItemChangedCallBack += UpdateUI;
+        target.turret.GetComponent<turret>().onItemChangedCallBack += UpdateUI; //updates ui upon equiping
         slots = equipmentParent.GetComponentsInChildren<EquipmentSlot>();
 
         transform.position = target.GetBuildPosition();
@@ -49,8 +49,8 @@ public class NodeUI : MonoBehaviour
         turretFireRate.text = target.turret.GetComponent<turret>().fireRate.ToString() + "/sec";
         turretSpecialEffect.text = target.turret.GetComponent<turret>().specialEffect.ToString();
 
+        UpdateUI();     //updates ui when clicking a node.
         ui.SetActive(true);
-        UpdateUI();
     }
 
     public void Hide()
@@ -78,6 +78,8 @@ public class NodeUI : MonoBehaviour
 
     private void UpdateUI()
     {
+        //Updates stats as the item gets equiped.
+
         for (int i = 0; i < target.turret.GetComponent<turret>().numSlots; i++)
         {
             //Debug.Log("Itemindex is " + i + ". Item is " + target.turret.GetComponent<turret>().currentEquipment[i]);

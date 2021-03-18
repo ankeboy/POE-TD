@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
     private Transform target;
 
     public float speed = 70f;
-    public int damage = 50;
+    public float damage = 50;
     public float explosionRadius = 0f;
     public GameObject impactEffect;
     [HideInInspector]
@@ -20,6 +20,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
+
         if (target != null)
         {
             dir = target.position - transform.position;
