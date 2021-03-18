@@ -39,7 +39,7 @@ public class turret : MonoBehaviour
     public bool generosity = false;     //need to recode, since money gained is not tower specific.
     public bool incEffect = false;      //only laser tower for now.
     public bool pierce = false;         //wouldnt work with laser or frost tower. Doesnt make sense for missile tower.
-    public float incProjSpeed = 1f;     //wouldnt work with laser or frost tower. Doesnt make sense for missile tower.
+    private float incProjSpeed = 1f;     //wouldnt work with laser or frost tower. Doesnt make sense for missile tower.
 
     [Header("Use Bullets (default)")]
     public GameObject bulletPrefab;
@@ -142,9 +142,9 @@ public class turret : MonoBehaviour
                 {
                     doubleAttack = true;
                 }
-                else
+                else if (currentEquipment[i].name == "Increased Range")
                 {
-                    Debug.Log(i);
+                    range = range * incRange;
                 }
             }
         }
