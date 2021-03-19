@@ -25,6 +25,12 @@ public class NodeUI : MonoBehaviour
 
         target.turret.GetComponent<turret>().onItemChangedCallBack += UpdateUI; //updates ui upon equiping
         slots = equipmentParent.GetComponentsInChildren<EquipmentSlot>();
+        Debug.Log("numSlots" + target.turret.GetComponent<turret>().numSlots);
+        for (int i = target.turret.GetComponent<turret>().numSlots; i < 4; i++)
+        {
+            slots[i].enabled = false;
+            Debug.Log(slots[i] + " is disabled");
+        }
 
         transform.position = target.GetBuildPosition();
 

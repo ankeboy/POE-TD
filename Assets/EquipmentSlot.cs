@@ -26,4 +26,5 @@ public class EquipmentSlot : MonoBehaviour
     {
         Inventory.instance.Remove(item);
     }
+
 }

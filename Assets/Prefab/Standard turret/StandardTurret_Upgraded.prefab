@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2925b41a5cf8c064d8aee508c13d0b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numSlots: 2
+  numSlots: 3
   currentEquipment: []
   baserange: 20
   basefireRate: 1
