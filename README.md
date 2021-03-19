@@ -24,6 +24,11 @@ Items are gained at the start of each round (choose one item from the options). 
 * Increased Damage    - Adds a damage modifier (1.5x)
 * Double attack       - deals an additional attack *doesn't work with laser tower* (WIP: currently are not stackable)
 * Increased Range     - Adds a range multiplier (1.5x)
+* (WIP: Critical Chance - Adds a chance to deal critical damage. The critical damge multiplier is increased)
+* (WIP: Generosity    - Enemies killed by the tower gives more Money)
+* (WIP: Increased Effect - Increases the effect of status ailments, e.g. Slow)
+* (WIP: Pierce        - Projectiles are able to pierce one additional enemy)
+* (WIP: Increased Projectile Speed - Adds a projectile speed modifier)
 
 ## Important restrictions
 
@@ -31,3 +36,10 @@ Items are gained at the start of each round (choose one item from the options). 
 2. Selling towers with items on them won't return the items it has equiped.
 3. Once an item has been equiped on the tower, it cannot be removed or retrieved. So choose wisely.
 4. The inventory has 9 slots. Picking up any more items wont add it to the inventory and the item will be lost.
+
+## Future additions
+
+* Add player level, which increases after each game
+* Add savedata
+* Add passive skill system that allows you to spend a number of points based on player level. These skills improve the efficiency of items and turrets as well as other bonuses
+* Add highscore system (Damage calculation on dummy target after the last wave and highest wave reached for each level)
