@@ -17,7 +17,7 @@ public class node : MonoBehaviour
 
     [HideInInspector]
     public bool isUpgraded = false;
-    private Renderer rend;
+    public Renderer rend;
     private Color startColor;
     BuildManager buildManager;  //load Buildmanager as buildManager
 

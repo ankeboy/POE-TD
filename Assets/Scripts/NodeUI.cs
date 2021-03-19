@@ -9,6 +9,7 @@ public class NodeUI : MonoBehaviour
     public Button upgradeButton;
     public Text sellAmount;
     private node target;
+    public Color SelectedColor;
     [Header("Turret stats")]
     public Text turretName;
     public Text turretDamage;
