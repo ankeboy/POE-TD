@@ -5,7 +5,7 @@ public class InventoryCanvas : MonoBehaviour
 {
     public Transform itemsParent;
     Inventory inventory;
-    InventorySlot[] slots;
+    public static InventorySlot[] slots;   //need to make this public, so that the inventory can access how many slots there are.
     void Start()
     {
         inventory = Inventory.instance;

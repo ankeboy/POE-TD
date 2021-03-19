@@ -24,7 +24,15 @@ public class Inventory : MonoBehaviour
 
     public void Add(Item item)
     {
-        items.Add(item);
+        Debug.Log("Inventory.Add()");
+        if (items.Count < InventoryCanvas.slots.Length)
+        {
+            items.Add(item);
+        }
+        else
+        {
+            Debug.Log("Not enough space in Inventory. Equip a skill to to free up space");
+        }
 
         if (onItemChangedCallBack != null)
             onItemChangedCallBack.Invoke();
