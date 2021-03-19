@@ -7,6 +7,7 @@ public class node : MonoBehaviour
     public Color notEnoughMoneyColor;
     public Color pressColor;
     public Vector3 positionOffset;  //change position of the turret so that it spawns on the node rather than in the node.
+    Item[] temporaryEquipment;  //used as a temporary storage for equipment when upgrading turret
 
     [HideInInspector]    //have it public and editable, but not through editor
     public GameObject turret;
@@ -88,12 +89,23 @@ public class node : MonoBehaviour
 
         PlayerStats.Money -= turretBlueprint.upgradeCost;
 
+        temporaryEquipment = turret.GetComponent<turret>().currentEquipment;
+        Debug.Log("temporaryEquipment.Length = " + temporaryEquipment.Length);
         //Get rid of the old turret
         Destroy(turret);
 
-        //Build a new one
+        //Build a new turret
         GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgradedPrefab, GetBuildPosition(), Quaternion.identity);    //casting instantiated items into a GameObject allows it to be destroyed, freeing up memory
         turret = _turret;
+        for (int i = 0; i < temporaryEquipment.Length; i++) //directly setting the temporaryEquipment to currentEquipment doesnt seem to work. Thus I have to manually equip them again.
+        {
+            if (temporaryEquipment[i] != null)
+            {
+                Debug.Log("temporaryEquipment[" + i + "] = " + temporaryEquipment[0]);
+                turret.GetComponent<turret>().Equip(temporaryEquipment[i]);
+            }
+        }
+        Debug.Log("new turret equipment " + turret.GetComponent<turret>().currentEquipment[0]);
 
         GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f); // destroy the effect after 5 seconds to free up memory

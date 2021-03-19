@@ -62,26 +62,27 @@ public class turret : MonoBehaviour
     public Transform firePoint;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()    //Need to switch from Start() to Awake(), as Awake(), but not Start() is called upon instantiating an object. Start() is called before update (And thus calling equip() right after upgrading turret doesnt work as the Item[] slots are still 0). 
     {
         range = baserange;
         fireRate = basefireRate;
         damage = basedamage;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
         currentEquipment = new Item[numSlots];
+        //Debug.Log("Start Invoked. currentEquipment.Length = " + currentEquipment.Length); //Debug as upgrading turret didnt invoke Start() before equiping item.
     }
 
     public void Equip(Item newItem)
     {
-        Debug.Log("current equipment: " + currentEquipment);
         for (int i = 0; i < numSlots; i++)
         {
+            //Debug.Log("Item to equip = " + newItem);
             if (currentEquipment[i] == null)
             {
                 currentEquipment[i] = newItem;
                 if (onItemChangedCallBack != null)
                     onItemChangedCallBack.Invoke();
-                Debug.Log("Added equipment at Slot : " + i + " is " + currentEquipment[i].name);
+                Debug.Log("Equip() at Slot : " + i + " is " + currentEquipment[i].name);
                 return;
             }
         }

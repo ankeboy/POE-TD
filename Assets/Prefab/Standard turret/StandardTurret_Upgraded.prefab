@@ -42,7 +42,6 @@ GameObject:
   m_Component:
   - component: {fileID: 666413190874585457}
   - component: {fileID: 666413190874585458}
-  - component: {fileID: 5472045479045664063}
   m_Layer: 0
   m_Name: StandardTurret_Upgraded
   m_TagString: Untagged
@@ -93,7 +92,6 @@ MonoBehaviour:
   generosity: 0
   incEffect: 0
   pierce: 0
-  incProjSpeed: 1
   bulletPrefab: {fileID: 7787049986568362937, guid: fe36de9e662138f40b362592610b01cf,
     type: 3}
   useLaser: 0
@@ -101,25 +99,12 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   impactLight: {fileID: 0}
   useSurroundAOE: 0
-  AOEeffectPrefab: {fileID: 799589092695210501, guid: 38bf07f47b144514b994429259dbf447,
-    type: 3}
+  AOEeffectPrefab: {fileID: 0}
   slowLength: 2
   enemyTag: Enemy
   partToRotate: {fileID: 666413190856511382}
   turnSpeed: 10
   firePoint: {fileID: 666413192144765896}
---- !u!114 &5472045479045664063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666413190874585459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec09152590e9bb74ab6807e8c7445d36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &666413191165129894
 GameObject:
   m_ObjectHideFlags: 0
