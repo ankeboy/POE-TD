@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class EquipmentSlot : MonoBehaviour
 {
+    public GameObject equipmentSlot;
     public Image icon;
     Item item;
 
