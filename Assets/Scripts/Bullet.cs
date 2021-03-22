@@ -50,8 +50,11 @@ public class Bullet : MonoBehaviour
             // if the move distance in a frame is less than the distance to the target, there is a hit.
             if (dir.magnitude <= distanceThisFrame)
             {
-                HitTarget();
-                return;
+                GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
+                Destroy(effectIns, 2f);
+                Explode();
+                Destroy(gameObject);
+                return;                     //stop executing subsequent code after bullet is dead.
             }
 
             transform.Translate(dir.normalized * distanceThisFrame, Space.World);   //Space.World sets relative position to the worlds absolute position, so the bullet doesnt circle around target.
@@ -89,6 +92,7 @@ public class Bullet : MonoBehaviour
     }
     */
 
+    /* //not necessary anymore, this HitTarget() function was only used by the missile turret.
     // When a target is hit:
     void HitTarget()
     {
@@ -108,6 +112,7 @@ public class Bullet : MonoBehaviour
         // destroy bullet
         Destroy(gameObject);
     }
+    */
     void Explode()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);  //get all colliders (items) that are in the Sphere of explosion radius
