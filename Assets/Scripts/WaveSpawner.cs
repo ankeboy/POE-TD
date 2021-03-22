@@ -24,6 +24,7 @@ public class WaveSpawner : MonoBehaviour
 
     void Start()
     {
+        EnemiesAlive = 0;                   //Need to call this since Otherwise enemies alive are a positive integer when restarting the scene and game doesnt continue.
         StartCoroutine(RoundBonusSequence());
     }
 

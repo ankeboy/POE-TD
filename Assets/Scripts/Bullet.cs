@@ -62,7 +62,7 @@ public class Bullet : MonoBehaviour
         }
         else    //bullet go in straight line
         {
-            RaycastHit hit;                                 //create raycasting hit object
+            RaycastHit hit;                                 //create raycasting hit object. Info of hit (target, position, etc) are stored in this variable.
             bulletPrevPos = transform.position;             //calculate the ray from the bullets current position
             float distanceThisFrame = speed * Time.deltaTime;   // distance moved per instance/frame
             transform.Translate(dir.normalized * distanceThisFrame, Space.World);   //Space.World sets relative position to the worlds absolute position, so the bullet doesnt circle around target.
