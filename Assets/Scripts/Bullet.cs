@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     [HideInInspector]
     public Vector3 dir;
     public float bulletLife = 0.5f;
-
+    Vector3 bulletPrevPos;
     public void Seek(Transform _target)
     {
         target = _target;
@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-
+        bulletPrevPos = transform.position;
         if (target != null)
         {
             dir = target.position - transform.position;
@@ -59,12 +59,23 @@ public class Bullet : MonoBehaviour
         }
         else    //bullet go in straight line
         {
+            RaycastHit hit;                                 //create raycasting hit object
+            bulletPrevPos = transform.position;             //calculate the ray from the bullets current position
             float distanceThisFrame = speed * Time.deltaTime;   // distance moved per instance/frame
             transform.Translate(dir.normalized * distanceThisFrame, Space.World);   //Space.World sets relative position to the worlds absolute position, so the bullet doesnt circle around target.
+
+            if (Physics.Raycast(bulletPrevPos, dir.normalized, out hit, distanceThisFrame))     //if Physics.Raycasting hits something, it returns true and a hit is realized
+            {
+                GameObject effectIns = (GameObject)Instantiate(impactEffect, hit.transform.position, transform.rotation);   //had to change the position of instantiation of the effect from the position of the bullet(transform.position) to the position of the hit(hit.transfrom.position)
+                Destroy(effectIns, 2f);  //destroy instances so it frees up memory
+                Destroy(gameObject);
+                Damage(hit.transform);
+            }
         }
     }
 
-    void OnCollisionEnter(Collision collisionInfo)
+    /* //not necessary anymore, as hit is calculated via raycasting instead of unities collision detection.
+    void OnCollisionEnter(Collision collisionInfo)      
     {
         //Debug.Log(collisionInfo.collider.tag);
         if (collisionInfo.collider.tag == "Enemy")
@@ -76,6 +87,7 @@ public class Bullet : MonoBehaviour
             return;
         }
     }
+    */
 
     // When a target is hit:
     void HitTarget()
@@ -90,7 +102,7 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-            Damage(target);
+            Damage(target);     //not needed anymore as the bullet hit is calculated using raycasting
         }
 
         // destroy bullet

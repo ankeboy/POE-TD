@@ -22,7 +22,8 @@ public class turret : MonoBehaviour
     public float basedamage = 20f;
     public string specialEffect = "None";
     public float slowAmount = 0.5f;
-
+    [HideInInspector]
+    private float projSpeedMod = 1f;
     [HideInInspector]
     public float range;
     [HideInInspector]
@@ -37,9 +38,7 @@ public class turret : MonoBehaviour
     public bool doubleAttack = false;       //done (doesnt work with laser tower)
     public bool critChance = false;     //crit chance and damage in one skill. Doesnt make sense when one gets crit damage before crit chance.
     public bool generosity = false;     //need to recode, since money gained is not tower specific.
-    public bool incEffect = false;      //only laser tower for now.
-    public bool pierce = false;         //wouldnt work with laser or frost tower. Doesnt make sense for missile tower.
-    private float incProjSpeed = 1f;     //wouldnt work with laser or frost tower. Doesnt make sense for missile tower.
+    private float incProjSpeed = 2f;     //done. With multiple of these, the projectile might travel too fast and go through enemies.
 
     [Header("Use Bullets (default)")]
     public GameObject bulletPrefab;
@@ -125,6 +124,7 @@ public class turret : MonoBehaviour
         fireRate = basefireRate;
         damage = basedamage;
         doubleAttack = false;
+        projSpeedMod = 1f;
 
         //Checking the stat change on every loop can prevent bugs and reduce complexity.
         for (int i = 0; i < numSlots; i++)
@@ -146,6 +146,10 @@ public class turret : MonoBehaviour
                 else if (currentEquipment[i].name == "Increased Range")
                 {
                     range = range * incRange;
+                }
+                else if (currentEquipment[i].name == "Increased Projectile Speed")
+                {
+                    projSpeedMod = projSpeedMod * incProjSpeed;
                 }
             }
         }
@@ -256,6 +260,7 @@ public class turret : MonoBehaviour
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         bullet.damage = damage;
+        bullet.speed = bullet.speed * projSpeedMod;
 
         if (bullet != null)
             bullet.Seek(target);
