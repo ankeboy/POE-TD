@@ -4,9 +4,9 @@ public class Bullet : MonoBehaviour
 {
 
     private Transform target;
-
+    [HideInInspector]
+    public float damage = 50;       //damage value is taken from the tower
     public float speed = 70f;
-    public float damage = 50;
     public float explosionRadius = 0f;
     public GameObject impactEffect;
     [HideInInspector]

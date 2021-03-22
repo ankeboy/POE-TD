@@ -121,6 +121,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 270285967397650078, guid: 1486d9ccb4ea67143af210f97ff89eb2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 329743803583733366, guid: 1486d9ccb4ea67143af210f97ff89eb2,
         type: 3}
       propertyPath: m_RootOrder
@@ -179,7 +184,22 @@ PrefabInstance:
     - target: {fileID: 799589092695210501, guid: 1486d9ccb4ea67143af210f97ff89eb2,
         type: 3}
       propertyPath: m_Name
-      value: MissileExplosionEffect Variant
+      value: MissileExplosionEffect 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862231904550376095, guid: 1486d9ccb4ea67143af210f97ff89eb2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 18219570519acb144bbfa234c663fa6e, type: 2}
+    - target: {fileID: 5303226591184456856, guid: 1486d9ccb4ea67143af210f97ff89eb2,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827640358330989708, guid: 1486d9ccb4ea67143af210f97ff89eb2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1486d9ccb4ea67143af210f97ff89eb2, type: 3}

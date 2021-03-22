@@ -356,10 +356,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed903ce0b18e3b42a5295e7b7e19b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 7
   speed: 10
-  startHealth: 800
-  worth: 250
+  startSpeed: 5
+  baseHealth: 750
+  worth: 150
+  healthDamage: 2
   deathEffect: {fileID: 6351645745013769158, guid: bd97962595663fd448307189e3b1a99c,
     type: 3}
   healthBar: {fileID: 440390787}

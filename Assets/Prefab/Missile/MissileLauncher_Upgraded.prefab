@@ -158,23 +158,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2925b41a5cf8c064d8aee508c13d0b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baserange: 15
-  basefireRate: 1
-  basedamage: 20
+  numSlots: 3
+  currentEquipment: []
+  baserange: 30
+  basefireRate: 0.7
+  basedamage: 60
   specialEffect: AOE
   slowAmount: 0.5
   range: 40
   fireRate: 0.4
   damage: 50
-  incRange: 1
-  incFireRate: 1
-  incDMG: 1
   doubleAttack: 0
   critChance: 0
   generosity: 0
   incEffect: 0
   pierce: 0
-  incProjSpeed: 1
   bulletPrefab: {fileID: 1320507574254529326, guid: 6b589d57a229f504a9edfc3826f4dafd,
     type: 3}
   useLaser: 0

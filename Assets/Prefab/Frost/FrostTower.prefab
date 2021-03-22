@@ -159,8 +159,8 @@ MonoBehaviour:
   numSlots: 2
   currentEquipment: []
   baserange: 10
-  basefireRate: 0.5
-  basedamage: 30
+  basefireRate: 0.3
+  basedamage: 50
   specialEffect: 
   slowAmount: 1
   range: 7

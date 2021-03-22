@@ -12,7 +12,9 @@ public class Enemy : MonoBehaviour
     public float startSpeed = 10f;
     public float baseHealth = 100;
     private float health;
+    private float barHealth;
     public int worth = 50;
+    public int healthDamage = 1;
 
     [Header("Unity Stuff")]
     public GameObject deathEffect;
@@ -23,13 +25,14 @@ public class Enemy : MonoBehaviour
     {
         speed = startSpeed;
         health = baseHealth * (float)Math.Pow(WaveSpawner.roundMultiplier, WaveSpawner.waveIndex) * Difficulty; //math.pow returns a double. Need to cast it to float.
+        barHealth = health;
     }
 
     public void TakeDamage(float amount)    //void -> we dont want it to return anything
     {
         health -= amount;
 
-        healthBar.fillAmount = health / baseHealth;
+        healthBar.fillAmount = health / barHealth;
 
         if (health <= 0 && !isDead)
         {

@@ -41,8 +41,9 @@ public class EnemyMovement : MonoBehaviour
 
     void EndPath()
     {
-        PlayerStats.Lives--;
+        PlayerStats.Lives = PlayerStats.Lives - enemy.healthDamage;
         WaveSpawner.EnemiesAlive--;
         Destroy(gameObject);
+        PlayerStats.Money += (enemy.worth * 2);
     }
 }

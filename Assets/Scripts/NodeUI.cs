@@ -42,9 +42,14 @@ public class NodeUI : MonoBehaviour
 
         transform.position = target.GetBuildPosition();
 
-        if (!target.isUpgraded)
+        if (target.isUpgraded == 0)
         {
             upgradeCost.text = "$" + target.turretBlueprint.upgradeCost;
+            upgradeButton.interactable = true;
+        }
+        else if (target.isUpgraded == 1)
+        {
+            upgradeCost.text = "$" + target.turretBlueprint.upgradeCost2;
             upgradeButton.interactable = true;
         }
         else

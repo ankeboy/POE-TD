@@ -16,7 +16,7 @@ public class node : MonoBehaviour
     public TurretBlueprint turretBlueprint;
 
     [HideInInspector]
-    public bool isUpgraded = false;
+    public int isUpgraded = 0;
     public Renderer rend;
     private Color startColor;
     BuildManager buildManager;  //load Buildmanager as buildManager
@@ -95,8 +95,16 @@ public class node : MonoBehaviour
         Destroy(turret);
 
         //Build a new turret
-        GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgradedPrefab, GetBuildPosition(), Quaternion.identity);    //casting instantiated items into a GameObject allows it to be destroyed, freeing up memory
-        turret = _turret;
+        if (isUpgraded == 0)
+        {
+            GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgradedPrefab, GetBuildPosition(), Quaternion.identity);    //casting instantiated items into a GameObject allows it to be destroyed, freeing up memory
+            turret = _turret;
+        }
+        else if (isUpgraded == 1)
+        {
+            GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgradedPrefab2, GetBuildPosition(), Quaternion.identity);    //casting instantiated items into a GameObject allows it to be destroyed, freeing up memory
+            turret = _turret;
+        }
         for (int i = 0; i < temporaryEquipment.Length; i++) //directly setting the temporaryEquipment to currentEquipment doesnt seem to work. Thus I have to manually equip them again.
         {
             if (temporaryEquipment[i] != null)
@@ -105,12 +113,12 @@ public class node : MonoBehaviour
                 turret.GetComponent<turret>().Equip(temporaryEquipment[i]);
             }
         }
-        Debug.Log("new turret equipment " + turret.GetComponent<turret>().currentEquipment[0]);
 
+        //Debug.Log("new turret equipment " + turret.GetComponent<turret>().currentEquipment[0]);
         GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f); // destroy the effect after 5 seconds to free up memory
 
-        isUpgraded = true;
+        isUpgraded += 1;
 
         Debug.Log("Turret upgraded");
     }
