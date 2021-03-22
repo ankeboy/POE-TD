@@ -6,17 +6,20 @@ using System;
 
 public class WaveSpawner : MonoBehaviour
 {
-    PauseMenu pausemenu;
+    [HideInInspector]
     public static int EnemiesAlive = 0; //static: allows it to change 
     public Wave[] waves;
-    public Transform spawnPoint;
-
+    [Header("Round settings")]
+    public static float roundMultiplier = 1.1f;
     public float timeBetweenWaves = 5f;
     private float countdown = 2f;
+    //public int roundBonus = 1;
+    [Header("References")]
+    public Transform spawnPoint;
+    PauseMenu pausemenu;
     public Text waveCountdownText;
     public GameManager gameManager;
-    private int waveIndex = 0;
-    public int roundBonus = 1;
+    public static int waveIndex = 0;
     private bool triggerBonus = false;
 
     void Start()

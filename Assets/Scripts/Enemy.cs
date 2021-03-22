@@ -1,31 +1,35 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System;
 
 public class Enemy : MonoBehaviour
 {
-    public float startSpeed = 10f;
+    private float Difficulty = 1f;  //for now there is no other difficulty planned.
     [HideInInspector]
     public float speed;
-    public float startHealth = 100;
+    [Header("Enemy stats")]
+    public float startSpeed = 10f;
+    public float baseHealth = 100;
     private float health;
     public int worth = 50;
-    public GameObject deathEffect;
 
     [Header("Unity Stuff")]
+    public GameObject deathEffect;
     public Image healthBar;
     private bool isDead = false;
 
     void Start()
     {
         speed = startSpeed;
-        health = startHealth;
+        health = baseHealth * (float)Math.Pow(WaveSpawner.roundMultiplier, WaveSpawner.waveIndex) * Difficulty; //math.pow returns a double. Need to cast it to float.
     }
 
     public void TakeDamage(float amount)    //void -> we dont want it to return anything
     {
         health -= amount;
 
-        healthBar.fillAmount = health / startHealth;
+        healthBar.fillAmount = health / baseHealth;
 
         if (health <= 0 && !isDead)
         {
