@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class node : MonoBehaviour
 {
     public Color hoverColor;
     public Color notEnoughMoneyColor;
+    public GameObject notEnoughMoneyUI;
+    MoneyUI moneyUI;
     public Color pressColor;
     public Vector3 positionOffset;  //change position of the turret so that it spawns on the node rather than in the node.
     Item[] temporaryEquipment;  //used as a temporary storage for equipment when upgrading turret
@@ -63,6 +66,7 @@ public class node : MonoBehaviour
         if (PlayerStats.Money < blueprint.cost)
         {
             Debug.Log("Not enough money");
+            StartCoroutine(NotEnoughMoneyBlinking(1f));
             return;
         }
 
@@ -84,6 +88,7 @@ public class node : MonoBehaviour
         if (PlayerStats.Money < turretBlueprint.upgradeCost)
         {
             Debug.Log("Not enough money to upgrade");
+            StartCoroutine(NotEnoughMoneyBlinking(1f));
             return;
         }
 
@@ -160,5 +165,20 @@ public class node : MonoBehaviour
     void OnMouseExit()
     {
         rend.material.color = startColor;
+    }
+
+    IEnumerator NotEnoughMoneyBlinking(float seconds)
+    {
+        //notEnoughMoneyUI.SetActive(true);
+        MoneyUI.instance.NotEnoughMoney();
+        yield return new WaitForSeconds(seconds / 3);
+        //notEnoughMoneyUI.SetActive(false);
+        MoneyUI.instance.NotEnoughMoney();
+        yield return new WaitForSeconds(seconds / 3);
+        //notEnoughMoneyUI.SetActive(true);
+        MoneyUI.instance.NotEnoughMoney();
+        yield return new WaitForSeconds(seconds / 3);
+        //notEnoughMoneyUI.SetActive(false);
+        MoneyUI.instance.NotEnoughMoney();
     }
 }

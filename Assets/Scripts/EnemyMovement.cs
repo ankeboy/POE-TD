@@ -4,9 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(Enemy))]
 public class EnemyMovement : MonoBehaviour
 {
+    LivesUI livesUI;
     private Transform target;
     private int wavepointIndex = 0;
-
     private Enemy enemy;
 
     void Start()
@@ -45,5 +45,8 @@ public class EnemyMovement : MonoBehaviour
         WaveSpawner.EnemiesAlive--;
         Destroy(gameObject);
         PlayerStats.Money += (enemy.worth * 2);
+        LivesUI.instance.ScreenFlash();
     }
+
+
 }
