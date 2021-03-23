@@ -6,6 +6,8 @@ using System;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public Text roundsText;
+
     [HideInInspector]
     public static int EnemiesAlive = 0; //static: allows it to change 
     public Wave[] waves;
@@ -24,6 +26,7 @@ public class WaveSpawner : MonoBehaviour
 
     void Start()
     {
+        roundsText.text = "ROUND 1";        //initial round
         EnemiesAlive = 0;                   //Need to call this since Otherwise enemies alive are a positive integer when restarting the scene and game doesnt continue.
         StartCoroutine(RoundBonusSequence());
     }
@@ -53,6 +56,8 @@ public class WaveSpawner : MonoBehaviour
             countdown = timeBetweenWaves;
             return;
         }
+
+        roundsText.text = "ROUND " + (waveIndex + 1).ToString();    //After last enemy is defeated before countdown starts
 
         countdown -= Time.deltaTime;
 
