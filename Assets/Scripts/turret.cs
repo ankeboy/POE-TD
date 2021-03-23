@@ -283,7 +283,7 @@ public class turret : MonoBehaviour
     }
     IEnumerator SecondAttack()
     {
-        yield return new WaitForSeconds(fireRate / 10f);
+        yield return new WaitForSeconds(1f / (5f * fireRate));    // 0.2 of the delay between shooting.
         if (useSurroundAOE)
         {
             AOE();

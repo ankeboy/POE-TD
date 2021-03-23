@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-
+    public AudioClip PickUpAudioClip;
+    AudioSource _audioSource;
     public static Inventory instance;
+    [HideInInspector]
     public node target;
 
     void Awake()
     {
+        _audioSource = gameObject.AddComponent<AudioSource>();
+        _audioSource.clip = PickUpAudioClip;
         if (instance != null)
         {
             Debug.LogWarning("More than one instance of Inventory found!");
@@ -28,6 +32,7 @@ public class Inventory : MonoBehaviour
         if (items.Count < InventoryCanvas.slots.Length)
         {
             items.Add(item);
+            _audioSource.Play();
         }
         else
         {

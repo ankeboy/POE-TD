@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  startSpeed: 50
+  startSpeed: 10
   baseHealth: 100
   worth: 50
   healthDamage: 1
