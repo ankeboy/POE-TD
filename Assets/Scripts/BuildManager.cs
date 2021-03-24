@@ -18,7 +18,6 @@ public class BuildManager : MonoBehaviour
 
     public GameObject buildEffect;
     public GameObject sellEffect;
-
     private TurretBlueprint turretToBuild;
     private node selectedNode;
     public NodeUI nodeUI;
@@ -30,21 +29,30 @@ public class BuildManager : MonoBehaviour
 
     public void SelectNode(node node)
     {
-        if (selectedNode == node)
+        if (selectedNode == node)   //Deselect node when clicking on the same node. Stop executing code below
         {
+            Debug.Log("Deselect current node");
             DeselectNode();
             return;
         }
+        if (selectedNode)           //Deselect curret node when pressing other node.
+        {
+            Debug.Log("Select other node");
+            DeselectNode();
+        }
+
         selectedNode = node;
         turretToBuild = null;
 
         Debug.Log("BuildManager Node" + node);
+        selectedNode.rend.material.SetColor("_Color", Color.green);
         nodeUI.SetTarget(node); //open UI for the node when the selected node has a turret on it.
         inventory.SetTarget(node);
     }
 
     public void DeselectNode()
     {
+        selectedNode.rend.material.SetColor("_Color", selectedNode.startColor);
         selectedNode = null;
         nodeUI.Hide();
     }
@@ -52,7 +60,7 @@ public class BuildManager : MonoBehaviour
     public void SelectTurretToBuild(TurretBlueprint turret)
     {
         turretToBuild = turret;
-        DeselectNode();
+        //DeselectNode();
     }
     public TurretBlueprint GetTurretToBuild()
     {

@@ -21,7 +21,8 @@ public class node : MonoBehaviour
     [HideInInspector]
     public int isUpgraded = 0;
     public Renderer rend;
-    private Color startColor;
+    [HideInInspector]
+    public Color startColor;
     BuildManager buildManager;  //load Buildmanager as buildManager
 
     //load stuff into RAM
@@ -164,7 +165,8 @@ public class node : MonoBehaviour
     // When the mouse exits the collider
     void OnMouseExit()
     {
-        rend.material.color = startColor;
+        if (rend.material.color != Color.green)
+            rend.material.color = startColor;
     }
 
     IEnumerator NotEnoughMoneyBlinking(float seconds)

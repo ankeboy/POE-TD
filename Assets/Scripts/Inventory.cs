@@ -52,7 +52,7 @@ public class Inventory : MonoBehaviour
     }
     public void SetTarget(node _target)
     {
-        Debug.Log("Inventory SetTarget" + _target);
+        //Debug.Log("Inventory SetTarget" + _target);
         target = _target;
     }
 
