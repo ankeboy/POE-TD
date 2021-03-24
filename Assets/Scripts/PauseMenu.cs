@@ -16,6 +16,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Toggle()
     {
+        FindObjectOfType<AudioManager>().Play("buttonHit");
         ui.SetActive(!ui.activeSelf);   //! before the ui.activeSelf "flips" the state
 
         if (ui.activeSelf)
