@@ -56,7 +56,7 @@ public class Shop : MonoBehaviour
         FrostTowerIcon.color = new Color(62 / 255, 255 / 255, 65 / 255, 1f);
     }
 
-    void DeselectTurretUI()
+    public void DeselectTurretUI()
     {
         StadardTurretIcon.color = new Color(1, 1, 1, 1f);
         MissileLauncherIcon.color = new Color(1, 1, 1, 1f);

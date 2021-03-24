@@ -4,7 +4,13 @@ public class BuildManager : MonoBehaviour
 {
     //Singleton pattern: make sure that there is only 1 instance of a build manager and that it is accessible by all nodes.
     public static BuildManager instance; //Reference itself
-
+    public Shop shop;
+    public GameObject buildEffect;
+    public GameObject sellEffect;
+    private TurretBlueprint turretToBuild;
+    private node selectedNode;
+    public NodeUI nodeUI;
+    public Inventory inventory;
     // Awaken is called right before start.
     void Awake()
     {
@@ -15,13 +21,6 @@ public class BuildManager : MonoBehaviour
 
         instance = this;    //This manager is going to put into the instance variable, which is accessed from anywhere.
     }
-
-    public GameObject buildEffect;
-    public GameObject sellEffect;
-    private TurretBlueprint turretToBuild;
-    private node selectedNode;
-    public NodeUI nodeUI;
-    public Inventory inventory;
 
     // check if a turret is selected
     public bool CanBuild { get { return turretToBuild != null; } } //property. We only allow it to get something. It can never be set. Return true if turretToBuild is not equal to null otherwise return false.
@@ -42,7 +41,9 @@ public class BuildManager : MonoBehaviour
         }
 
         selectedNode = node;
+        //since the turrettobuild is set back to null, we also return the color of the turret in the shop.
         turretToBuild = null;
+        shop.DeselectTurretUI();
 
         Debug.Log("BuildManager Node" + node);
         selectedNode.rend.material.SetColor("_Color", Color.green);

@@ -8290,6 +8290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6aa66a5f8b6514dbff07216cd782bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shop: {fileID: 1068988608}
   buildEffect: {fileID: 4733479883743065143, guid: 4326c16be36944946abc35d007ca3b63,
     type: 3}
   sellEffect: {fileID: 4733479883743065143, guid: 81df55b6fed219746ac1837f8684d1f9,
@@ -30714,5 +30715,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1068988608}
+    - target: {fileID: 7675689407333692163, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d, type: 3}
