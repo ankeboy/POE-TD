@@ -56,6 +56,7 @@ public class BuildManager : MonoBehaviour
         selectedNode.rend.material.SetColor("_Color", selectedNode.startColor);
         selectedNode = null;
         nodeUI.Hide();
+        inventory.SetTarget(null);  //resets the inventory taret
     }
     //Get whatever turret is selected (from the Shop.cs script) and put it into the "turretToBuild" variable, which is then used in the "BuildTurretOn" function.
     public void SelectTurretToBuild(TurretBlueprint turret)

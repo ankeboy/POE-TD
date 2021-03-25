@@ -40,7 +40,7 @@ public class node : MonoBehaviour
     }
 
     //When pressing the mouse button while hovering over node
-    void OnMouseDown()
+    public void OnMouseDown()
     {
         //avoids that a single mouseclick does multiple actions at the same position. So when clicking a GameObject, it doesnt set a turret on a node.
         if (EventSystem.current.IsPointerOverGameObject())
@@ -125,6 +125,7 @@ public class node : MonoBehaviour
         Destroy(effect, 5f); // destroy the effect after 5 seconds to free up memory
 
         isUpgraded += 1;
+
 
         Debug.Log("Turret upgraded");
     }
