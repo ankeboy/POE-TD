@@ -9854,8 +9854,8 @@ MonoBehaviour:
   baserange: 15
   basefireRate: 1
   basedamage: 100
-  specialEffect: Slow 80%
-  slowAmount: 0.8
+  specialEffect: Slow 70%
+  slowAmount: 0.7
   range: 30
   fireRate: 20
   damage: 10

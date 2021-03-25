@@ -9,7 +9,8 @@ public class LevelSelector : MonoBehaviour
 
     void Start()
     {
-        int levelReached = PlayerPrefs.GetInt("levelReached", 1);      //access the savefile. Set the default levelReached to 1 for new saves.
+        Debug.Log(levelButtons.Length);
+        int levelReached = PlayerPrefs.GetInt("levelReached", 3);      //access the savefile. Set the default levelReached to 1 for new saves.
 
         for (int i = 0; i < levelButtons.Length; i++)
         {
