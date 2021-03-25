@@ -15,6 +15,7 @@ public class SceneFader : MonoBehaviour
 
     public void FadeTo(string scene)
     {
+        WaveSpawner.waveIndex = 0;
         StartCoroutine(FadeOut(scene));
     }
 
