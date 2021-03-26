@@ -30,6 +30,12 @@ Items are gained at the start of each round (choose one item from the options). 
 * (WIP: Pierce        - Projectiles are able to pierce one additional enemy)
 * (WIP: Increased Projectile Speed - Adds a projectile speed modifier)
 
+### Other features:
+
+* Enemies can remove more than 1 live
+* Leaked enemies give double their bounty back
+* levels are unlocked in batches based on difficulty
+
 ## Important restrictions
 
 1. Tower selling refunds 50% of the base cost (WIP: increase refund gold for upgraded towers)
