@@ -79,6 +79,7 @@ public class turret : MonoBehaviour
             if (currentEquipment[i] == null)
             {
                 currentEquipment[i] = newItem;
+                UpdateStats();
                 if (onItemChangedCallBack != null)
                     onItemChangedCallBack.Invoke();
                 Debug.Log("Equip() at Slot : " + i + " is " + currentEquipment[i].name);
@@ -119,40 +120,7 @@ public class turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //resets stats at the beginning of every update loop. Otherwise turret strength increases with every loop.
-        range = baserange;
-        fireRate = basefireRate;
-        damage = basedamage;
-        doubleAttack = false;
-        projSpeedMod = 1f;
-
-        //Checking the stat change on every loop can prevent bugs and reduce complexity.
-        for (int i = 0; i < numSlots; i++)
-        {
-            if (currentEquipment[i] != null)
-            {
-                if (currentEquipment[i].name == "Increased Fire Rate")
-                {
-                    fireRate = fireRate * incFireRate;
-                }
-                else if (currentEquipment[i].name == "Increased Damage")
-                {
-                    damage = damage * incDMG;
-                }
-                else if (currentEquipment[i].name == "Double Attack")
-                {
-                    doubleAttack = true;
-                }
-                else if (currentEquipment[i].name == "Increased Range")
-                {
-                    range = range * incRange;
-                }
-                else if (currentEquipment[i].name == "Increased Projectile Speed")
-                {
-                    projSpeedMod = projSpeedMod * incProjSpeed;
-                }
-            }
-        }
+        UpdateStats();
 
         if (useSurroundAOE)
             AOEeffectPrefab.transform.localScale = new Vector3(range / 7, 1, range / 7);  //need to normalize it. Hard coding the base range to 7
@@ -291,6 +259,44 @@ public class turret : MonoBehaviour
         else
         {
             Shoot();
+        }
+    }
+
+    void UpdateStats()
+    {
+        //resets stats at the beginning of every update loop. Otherwise turret strength increases with every loop.
+        range = baserange;
+        fireRate = basefireRate;
+        damage = basedamage;
+        doubleAttack = false;
+        projSpeedMod = 1f;
+
+        //Checking the stat change on every loop can prevent bugs and reduce complexity.
+        for (int i = 0; i < numSlots; i++)
+        {
+            if (currentEquipment[i] != null)
+            {
+                if (currentEquipment[i].name == "Increased Fire Rate")
+                {
+                    fireRate = fireRate * incFireRate;
+                }
+                else if (currentEquipment[i].name == "Increased Damage")
+                {
+                    damage = damage * incDMG;
+                }
+                else if (currentEquipment[i].name == "Double Attack")
+                {
+                    doubleAttack = true;
+                }
+                else if (currentEquipment[i].name == "Increased Range")
+                {
+                    range = range * incRange;
+                }
+                else if (currentEquipment[i].name == "Increased Projectile Speed")
+                {
+                    projSpeedMod = projSpeedMod * incProjSpeed;
+                }
+            }
         }
     }
 }

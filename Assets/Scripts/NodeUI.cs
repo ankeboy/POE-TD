@@ -112,5 +112,8 @@ public class NodeUI : MonoBehaviour
         }
 
         turretDamage.text = target.turret.GetComponent<turret>().damage.ToString();
+        turretRange.text = target.turret.GetComponent<turret>().range.ToString();
+        turretFireRate.text = target.turret.GetComponent<turret>().fireRate.ToString() + "/sec";
+        turretSpecialEffect.text = target.turret.GetComponent<turret>().specialEffect.ToString();
     }
 }
