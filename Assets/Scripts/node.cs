@@ -153,6 +153,8 @@ public class node : MonoBehaviour
 
         Destroy(turret);
         turretBlueprint = null; //makes sure the node doesnt have a turret on it
+
+        isUpgraded = 0;
     }
 
     //Every time the mouse passes by the collider
