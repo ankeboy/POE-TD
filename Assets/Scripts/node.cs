@@ -86,31 +86,45 @@ public class node : MonoBehaviour
 
     public void UpgradeTurret()
     {
-        if (PlayerStats.Money < turretBlueprint.upgradeCost)
-        {
-            Debug.Log("Not enough money to upgrade");
-            StartCoroutine(NotEnoughMoneyBlinking(1f));
-            return;
-        }
-
-        PlayerStats.Money -= turretBlueprint.upgradeCost;
-
-        temporaryEquipment = turret.GetComponent<turret>().currentEquipment;
-        Debug.Log("temporaryEquipment.Length = " + temporaryEquipment.Length);
-        //Get rid of the old turret
-        Destroy(turret);
-
-        //Build a new turret
         if (isUpgraded == 0)
         {
+            if (PlayerStats.Money < turretBlueprint.upgradeCost)
+            {
+                Debug.Log("Not enough money to upgrade");
+                StartCoroutine(NotEnoughMoneyBlinking(1f));
+                return;
+            }
+
+            PlayerStats.Money -= turretBlueprint.upgradeCost;
+
+            temporaryEquipment = turret.GetComponent<turret>().currentEquipment;
+            Debug.Log("temporaryEquipment.Length = " + temporaryEquipment.Length);
+            //Get rid of the old turret
+            Destroy(turret);
+
+            //Build a new turret
             GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgradedPrefab, GetBuildPosition(), Quaternion.identity);    //casting instantiated items into a GameObject allows it to be destroyed, freeing up memory
             turret = _turret;
         }
         else if (isUpgraded == 1)
         {
+            if (PlayerStats.Money < turretBlueprint.upgradeCost2)
+            {
+                Debug.Log("Not enough money to upgrade");
+                StartCoroutine(NotEnoughMoneyBlinking(1f));
+                return;
+            }
+
+            PlayerStats.Money -= turretBlueprint.upgradeCost2;
+
+            temporaryEquipment = turret.GetComponent<turret>().currentEquipment;
+            Debug.Log("temporaryEquipment.Length = " + temporaryEquipment.Length);
+            //Get rid of the old turret
+            Destroy(turret);
             GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgradedPrefab2, GetBuildPosition(), Quaternion.identity);    //casting instantiated items into a GameObject allows it to be destroyed, freeing up memory
             turret = _turret;
         }
+
         for (int i = 0; i < temporaryEquipment.Length; i++) //directly setting the temporaryEquipment to currentEquipment doesnt seem to work. Thus I have to manually equip them again.
         {
             if (temporaryEquipment[i] != null)

@@ -68,7 +68,7 @@ public class NodeUI : MonoBehaviour
         turretFireRate.text = target.turret.GetComponent<turret>().fireRate.ToString() + "/sec";
         turretSpecialEffect.text = target.turret.GetComponent<turret>().specialEffect.ToString();
 
-        UpdateUI();     //updates ui when clicking a node.
+        UpdateUI();     //updates ui when clicking a different node.
         ui.SetActive(true);
     }
 
@@ -98,7 +98,6 @@ public class NodeUI : MonoBehaviour
     private void UpdateUI()
     {
         //Updates stats as the item gets equiped.
-
         for (int i = 0; i < target.turret.GetComponent<turret>().numSlots; i++)
         {
             //Debug.Log("Itemindex is " + i + ". Item is " + target.turret.GetComponent<turret>().currentEquipment[i]);
@@ -111,5 +110,7 @@ public class NodeUI : MonoBehaviour
                 slots[i].ClearSlot();
             }
         }
+
+        turretDamage.text = target.turret.GetComponent<turret>().damage.ToString();
     }
 }

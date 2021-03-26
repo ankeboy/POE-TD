@@ -6360,7 +6360,7 @@ MonoBehaviour:
   gameOverUI: {fileID: 896783205}
   completeLevelUI: {fileID: 1457878650}
   RoundBonusUI: {fileID: 358633537}
-  nextLevel: Level06
+  nextLevel: Level07
   levelToUnlock: 7
   sceneFader: {fileID: 1549560166}
 --- !u!114 &665861281
@@ -15346,9 +15346,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Skills
-
-'
+  m_Text: Equip
 --- !u!222 &1610755167
 CanvasRenderer:
   m_ObjectHideFlags: 0
