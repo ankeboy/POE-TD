@@ -122,9 +122,6 @@ public class turret : MonoBehaviour
     {
         UpdateStats();
 
-        if (useSurroundAOE)
-            AOEeffectPrefab.transform.localScale = new Vector3(range / 7, 1, range / 7);  //need to normalize it. Hard coding the base range to 7
-
         if (target == null)
         {
             if (useLaser)
@@ -208,6 +205,10 @@ public class turret : MonoBehaviour
     }
     void AOE()
     {
+        if (useSurroundAOE)
+            AOEeffectPrefab.transform.localScale = new Vector3(range / 7, 1, range / 7);  //need to normalize it. Hard coding the base range to 7
+
+        Debug.Log("AOE: " + range);
         GameObject AOEeffectGO = (GameObject)Instantiate(AOEeffectPrefab, firePoint.position, firePoint.rotation);
         Destroy(AOEeffectGO, 1f);
 
@@ -252,6 +253,7 @@ public class turret : MonoBehaviour
     IEnumerator SecondAttack()
     {
         yield return new WaitForSeconds(1f / (5f * fireRate));    // 0.2 of the delay between shooting.
+        UpdateStats();
         if (useSurroundAOE)
         {
             AOE();
