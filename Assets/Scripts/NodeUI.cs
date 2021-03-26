@@ -63,12 +63,14 @@ public class NodeUI : MonoBehaviour
         turretName.text = target.turretBlueprint.turretName;
 
         //target = this specific node (from node script). turret = points to the GameObject (prefab) in the node script. GetComponent<turret> gets the numbers off the prefab based on the curret script 
+        /* //moved to UpdateUI, not needed anymore.
         turretDamage.text = target.turret.GetComponent<turret>().damage.ToString();
         turretRange.text = target.turret.GetComponent<turret>().range.ToString();
         turretFireRate.text = target.turret.GetComponent<turret>().fireRate.ToString() + "/sec";
         turretSpecialEffect.text = target.turret.GetComponent<turret>().specialEffect.ToString();
+        */
 
-        UpdateUI();     //updates ui when clicking a different node.
+        UpdateUI();             //required to update the UI when clicking on a different node without changing anything.
         ui.SetActive(true);
     }
 

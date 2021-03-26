@@ -6366,7 +6366,7 @@ MonoBehaviour:
     count: 20
     rate: 2
   - enemy: {fileID: 3209148935157363619, guid: 22ad26959018c0a48a6f326b6f04a41e, type: 3}
-    count: 8
+    count: 6
     rate: 1
   - enemy: {fileID: 3209148935157363619, guid: 4239a4945b485cc4eb28a16faa55a6aa, type: 3}
     count: 50
@@ -6384,7 +6384,7 @@ MonoBehaviour:
     count: 80
     rate: 4
   - enemy: {fileID: 3209148935157363619, guid: 22ad26959018c0a48a6f326b6f04a41e, type: 3}
-    count: 15
+    count: 10
     rate: 1
   - enemy: {fileID: 3209148935157363619, guid: 4239a4945b485cc4eb28a16faa55a6aa, type: 3}
     count: 50

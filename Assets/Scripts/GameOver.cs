@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;  //required whenever you want to load/reload 
 public class GameOver : MonoBehaviour
 {
     public string menuSceneName = "MainMenu";
+
     public SceneFader sceneFader;
 
     public void Retry()
