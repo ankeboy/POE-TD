@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
 
         healthBar.fillAmount = health / barHealth;
 
-        if (health <= 0 && !isDead)
+        if (health < 1 && !isDead)
         {
             Die();
         }

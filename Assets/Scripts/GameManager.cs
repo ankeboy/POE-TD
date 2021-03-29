@@ -12,8 +12,14 @@ public class GameManager : MonoBehaviour
     public int levelToUnlock = 2;
     public SceneFader sceneFader;
 
+    int playerLevel;
+    int levelEXP;
+    int maxEXP = 70;
+
     void Start()
     {
+        playerLevel = PlayerPrefs.GetInt("Player Level", 0);
+        levelEXP = PlayerPrefs.GetInt("Level EXP", 0);
         GameIsOver = false;
     }
 
@@ -29,10 +35,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void EndGame()
+    void EndGame()      //this is gameover
     {
         GameIsOver = true;
-
+        GainLevelEXP(WaveSpawner.waveIndex * 2);       // get EXP equal to double the level reached
         gameOverUI.SetActive(true);
     }
 
@@ -41,6 +47,7 @@ public class GameManager : MonoBehaviour
         GameIsOver = true;
         completeLevelUI.SetActive(true);
         PlayerPrefs.SetInt("levelReached", levelToUnlock);
+        GainLevelEXP(maxEXP);
         sceneFader.FadeTo(nextLevel);
     }
 
@@ -56,5 +63,16 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1f;
         }
+    }
+
+    void GainLevelEXP(int gainEXP)
+    {
+        PlayerPrefs.SetInt("Level EXP", levelEXP + gainEXP);
+        if (PlayerPrefs.GetInt("Level EXP") >= 100)                                     //level up when EXP is over 100
+        {
+            PlayerPrefs.SetInt("Level EXP", PlayerPrefs.GetInt("Level EXP") - 100);     // carry over remaining EXP to the next level
+            PlayerPrefs.SetInt("Player Level", PlayerPrefs.GetInt("Player Level") + 1);
+        }
+
     }
 }
