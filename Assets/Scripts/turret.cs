@@ -67,10 +67,31 @@ public class turret : MonoBehaviour
     // Start is called before the first frame update
     void Awake()    //Need to switch from Start() to Awake(), as Awake(), but not Start() is called upon instantiating an object. Start() is called before update (And thus calling equip() right after upgrading turret doesnt work as the Item[] slots are still 0). 
     {
-        //sets the initial base stats and upgrade stats based on player skill levels.
-        range = baserange;
-        fireRate = basefireRate;
-        damage = basedamage;
+        if (this.name.StartsWith("StandardTurret"))
+        {
+            Debug.Log("Standard Turret Boost level: " + PlayerPrefs.GetInt("Standard Turret Boost"));
+            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Standard Turret Boost")));
+        }
+        else if (this.name.StartsWith("MissileLauncher"))
+        {
+            Debug.Log("Missile Launcher Boost level: " + PlayerPrefs.GetInt("Missile Launcher Boost"));
+            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Missile Launcher Boost")));
+        }
+        else if (this.name.StartsWith("LaserBeamer"))
+        {
+            Debug.Log("Laser Beamer Boost level: " + PlayerPrefs.GetInt("Laser Beamer Boost"));
+            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Laser Beamer Boost")));
+        }
+        else if (this.name.StartsWith("FrostTower"))
+        {
+            Debug.Log("Frost Tower Boost level: " + PlayerPrefs.GetInt("Frost Tower Boost"));
+            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Frost Tower Boost")));
+        }
+        else
+        {
+            Debug.Log("No name: " + this.name);
+        }
+
         incRange = incRange + (incRangeSkillBonus * PlayerPrefs.GetInt("Increased Range"));
         incFireRate = incFireRate + (incFireRateSkillBonus * PlayerPrefs.GetInt("Increased Fire Rate"));
         incDMG = incDMG + (incDMGSkillBonus * PlayerPrefs.GetInt("Increased Damage"));
@@ -92,7 +113,7 @@ public class turret : MonoBehaviour
                 UpdateStats();
                 if (onItemChangedCallBack != null)
                     onItemChangedCallBack.Invoke();
-                Debug.Log("Equip() at Slot : " + i + " is " + currentEquipment[i].name);
+                //Debug.Log("Equip() at Slot : " + i + " is " + currentEquipment[i].name);
                 return;
             }
         }
@@ -218,7 +239,7 @@ public class turret : MonoBehaviour
         if (useSurroundAOE)
             AOEeffectPrefab.transform.localScale = new Vector3(range / 7, 1, range / 7);  //need to normalize it. Hard coding the base range to 7
 
-        Debug.Log("AOE: " + range);
+        //Debug.Log("AOE: " + range);
         GameObject AOEeffectGO = (GameObject)Instantiate(AOEeffectPrefab, firePoint.position, firePoint.rotation);
         Destroy(AOEeffectGO, 1f);
 

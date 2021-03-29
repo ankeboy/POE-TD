@@ -129,7 +129,7 @@ public class node : MonoBehaviour
         {
             if (temporaryEquipment[i] != null)
             {
-                Debug.Log("temporaryEquipment[" + i + "] = " + temporaryEquipment[0]);
+                //Debug.Log("temporaryEquipment[" + i + "] = " + temporaryEquipment[0]);
                 turret.GetComponent<turret>().Equip(temporaryEquipment[i]);
             }
         }

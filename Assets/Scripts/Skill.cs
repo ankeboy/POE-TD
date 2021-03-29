@@ -24,31 +24,25 @@ public class Skill : MonoBehaviour
         button = GetComponent<Button>();
         image = GetComponent<Image>();
         skillLevelUI.text = "Level " + skillLevel.ToString();
+        checkMaxLevel();
     }
 
     public void upgradeSkill()
     {
+        Debug.Log(image);
         if (skillLevel < maxSkilllevel)
         {
             skillLevel++;
             skillLevelUI.text = "Level " + skillLevel.ToString();
             PlayerPrefs.SetInt(skillName, skillLevel);  //Updates the level of the skill when it gets leveled up
-            DebugSkillInfo();
+            //DebugSkillInfo();
 
-            if (skillLevel == maxSkilllevel)
-            {
-                Upgradable = false;
-                //button.interactable = false;      //leaves the button on the screen with the disabled color and the user can't click it
-                button.enabled = false;             //leaves the button on the screen, the user can't click it, but does NOT use the disabled color
-                //button.gameObject.SetActive(false); //removes the button from the UI entirely
-                image.color = Color.yellow;
-                Debug.Log("Reached Max level");
-            }
+            checkMaxLevel();
         }
         else
         {
             Debug.Log("Already at maximum Level");
-            DebugSkillInfo();
+            //DebugSkillInfo();
         }
     }
 
@@ -57,5 +51,18 @@ public class Skill : MonoBehaviour
         Debug.Log("Skill Name " + skillName);
         Debug.Log("skillLevel " + skillLevel);
         Debug.Log("Upgradable " + Upgradable);
+    }
+
+    void checkMaxLevel()
+    {
+        if (skillLevel == maxSkilllevel)
+        {
+            Upgradable = false;
+            //button.interactable = false;      //leaves the button on the screen with the disabled color and the user can't click it
+            button.enabled = false;             //leaves the button on the screen, the user can't click it, but does NOT use the disabled color
+            //button.gameObject.SetActive(false); //removes the button from the UI entirely
+            image.color = Color.yellow;
+            //Debug.Log("Reached Max level");
+        }
     }
 }

@@ -30,13 +30,13 @@ public class BuildManager : MonoBehaviour
     {
         if (selectedNode == node)   //Deselect node when clicking on the same node. Stop executing code below
         {
-            Debug.Log("Deselect current node");
+            //Debug.Log("Deselect current node");
             DeselectNode();
             return;
         }
         if (selectedNode)           //Deselect curret node when pressing other node.
         {
-            Debug.Log("Select other node");
+            //Debug.Log("Select other node");
             DeselectNode();
         }
 
