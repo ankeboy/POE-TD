@@ -33,12 +33,16 @@ public class turret : MonoBehaviour
 
     [Header("Support Modifier")]    //need to make these private, otherwise got to change them on every turret
     private float incRange = 1.5f;     //done
+    private float incRangeSkillBonus = 0.1f;
     private float incFireRate = 1.5f;      //done
+    private float incFireRateSkillBonus = 0.1f;
     private float incDMG = 1.5f;       //done
+    private float incDMGSkillBonus = 0.1f;
+    private float incProjSpeed = 2f;     //done. With multiple of these, the projectile might travel too fast and go through enemies.
+    private float incProjSpeedSkillBonus = 0.2f;
     public bool doubleAttack = false;       //done (doesnt work with laser tower)
     public bool critChance = false;     //crit chance and damage in one skill. Doesnt make sense when one gets crit damage before crit chance.
     public bool generosity = false;     //need to recode, since money gained is not tower specific.
-    private float incProjSpeed = 2f;     //done. With multiple of these, the projectile might travel too fast and go through enemies.
 
     [Header("Use Bullets (default)")]
     public GameObject bulletPrefab;
@@ -63,10 +67,16 @@ public class turret : MonoBehaviour
     // Start is called before the first frame update
     void Awake()    //Need to switch from Start() to Awake(), as Awake(), but not Start() is called upon instantiating an object. Start() is called before update (And thus calling equip() right after upgrading turret doesnt work as the Item[] slots are still 0). 
     {
+        //sets the initial base stats and upgrade stats based on player skill levels.
         range = baserange;
         fireRate = basefireRate;
         damage = basedamage;
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        incRange = incRange + (incRangeSkillBonus * PlayerPrefs.GetInt("Increased Range"));
+        incFireRate = incFireRate + (incFireRateSkillBonus * PlayerPrefs.GetInt("Increased Fire Rate"));
+        incDMG = incDMG + (incDMGSkillBonus * PlayerPrefs.GetInt("Increased Damage"));
+        incProjSpeed = incProjSpeed + (incProjSpeedSkillBonus * PlayerPrefs.GetInt("Increased Projectile Speed"));
+
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);  //makes the function update similar to Update(), with customizable start time and repeat rate
         currentEquipment = new Item[numSlots];
         //Debug.Log("Start Invoked. currentEquipment.Length = " + currentEquipment.Length); //Debug as upgrading turret didnt invoke Start() before equiping item.
     }

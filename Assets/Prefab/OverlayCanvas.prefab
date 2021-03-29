@@ -7691,7 +7691,7 @@ PrefabInstance:
     - target: {fileID: 5861419690243322085, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
         type: 3}
       propertyPath: m_Colors.m_SelectedColor.b
-      value: 1
+      value: 0.25490198
       objectReference: {fileID: 0}
     - target: {fileID: 5861419690243322085, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
         type: 3}
@@ -7701,7 +7701,7 @@ PrefabInstance:
     - target: {fileID: 5861419690243322085, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
         type: 3}
       propertyPath: m_Colors.m_SelectedColor.r
-      value: 1
+      value: 0.24313726
       objectReference: {fileID: 0}
     - target: {fileID: 5861419690243322085, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
         type: 3}
@@ -7858,6 +7858,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PreferredHeight
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861419690243322085, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.25490198
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861419690243322085, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.24313726
       objectReference: {fileID: 0}
     - target: {fileID: 5861419690243322085, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
         type: 3}
@@ -8023,6 +8033,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5861419690243322085, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
         type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.25490198
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861419690243322085, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.24313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861419690243322085, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 9033311628564085758}
@@ -8182,6 +8202,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PreferredHeight
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861419690243322085, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.25490198
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861419690243322085, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.24313726
       objectReference: {fileID: 0}
     - target: {fileID: 5861419690243322085, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
         type: 3}
