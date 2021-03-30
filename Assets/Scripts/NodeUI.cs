@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class NodeUI : MonoBehaviour
 {
+    public GameObject rangeIndicator;
+    GameObject _rangeIndicator;
     public turret turret;
     public GameObject ui;
     public Text upgradeCost;
@@ -77,6 +79,8 @@ public class NodeUI : MonoBehaviour
     public void Hide()
     {
         ui.SetActive(false);
+        if (_rangeIndicator != null)
+            Destroy(_rangeIndicator);
     }
 
     public void Upgrade()
@@ -99,6 +103,12 @@ public class NodeUI : MonoBehaviour
 
     private void UpdateUI()
     {
+        if (_rangeIndicator != null)
+            Destroy(_rangeIndicator);
+
+        _rangeIndicator = (GameObject)Instantiate(rangeIndicator, transform.position, Quaternion.identity);
+        _rangeIndicator.transform.localScale = new Vector3(target.turret.GetComponent<turret>().range * 2, 1, target.turret.GetComponent<turret>().range * 2); //dont know why multiplying by 2 is corret. It just seems to fit.
+
         //Updates stats as the item gets equiped.
         for (int i = 0; i < target.turret.GetComponent<turret>().numSlots; i++)
         {

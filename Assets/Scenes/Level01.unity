@@ -2408,6 +2408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd52fcc9d9055a9459628c913eeff615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rangeIndicator: {fileID: 121705637635245170, guid: 05a6a8e6dcf835d4aa2a4b817291e3b1,
+    type: 3}
   turret: {fileID: 0}
   ui: {fileID: 1569660708}
   upgradeCost: {fileID: 636565499}
