@@ -19,7 +19,7 @@ public class EnemyMovement : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * enemy.speed * Time.deltaTime, Space.World);
 
-        if (Vector3.Distance(transform.position, target.position) <= 0.8f)
+        if (Vector3.Distance(transform.position, target.position) <= (enemy.speed / 25))  //determine leeway so that fast moving targets dont swing around the waypoint.
         {
             GetNextWaypoint();
         }
