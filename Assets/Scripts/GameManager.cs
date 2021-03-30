@@ -1,23 +1,24 @@
 ﻿using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static bool GameIsOver;  //static objects are only called once while the program is open.
-
     public GameObject gameOverUI;
     public GameObject completeLevelUI;
     public GameObject RoundBonusUI;
     public string nextLevel = "Level02";
     public int levelToUnlock = 2;
     public SceneFader sceneFader;
-
     public static int playerLevel;
     int levelEXP;
     int maxEXP = 90;
+    string savedata;
 
     void Start()
     {
+        savedata = SceneManager.GetActiveScene().name + "_Max";
         playerLevel = PlayerPrefs.GetInt("Player Level", 0);
         levelEXP = PlayerPrefs.GetInt("Level EXP", 0);
         GameIsOver = false;
@@ -75,6 +76,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("Level EXP", PlayerPrefs.GetInt("Level EXP") % 100);     // carry over remaining EXP to the next level
             PlayerPrefs.SetInt("Skill Points", PlayerPrefs.GetInt("Skill Points") + noOfLevels); //get skill points equal to the number of level ups
         }
-
+        if (PlayerPrefs.GetInt(savedata) < WaveSpawner.waveIndex)
+            PlayerPrefs.SetInt(savedata, WaveSpawner.waveIndex);
     }
 }

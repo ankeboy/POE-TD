@@ -46,7 +46,7 @@ public class WaveSpawner : MonoBehaviour
 
         if (triggerBonus)
         {
-            if (GameManager.GameIsOver == true)
+            if (PlayerStats.Lives <= 0)
             {
                 triggerBonus = false;
                 return;
