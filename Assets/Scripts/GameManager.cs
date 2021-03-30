@@ -12,9 +12,9 @@ public class GameManager : MonoBehaviour
     public int levelToUnlock = 2;
     public SceneFader sceneFader;
 
-    int playerLevel;
+    public static int playerLevel;
     int levelEXP;
-    int maxEXP = 70;
+    int maxEXP = 90;
 
     void Start()
     {
@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     void EndGame()      //this is gameover
     {
         GameIsOver = true;
-        GainLevelEXP(WaveSpawner.waveIndex * 2);       // get EXP equal to double the level reached
+        GainLevelEXP(WaveSpawner.waveIndex * 3);       // get EXP equal to double the level reached
         gameOverUI.SetActive(true);
     }
 
@@ -70,8 +70,10 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Level EXP", levelEXP + gainEXP);
         if (PlayerPrefs.GetInt("Level EXP") >= 100)                                     //level up when EXP is over 100
         {
-            PlayerPrefs.SetInt("Level EXP", PlayerPrefs.GetInt("Level EXP") - 100);     // carry over remaining EXP to the next level
-            PlayerPrefs.SetInt("Player Level", PlayerPrefs.GetInt("Player Level") + 1);
+            int noOfLevels = (int)(PlayerPrefs.GetInt("Level EXP") / 100);              //in case more than 1 level up
+            PlayerPrefs.SetInt("Player Level", PlayerPrefs.GetInt("Player Level") + noOfLevels);
+            PlayerPrefs.SetInt("Level EXP", PlayerPrefs.GetInt("Level EXP") % 100);     // carry over remaining EXP to the next level
+            PlayerPrefs.SetInt("Skill Points", PlayerPrefs.GetInt("Skill Points") + noOfLevels); //get skill points equal to the number of level ups
         }
 
     }

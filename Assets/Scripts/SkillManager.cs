@@ -7,6 +7,8 @@ public class SkillManager : MonoBehaviour
 {
     public SceneFader fader;
     public static SkillManager instance;
+    public Text skillPointsUI;
+    int skillPoints;
     Skill skill;
     //public Button[] buttons;
 
@@ -25,15 +27,26 @@ public class SkillManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
+        skillPoints = PlayerPrefs.GetInt("Skill Points", 0);
+        skillPointsUI.text = "Skill Points: " + skillPoints;
+
         //Button[] buttons = this.GetComponentsInChildren<Button>();
         //Button[] buttons = this.GetComponentsInChildren<Button>(true); //also gets the inactive components
     }
 
     public void upgradeSkill(Skill skill)
     {
-        //Create function to check if there is enough skill points left
-        //Debug.Log(buttons);
-        skill.upgradeSkill();
+        if (skillPoints <= 0)
+        {
+            Debug.Log("Not Enough Skill Points");
+        }
+        else
+        {
+            skill.upgradeSkill();
+            skillPoints--;
+            PlayerPrefs.SetInt("Skill Points", skillPoints);
+            skillPointsUI.text = "Skill Points: " + skillPoints.ToString();
+        }
     }
     public void Select(string scene)
     {
@@ -42,6 +55,7 @@ public class SkillManager : MonoBehaviour
 
     public void ResetButton(string scene)
     {
+        PlayerPrefs.SetInt("Skill Points", PlayerPrefs.GetInt("Player Level"));
         PlayerPrefs.SetInt("Increased Damage", 0);
         PlayerPrefs.SetInt("Increased Fire Rate", 0);
         PlayerPrefs.SetInt("Increased Range", 0);

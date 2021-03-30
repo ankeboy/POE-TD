@@ -46,6 +46,11 @@ public class WaveSpawner : MonoBehaviour
 
         if (triggerBonus)
         {
+            if (GameManager.GameIsOver == true)
+            {
+                triggerBonus = false;
+                return;
+            }
             StartCoroutine(RoundBonusSequence());
             triggerBonus = false;
         }
