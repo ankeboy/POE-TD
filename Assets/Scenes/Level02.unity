@@ -2578,6 +2578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd52fcc9d9055a9459628c913eeff615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rangeIndicator: {fileID: 0}
   turret: {fileID: 0}
   ui: {fileID: 1569660708}
   upgradeCost: {fileID: 636565499}
@@ -22148,6 +22149,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1983970583116217357, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 665861282}
+    - target: {fileID: 1983970583116217357, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 665861280}
     - target: {fileID: 3173691074607810300, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
         type: 3}
       propertyPath: m_AnchorMax.y

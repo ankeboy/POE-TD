@@ -2278,30 +2278,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9033311627869037473}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Add
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 2c9d0d9f8b66a2b449c5612a1a041048,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: RoundBonusItem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!95 &9033311627869037475
 Animator:
   serializedVersion: 3
@@ -2594,30 +2571,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9033311627906790394}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Add
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: bb0ad10b01fad76459abb84bd17e061e,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: RoundBonusItem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!95 &9033311627906790396
 Animator:
   serializedVersion: 3
@@ -5527,30 +5481,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9033311628796608748}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Add
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: a1cf6278ccbcd5942a40a5a80a631360,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: RoundBonusItem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!95 &9033311628796608750
 Animator:
   serializedVersion: 3
@@ -5688,30 +5619,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9033311628832484204}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Add
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: d5a4548890fc0f740ba78675f330007d,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: RoundBonusItem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!95 &9033311628832484206
 Animator:
   serializedVersion: 3
@@ -6143,6 +6051,7 @@ GameObject:
   - component: {fileID: 9033311628986192763}
   - component: {fileID: 9033311628986192762}
   - component: {fileID: 9033311628986192765}
+  - component: {fileID: 1983970583116217357}
   m_Layer: 5
   m_Name: RoundBonusItemUI
   m_TagString: Untagged
@@ -6239,6 +6148,26 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1983970583116217357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9033311628986192767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16cd028d5ed7a8f4e9d63b64749eceb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  gameManager: {fileID: 0}
+  itemlist:
+  - {fileID: 11400000, guid: bb0ad10b01fad76459abb84bd17e061e, type: 2}
+  - {fileID: 11400000, guid: 77ca3d324d028bd479a9edcc996f7d8c, type: 2}
+  - {fileID: 11400000, guid: 2c9d0d9f8b66a2b449c5612a1a041048, type: 2}
+  - {fileID: 11400000, guid: d5a4548890fc0f740ba78675f330007d, type: 2}
+  - {fileID: 11400000, guid: a1cf6278ccbcd5942a40a5a80a631360, type: 2}
 --- !u!1 &9033311629013117756
 GameObject:
   m_ObjectHideFlags: 0
@@ -6579,30 +6508,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9033311629042338126}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Add
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 77ca3d324d028bd479a9edcc996f7d8c,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: RoundBonusItem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!95 &9033311629042338128
 Animator:
   serializedVersion: 3
@@ -7887,15 +7793,15 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d, type: 3}
---- !u!224 &3173691074975914386 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5861419690243322083, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
-    type: 3}
-  m_PrefabInstance: {fileID: 9033311627434961265}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3173691074975914387 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5861419690243322082, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 9033311627434961265}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &3173691074975914386 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5861419690243322083, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
     type: 3}
   m_PrefabInstance: {fileID: 9033311627434961265}
   m_PrefabAsset: {fileID: 0}
@@ -8231,15 +8137,15 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d, type: 3}
---- !u!1 &3173691074652234535 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5861419690243322082, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
-    type: 3}
-  m_PrefabInstance: {fileID: 9033311627777643461}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3173691074652234534 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5861419690243322083, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 9033311627777643461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3173691074652234535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5861419690243322082, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
     type: 3}
   m_PrefabInstance: {fileID: 9033311627777643461}
   m_PrefabAsset: {fileID: 0}

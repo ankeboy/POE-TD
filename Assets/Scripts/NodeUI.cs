@@ -5,7 +5,6 @@ public class NodeUI : MonoBehaviour
 {
     public GameObject rangeIndicator;
     GameObject _rangeIndicator;
-    public turret turret;
     public GameObject ui;
     public Text upgradeCost;
     public Button upgradeButton;
