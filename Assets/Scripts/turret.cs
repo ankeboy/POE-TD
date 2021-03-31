@@ -263,6 +263,7 @@ public class turret : MonoBehaviour
         bullet.damage = damage;
         bullet.speed = bullet.speed * projSpeedMod;
         bullet.freezeSeconds = freezeSeconds;
+        bullet.dir2 = partToRotate.forward;
 
         if (bullet != null)
             bullet.Seek(target);

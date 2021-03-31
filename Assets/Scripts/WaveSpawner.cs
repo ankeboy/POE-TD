@@ -18,7 +18,7 @@ public class WaveSpawner : MonoBehaviour
     //public int roundBonus = 1;
     [Header("References")]
     public Transform spawnPoint;
-    PauseMenu pausemenu;
+    //PauseMenu pausemenu;
     public Text waveCountdownText;
     public GameManager gameManager;
     public static int waveIndex = 0;

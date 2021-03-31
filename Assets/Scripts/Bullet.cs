@@ -13,8 +13,9 @@ public class Bullet : MonoBehaviour
     public GameObject impactEffect;
     [HideInInspector]
     public Vector3 dir;
+    public Vector3 dir2;
     public float bulletLife = 0.5f;
-    Vector3 bulletPrevPos;
+    Vector3 bulletPrevPos;                           //save the previous direction, for double shot when the enemy == null
     public void Seek(Transform _target)
     {
         target = _target;
@@ -64,6 +65,11 @@ public class Bullet : MonoBehaviour
         }
         else    //bullet go in straight line
         {
+            if (target == null)
+            {
+                dir = dir2;
+                dir.y = 0;
+            }
             RaycastHit hit;                                 //create raycasting hit object. Info of hit (target, position, etc) are stored in this variable.
             bulletPrevPos = transform.position;             //calculate the ray from the bullets current position
             float distanceThisFrame = speed * Time.deltaTime;   // distance moved per instance/frame
