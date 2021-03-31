@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour
 
     public void Add(Item item)
     {
-        Debug.Log("Inventory.Add()");
+        //Debug.Log("Inventory.Add()");
         if (items.Count < InventoryCanvas.slots.Length)
         {
             items.Add(item);

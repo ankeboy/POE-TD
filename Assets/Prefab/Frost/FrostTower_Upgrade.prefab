@@ -160,10 +160,11 @@ MonoBehaviour:
   numSlots: 3
   currentEquipment: []
   baserange: 15
-  basefireRate: 0.5
-  basedamage: 100
-  specialEffect: 
+  basefireRate: 0.3
+  basedamage: 75
+  specialEffect: Freeze
   slowAmount: 1
+  freezeSeconds: 0.5
   range: 15
   fireRate: 0.5
   damage: 100

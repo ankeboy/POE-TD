@@ -84,7 +84,8 @@ MonoBehaviour:
   basefireRate: 1
   basedamage: 30
   specialEffect: None
-  slowAmount: 0.5
+  slowAmount: 0
+  freezeSeconds: 0
   range: 15
   fireRate: 3
   damage: 50

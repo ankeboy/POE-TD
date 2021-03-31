@@ -162,8 +162,9 @@ MonoBehaviour:
   baserange: 10
   basefireRate: 0.3
   basedamage: 50
-  specialEffect: 
+  specialEffect: Freeze
   slowAmount: 1
+  freezeSeconds: 0.5
   range: 7
   fireRate: 0.5
   damage: 100

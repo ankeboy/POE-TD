@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
     private Transform target;
     [HideInInspector]
     public float damage = 50;       //damage value is taken from the tower
+    [HideInInspector]
+    public float freezeSeconds = 0;
     public float speed = 70f;
     public float explosionRadius = 0f;
     public GameObject impactEffect;
@@ -132,8 +134,8 @@ public class Bullet : MonoBehaviour
         if (e != null)
         {
             e.TakeDamage(damage);
+            e.frozen(freezeSeconds);
         }
-
     }
 
     void OnDrawGizmosSelected()

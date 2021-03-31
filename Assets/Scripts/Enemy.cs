@@ -16,10 +16,14 @@ public class Enemy : MonoBehaviour
     public int worth = 50;
     public int healthDamage = 1;
 
+    [HideInInspector]
+    public float froze = 0;
+
     [Header("Unity Stuff")]
     public GameObject deathEffect;
     public Image healthBar;
     private bool isDead = false;
+
 
     void Start()
     {
@@ -59,4 +63,8 @@ public class Enemy : MonoBehaviour
 
     }
 
+    public void frozen(float seconds)
+    {
+        froze = seconds;
+    }
 }

@@ -9856,6 +9856,7 @@ MonoBehaviour:
   basedamage: 100
   specialEffect: Slow 70%
   slowAmount: 0.7
+  freezeSeconds: 0
   range: 30
   fireRate: 20
   damage: 10

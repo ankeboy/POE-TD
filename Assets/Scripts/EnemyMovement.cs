@@ -16,6 +16,11 @@ public class EnemyMovement : MonoBehaviour
     }
     void Update()
     {
+        if (enemy.froze > 0f)
+        {
+            StartCoroutine(frozen(enemy.froze));
+        }
+
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * enemy.speed * Time.deltaTime, Space.World);
 
@@ -24,7 +29,7 @@ public class EnemyMovement : MonoBehaviour
             GetNextWaypoint();
         }
 
-        enemy.speed = enemy.startSpeed;
+        enemy.speed = enemy.startSpeed;     //returns the speed of the enemy to its original speed
     }
 
     void GetNextWaypoint()
@@ -48,5 +53,10 @@ public class EnemyMovement : MonoBehaviour
         LivesUI.instance.ScreenFlash();
     }
 
-
+    public IEnumerator frozen(float seconds)
+    {
+        enemy.speed = 0f;
+        yield return new WaitForSeconds(seconds);
+        enemy.froze = 0f;
+    }
 }

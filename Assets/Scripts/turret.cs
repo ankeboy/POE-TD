@@ -22,6 +22,7 @@ public class turret : MonoBehaviour
     public float basedamage = 20f;
     public string specialEffect = "None";
     public float slowAmount = 0.5f;
+    public float freezeSeconds = 0f;
     [HideInInspector]
     private float projSpeedMod = 1f;
     [HideInInspector]
@@ -261,6 +262,7 @@ public class turret : MonoBehaviour
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         bullet.damage = damage;
         bullet.speed = bullet.speed * projSpeedMod;
+        bullet.freezeSeconds = freezeSeconds;
 
         if (bullet != null)
             bullet.Seek(target);
@@ -272,6 +274,7 @@ public class turret : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
     }
+
     void Damage(Transform enemy)
     {
         Enemy e = enemy.GetComponent<Enemy>();  //this gets a specific enemy component, instead of affecting all enemies.
@@ -279,6 +282,7 @@ public class turret : MonoBehaviour
         if (e != null)
         {
             e.TakeDamage(damage);
+            e.frozen(freezeSeconds);
         }
     }
     IEnumerator SecondAttack()
