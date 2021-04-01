@@ -69,14 +69,14 @@ public class GameManager : MonoBehaviour
     void GainLevelEXP(int gainEXP)
     {
         PlayerPrefs.SetInt("Level EXP", levelEXP + gainEXP);
-        if (PlayerPrefs.GetInt("Level EXP") >= 100)                                     //level up when EXP is over 100
+        if (PlayerPrefs.GetInt("Level EXP", 0) >= 100)                                     //level up when EXP is over 100
         {
-            int noOfLevels = (int)(PlayerPrefs.GetInt("Level EXP") / 100);              //in case more than 1 level up
-            PlayerPrefs.SetInt("Player Level", PlayerPrefs.GetInt("Player Level") + noOfLevels);
-            PlayerPrefs.SetInt("Level EXP", PlayerPrefs.GetInt("Level EXP") % 100);     // carry over remaining EXP to the next level
-            PlayerPrefs.SetInt("Skill Points", PlayerPrefs.GetInt("Skill Points") + noOfLevels); //get skill points equal to the number of level ups
+            int noOfLevels = (int)(PlayerPrefs.GetInt("Level EXP", 0) / 100);              //in case more than 1 level up
+            PlayerPrefs.SetInt("Player Level", PlayerPrefs.GetInt("Player Level", 0) + noOfLevels);
+            PlayerPrefs.SetInt("Level EXP", PlayerPrefs.GetInt("Level EXP", 0) % 100);     // carry over remaining EXP to the next level
+            PlayerPrefs.SetInt("Skill Points", PlayerPrefs.GetInt("Skill Points", 0) + noOfLevels); //get skill points equal to the number of level ups
         }
-        if (PlayerPrefs.GetInt(savedata) < WaveSpawner.waveIndex)
+        if (PlayerPrefs.GetInt(savedata, 0) < WaveSpawner.waveIndex)
             PlayerPrefs.SetInt(savedata, WaveSpawner.waveIndex);
     }
 }

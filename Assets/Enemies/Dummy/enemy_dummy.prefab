@@ -278,7 +278,7 @@ Transform:
   m_GameObject: {fileID: 3209148935157363619}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.42, y: 1.38, z: -2.83}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 492779818}
   m_Father: {fileID: 0}
@@ -361,6 +361,7 @@ MonoBehaviour:
   baseHealth: 10000
   worth: 50
   healthDamage: 10
+  froze: 0
   deathEffect: {fileID: 6351645745013769158, guid: 06c3075a37b7e9f468ca30ecc9246c9c,
     type: 3}
   healthBar: {fileID: 440390787}
