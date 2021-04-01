@@ -2773,18 +2773,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 9033311629172851518}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &358633539 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1983970583116217357, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
-    type: 3}
-  m_PrefabInstance: {fileID: 9033311629172851518}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 358633537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16cd028d5ed7a8f4e9d63b64749eceb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &388362274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5075,7 +5063,7 @@ MonoBehaviour:
     count: 5
     rate: 1
   - enemy: {fileID: 3209148935157363619, guid: 4239a4945b485cc4eb28a16faa55a6aa, type: 3}
-    count: 10
+    count: 30
     rate: 2
   - enemy: {fileID: 3209148935157363619, guid: 22ad26959018c0a48a6f326b6f04a41e, type: 3}
     count: 3
@@ -5136,7 +5124,6 @@ MonoBehaviour:
     rate: 1
   timeBetweenWaves: 3
   spawnPoint: {fileID: 130914291}
-  roundBonusItemUI: {fileID: 358633539}
   waveCountdownText: {fileID: 1198579739}
   gameManager: {fileID: 665861280}
 --- !u!4 &665861277

@@ -15,7 +15,7 @@ public class RoundBonusItemUI : MonoBehaviour
 
     void Awake()
     {
-        optionNo = PlayerPrefs.GetInt("BonusItemOptions", 3);
+        optionNo = 2 + PlayerPrefs.GetInt("Round Bonus Option", 0) + PlayerPrefs.GetInt("Round Bonus Option2", 0);
         options = GetComponentsInChildren<Button>(true);
         shuffleBonusItem();
     }

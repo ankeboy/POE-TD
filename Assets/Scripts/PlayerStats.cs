@@ -10,8 +10,8 @@ public class PlayerStats : MonoBehaviour
     public static int Rounds;
     void Start()
     {
-        Money = startMoney; //the money is set to the startmoney once, when the script is called
-        Lives = startLives;
+        Money = startMoney + (PlayerPrefs.GetInt("Money Round Bonus", 0) * 100); //the money is set to the startmoney once, when the script is called
+        Lives = startLives + (PlayerPrefs.GetInt("Life Bonus", 0) * 5);
         Rounds = 0;
     }
 }

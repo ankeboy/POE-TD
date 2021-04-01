@@ -52,6 +52,7 @@ public class WaveSpawner : MonoBehaviour
                 return;
             }
             StartCoroutine(RoundBonusSequence());
+            PlayerStats.Money += (PlayerPrefs.GetInt("Money Round Bonus") * 100);
             triggerBonus = false;
         }
 

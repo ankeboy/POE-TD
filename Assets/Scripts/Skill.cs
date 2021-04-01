@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +8,7 @@ public class Skill : MonoBehaviour
 
     public string skillName;
     public Sprite skillSprite;
+    SkillManager skillManager;
 
     [TextArea(1, 3)]
     public string skillDescription;
@@ -17,6 +18,7 @@ public class Skill : MonoBehaviour
     public bool Upgradable;
     Button button;
     Image image;
+    public bool Enabled = true;
 
     void Start()
     {
@@ -25,6 +27,8 @@ public class Skill : MonoBehaviour
         image = GetComponent<Image>();
         skillLevelUI.text = "Level " + skillLevel.ToString();
         checkMaxLevel();
+        if (Enabled == false)
+            button.interactable = false;
     }
 
     public void upgradeSkill()

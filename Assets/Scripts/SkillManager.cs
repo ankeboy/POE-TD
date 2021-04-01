@@ -11,6 +11,8 @@ public class SkillManager : MonoBehaviour
     int skillPoints;
     Skill skill;
     //public Button[] buttons;
+    public Button RoundBonusOption;
+    public Button RoundBonusOption2;
 
     private void Awake()
     {
@@ -29,9 +31,12 @@ public class SkillManager : MonoBehaviour
 
         skillPoints = PlayerPrefs.GetInt("Skill Points", 0);
         skillPointsUI.text = "Skill Points: " + skillPoints;
+        UnlockSkill();              //unlock skill at the start when it was already unlocked
+    }
 
-        //Button[] buttons = this.GetComponentsInChildren<Button>();
-        //Button[] buttons = this.GetComponentsInChildren<Button>(true); //also gets the inactive components
+    void Start()    //reenable the skills when they are unlocked when loading the scene.
+    {
+        UnlockSkill();
     }
 
     public void upgradeSkill(Skill skill)
@@ -47,6 +52,7 @@ public class SkillManager : MonoBehaviour
             PlayerPrefs.SetInt("Skill Points", skillPoints);
             skillPointsUI.text = "Skill Points: " + skillPoints.ToString();
         }
+        UnlockSkill();
     }
     public void Select(string scene)
     {
@@ -64,6 +70,31 @@ public class SkillManager : MonoBehaviour
         PlayerPrefs.SetInt("Missile Launcher Boost", 0);
         PlayerPrefs.SetInt("Laser Beamer Boost", 0);
         PlayerPrefs.SetInt("Frost Tower Boost", 0);
+        PlayerPrefs.SetInt("Money Round Bonus", 0);
+        PlayerPrefs.SetInt("Life Bonus", 0);
+        PlayerPrefs.SetInt("Round Bonus Option", 0);
+        PlayerPrefs.SetInt("Round Bonus Option2", 0);
         fader.FadeTo(scene);
+    }
+
+    void UnlockSkill()
+    {
+        if (PlayerPrefs.GetInt("Life Bonus") == 5)
+        {
+            RoundBonusOption.interactable = true;
+        }
+        else
+        {
+            RoundBonusOption.interactable = false;
+        }
+
+        if (PlayerPrefs.GetInt("Money Round Bonus") == 5)
+        {
+            RoundBonusOption2.interactable = true;
+        }
+        else
+        {
+            RoundBonusOption2.interactable = false;
+        }
     }
 }
