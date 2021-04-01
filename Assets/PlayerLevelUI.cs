@@ -16,4 +16,9 @@ public class PlayerLevelUI : MonoBehaviour
         EXPBarText.text = PlayerPrefs.GetInt("Level EXP", 0) + " / 100";
     }
 
+    public void HardReset()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
 }

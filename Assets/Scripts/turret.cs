@@ -70,33 +70,33 @@ public class turret : MonoBehaviour
     {
         if (this.name.StartsWith("StandardTurret"))
         {
-            Debug.Log("Standard Turret Boost level: " + PlayerPrefs.GetInt("Standard Turret Boost"));
-            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Standard Turret Boost")));
+            Debug.Log("Standard Turret Boost level: " + PlayerPrefs.GetInt("Standard Turret Boost", 0));
+            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Standard Turret Boost", 0)));
         }
         else if (this.name.StartsWith("MissileLauncher"))
         {
-            Debug.Log("Missile Launcher Boost level: " + PlayerPrefs.GetInt("Missile Launcher Boost"));
-            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Missile Launcher Boost")));
+            Debug.Log("Missile Launcher Boost level: " + PlayerPrefs.GetInt("Missile Launcher Boost", 0));
+            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Missile Launcher Boost", 0)));
         }
         else if (this.name.StartsWith("LaserBeamer"))
         {
-            Debug.Log("Laser Beamer Boost level: " + PlayerPrefs.GetInt("Laser Beamer Boost"));
-            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Laser Beamer Boost")));
+            Debug.Log("Laser Beamer Boost level: " + PlayerPrefs.GetInt("Laser Beamer Boost", 0));
+            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Laser Beamer Boost", 0)));
         }
         else if (this.name.StartsWith("FrostTower"))
         {
-            Debug.Log("Frost Tower Boost level: " + PlayerPrefs.GetInt("Frost Tower Boost"));
-            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Frost Tower Boost")));
+            Debug.Log("Frost Tower Boost level: " + PlayerPrefs.GetInt("Frost Tower Boost", 0));
+            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Frost Tower Boost", 0)));
         }
         else
         {
             Debug.Log("No name: " + this.name);
         }
 
-        incRange = incRange + (incRangeSkillBonus * PlayerPrefs.GetInt("Increased Range"));
-        incFireRate = incFireRate + (incFireRateSkillBonus * PlayerPrefs.GetInt("Increased Fire Rate"));
-        incDMG = incDMG + (incDMGSkillBonus * PlayerPrefs.GetInt("Increased Damage"));
-        incProjSpeed = incProjSpeed + (incProjSpeedSkillBonus * PlayerPrefs.GetInt("Increased Projectile Speed"));
+        incRange = incRange + (incRangeSkillBonus * PlayerPrefs.GetInt("Increased Range", 0));
+        incFireRate = incFireRate + (incFireRateSkillBonus * PlayerPrefs.GetInt("Increased Fire Rate", 0));
+        incDMG = incDMG + (incDMGSkillBonus * PlayerPrefs.GetInt("Increased Damage", 0));
+        incProjSpeed = incProjSpeed + (incProjSpeedSkillBonus * PlayerPrefs.GetInt("Increased Projectile Speed", 0));
 
         InvokeRepeating("UpdateTarget", 0f, 0.5f);  //makes the function update similar to Update(), with customizable start time and repeat rate
         currentEquipment = new Item[numSlots];

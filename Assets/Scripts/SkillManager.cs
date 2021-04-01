@@ -61,7 +61,7 @@ public class SkillManager : MonoBehaviour
 
     public void ResetButton(string scene)
     {
-        PlayerPrefs.SetInt("Skill Points", PlayerPrefs.GetInt("Player Level"));
+        PlayerPrefs.SetInt("Skill Points", PlayerPrefs.GetInt("Player Level", 0));
         PlayerPrefs.SetInt("Increased Damage", 0);
         PlayerPrefs.SetInt("Increased Fire Rate", 0);
         PlayerPrefs.SetInt("Increased Range", 0);
@@ -79,7 +79,7 @@ public class SkillManager : MonoBehaviour
 
     void UnlockSkill()
     {
-        if (PlayerPrefs.GetInt("Life Bonus") == 5)
+        if (PlayerPrefs.GetInt("Life Bonus", 0) == 5)
         {
             RoundBonusOption.interactable = true;
         }
@@ -88,7 +88,7 @@ public class SkillManager : MonoBehaviour
             RoundBonusOption.interactable = false;
         }
 
-        if (PlayerPrefs.GetInt("Money Round Bonus") == 5)
+        if (PlayerPrefs.GetInt("Money Round Bonus", 0) == 5)
         {
             RoundBonusOption2.interactable = true;
         }

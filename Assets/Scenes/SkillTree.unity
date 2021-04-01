@@ -2751,7 +2751,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: Increases Maximum Life by 5 per level.
+            m_StringArgument: Adds 1 more Option when selecting Items.
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 1071428452}
@@ -2805,7 +2805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Round Bonus Option2
   skillSprite: {fileID: 21300000, guid: 52e386b9ff58d9d4687a778b11a92a54, type: 3}
-  skillDescription: Increases Maximum Life by 5 per level.
+  skillDescription: Adds 1 more Option when selecting Items
   maxSkilllevel: 1
   skillLevel: 0
   skillLevelUI: {fileID: 872749576}
@@ -3733,7 +3733,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: Increases Maximum Life by 5 per level.
+            m_StringArgument: Adds 1 more Option when selecting Items
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 1071428452}
@@ -3787,7 +3787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Round Bonus Option
   skillSprite: {fileID: 21300000, guid: 52e386b9ff58d9d4687a778b11a92a54, type: 3}
-  skillDescription: Increases Maximum Life by 5 per level.
+  skillDescription: Adds 1 more Option when selecting Items
   maxSkilllevel: 1
   skillLevel: 0
   skillLevelUI: {fileID: 278807568}
@@ -4978,8 +4978,6 @@ MonoBehaviour:
   skillPointsUI: {fileID: 1645131116}
   RoundBonusOption: {fileID: 1364826579}
   RoundBonusOption2: {fileID: 963701612}
-  scene:
-    m_Handle: 1
 --- !u!1 &2004399113
 GameObject:
   m_ObjectHideFlags: 0
