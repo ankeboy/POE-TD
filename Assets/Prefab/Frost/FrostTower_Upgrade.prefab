@@ -73,7 +73,6 @@ GameObject:
   - component: {fileID: 1104493320346296952}
   - component: {fileID: 1104493320346296953}
   - component: {fileID: 1104493320346296958}
-  - component: {fileID: -374043313621134224}
   - component: {fileID: 1549146527626926197}
   m_Layer: 0
   m_Name: FrostTower_Upgrade
@@ -159,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numSlots: 3
   currentEquipment: []
-  baserange: 15
+  baserange: 12
   basefireRate: 0.3
   basedamage: 75
   specialEffect: Freeze
@@ -184,18 +183,6 @@ MonoBehaviour:
   partToRotate: {fileID: 768667857}
   turnSpeed: 0
   firePoint: {fileID: 399362365}
---- !u!114 &-374043313621134224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1104493320346296955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec09152590e9bb74ab6807e8c7445d36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &1549146527626926197
 AudioSource:
   m_ObjectHideFlags: 0

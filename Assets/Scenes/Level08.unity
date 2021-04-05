@@ -4004,7 +4004,7 @@ MonoBehaviour:
     count: 100
     rate: 4
   - enemy: {fileID: 3209148935157363619, guid: 9ee3ae60dd8a7ef4d9fc28df6d00fcbd, type: 3}
-    count: 5
+    count: 3
     rate: 1
   - enemy: {fileID: 3209148935157363619, guid: 287714bc69051d944b150d15a1ebbcde, type: 3}
     count: 1
@@ -6366,6 +6366,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232571299936606556, guid: e23aa9be311c413499aa62135ceb027e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6232571299936606562, guid: e23aa9be311c413499aa62135ceb027e,
         type: 3}

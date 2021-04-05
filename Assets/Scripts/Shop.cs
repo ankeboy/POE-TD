@@ -7,12 +7,14 @@ public class Shop : MonoBehaviour
     public TurretBlueprint missileLauncher;
     public TurretBlueprint laserBeamer;
     public TurretBlueprint frostTower;
+    public TurretBlueprint artillery;
     //reference to build manager
     BuildManager buildManager;
     Image StadardTurretIcon;
     Image MissileLauncherIcon;
     Image LaserBeamerIcon;
     Image FrostTowerIcon;
+    Image artilleryIcon;
 
 
     void Start()
@@ -23,6 +25,7 @@ public class Shop : MonoBehaviour
         MissileLauncherIcon = this.transform.Find("MissileLauncherItem").GetComponent<Image>();
         LaserBeamerIcon = this.transform.Find("LaserBeamerItem").GetComponent<Image>();
         FrostTowerIcon = this.transform.Find("FrostTower").GetComponent<Image>();
+        artilleryIcon = this.transform.Find("ArtilleryItem").GetComponent<Image>();
     }
 
     //select the type of turret from the shop by clicking on the turret icon. This then feeds the type of turret to the "SelectTurretToBuild" to the buildManager.cs script
@@ -56,11 +59,20 @@ public class Shop : MonoBehaviour
         FrostTowerIcon.color = new Color(62 / 255, 255 / 255, 65 / 255, 1f);
     }
 
+    public void SelectArtillery()
+    {
+        DeselectTurretUI();
+        Debug.Log("Artillery Selected");
+        buildManager.SelectTurretToBuild(artillery);
+        artilleryIcon.color = new Color(62 / 255, 255 / 255, 65 / 255, 1f);
+    }
+
     public void DeselectTurretUI()
     {
         StadardTurretIcon.color = new Color(1, 1, 1, 1f);
         MissileLauncherIcon.color = new Color(1, 1, 1, 1f);
         LaserBeamerIcon.color = new Color(1, 1, 1, 1f);
         FrostTowerIcon.color = new Color(1, 1, 1, 1f);
+        artilleryIcon.color = new Color(1, 1, 1, 1f);
     }
 }

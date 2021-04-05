@@ -82,9 +82,10 @@ MonoBehaviour:
   currentEquipment: []
   baserange: 20
   basefireRate: 2
-  basedamage: 80
+  basedamage: 150
   specialEffect: None
   slowAmount: 0.5
+  freezeSeconds: 0
   range: 20
   fireRate: 5
   damage: 70

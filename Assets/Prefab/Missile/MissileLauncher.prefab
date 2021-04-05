@@ -161,11 +161,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numSlots: 2
   currentEquipment: []
-  baserange: 25
+  baserange: 20
   basefireRate: 0.5
   basedamage: 40
   specialEffect: AOE
   slowAmount: 0.5
+  freezeSeconds: 0
   range: 30
   fireRate: 0.25
   damage: 50

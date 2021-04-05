@@ -14,8 +14,11 @@ public class Bullet : MonoBehaviour
     [HideInInspector]
     public Vector3 dir;
     public Vector3 dir2;
+    Vector3 impactLocation;
     public float bulletLife = 0.5f;
     Vector3 bulletPrevPos;                           //save the previous direction, for double shot when the enemy == null
+    public bool missile = false;
+    public bool shell = false;
     public void Seek(Transform _target)
     {
         target = _target;
@@ -28,6 +31,7 @@ public class Bullet : MonoBehaviour
         {
             dir = target.position - transform.position;
             dir.y = 0;
+            impactLocation = target.position;
         }
         Destroy(gameObject, bulletLife);
         return;
@@ -38,7 +42,7 @@ public class Bullet : MonoBehaviour
     {
 
 
-        if (explosionRadius > 0f)   //missile follows enemy
+        if (missile == true)   //missile follows enemy
         {
             //if the target is gone before bullet hits, destroy the bullet
             if (target == null)
@@ -62,6 +66,23 @@ public class Bullet : MonoBehaviour
 
             transform.Translate(dir.normalized * distanceThisFrame, Space.World);   //Space.World sets relative position to the worlds absolute position, so the bullet doesnt circle around target.
             transform.LookAt(target);
+            return;
+        }
+        else if (shell == true)
+        {
+            dir = impactLocation - transform.position;
+            float distanceThisFrame = speed * Time.deltaTime;
+
+            if (dir.magnitude <= distanceThisFrame)
+            {
+                GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, Quaternion.identity);    //no rotation
+                Destroy(effectIns, 2f);
+                Explode();
+                Destroy(gameObject);
+                return;                     //stop executing subsequent code after bullet is dead.
+            }
+            transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+            return;
         }
         else    //bullet go in straight line
         {

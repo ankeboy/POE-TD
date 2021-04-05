@@ -94,12 +94,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 70
+  freezeSeconds: 0
   speed: 65
   explosionRadius: 0
-  impactEffect: {fileID: 8670334570191013123, guid: 0a340bc608ad872498dbbfcfa82e8205,
+  impactEffect: {fileID: 8670334570191013123, guid: dc69b245f3436c14fa611cfdc7c3dc75,
     type: 3}
   dir: {x: 0, y: 0, z: 0}
+  dir2: {x: 0, y: 0, z: 0}
   bulletLife: 0.5
+  missile: 0
+  shell: 0
 --- !u!82 &3882612313350375256
 AudioSource:
   m_ObjectHideFlags: 0
