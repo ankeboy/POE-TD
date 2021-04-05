@@ -35,6 +35,7 @@ Items are gained at the start of each round (choose one item from the options). 
 * Enemies can remove more than 1 live
 * Leaked enemies give double their bounty back
 * levels are unlocked in batches based on difficulty
+* Bullets have a limited lifespan
 
 ## Important restrictions
 
