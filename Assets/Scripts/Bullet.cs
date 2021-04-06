@@ -32,6 +32,7 @@ public class Bullet : MonoBehaviour
             dir = target.position - transform.position;
             dir.y = 0;
             impactLocation = target.position;
+            impactLocation.y = 0.8f;        //roughly the location of the environment path. Alittle inside the path, to simulate better impact.
         }
         Destroy(gameObject, bulletLife);
         return;
