@@ -88,9 +88,14 @@ public class turret : MonoBehaviour
             Debug.Log("Frost Tower Boost level: " + PlayerPrefs.GetInt("Frost Tower Boost", 0));
             basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Frost Tower Boost", 0)));
         }
+        else if (this.name.StartsWith("Artillery"))
+        {
+            Debug.Log("Artillery Boost level: " + PlayerPrefs.GetInt("Artillery Boost", 0));
+            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Artillery Boost", 0)));
+        }
         else
         {
-            Debug.Log("No name: " + this.name);
+            Debug.Log(this.name + " has no bonuses.");
         }
 
         incRange = incRange + (incRangeSkillBonus * PlayerPrefs.GetInt("Increased Range", 0));

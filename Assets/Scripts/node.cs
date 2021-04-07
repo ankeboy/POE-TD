@@ -81,6 +81,9 @@ public class node : MonoBehaviour
         GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f); // destroy the effect after 5 seconds to free up memory
 
+        if (turret.name == "BonusHouse(Clone)")
+            isUpgraded = 2;
+
         Debug.Log("Turret Build!");
     }
 

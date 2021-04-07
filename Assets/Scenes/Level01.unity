@@ -5126,6 +5126,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 130914291}
   waveCountdownText: {fileID: 1198579739}
   gameManager: {fileID: 665861280}
+  bonusHouse: 0
 --- !u!4 &665861277
 Transform:
   m_ObjectHideFlags: 0
@@ -5171,7 +5172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba64e0f7bcbdfa4f8960845a7f42a2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 500
+  startMoney: 50000
   startLives: 20
 --- !u!114 &665861280
 MonoBehaviour:
@@ -20257,6 +20258,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632175079287817007, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632175079287817007, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632175079287817007, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632175079287817007, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632175079287817007, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632175079287817007, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9033311627316861605, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
         type: 3}

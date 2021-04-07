@@ -8,6 +8,7 @@ public class Shop : MonoBehaviour
     public TurretBlueprint laserBeamer;
     public TurretBlueprint frostTower;
     public TurretBlueprint artillery;
+    public TurretBlueprint bonusHouse;
     //reference to build manager
     BuildManager buildManager;
     Image StadardTurretIcon;
@@ -15,6 +16,7 @@ public class Shop : MonoBehaviour
     Image LaserBeamerIcon;
     Image FrostTowerIcon;
     Image artilleryIcon;
+    Image bonusHouseIcon;
 
 
     void Start()
@@ -65,6 +67,13 @@ public class Shop : MonoBehaviour
         Debug.Log("Artillery Selected");
         buildManager.SelectTurretToBuild(artillery);
         artilleryIcon.color = new Color(62 / 255, 255 / 255, 65 / 255, 1f);
+    }
+    public void SelectBonusHouse()
+    {
+        DeselectTurretUI();
+        Debug.Log("Bonus House Selected");
+        buildManager.SelectTurretToBuild(bonusHouse);
+        bonusHouseIcon.color = new Color(62 / 255, 255 / 255, 65 / 255, 1f);
     }
 
     public void DeselectTurretUI()

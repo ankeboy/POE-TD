@@ -51,7 +51,9 @@ public class WaveSpawner : MonoBehaviour
                 triggerBonus = false;
                 return;
             }
+            Debug.Log("trigger first bonus");
             StartCoroutine(RoundBonusSequence());
+
             PlayerStats.Money += (PlayerPrefs.GetInt("Money Round Bonus", 0) * 100);
             triggerBonus = false;
         }
@@ -100,6 +102,13 @@ public class WaveSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         gameManager.RoundBonusItem();
+
+        if (GameObject.Find("BonusHouse(Clone)"))                      //if it finds a BonusHouse gameobject, add another option.
+        {
+            Debug.Log("trigger second bonus");
+            yield return new WaitForSeconds(0.2f);
+            gameManager.RoundBonusItem();
+        }
     }
 
 }
