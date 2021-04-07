@@ -157,7 +157,9 @@ public class turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         UpdateStats();
+        fireCountdown -= Time.deltaTime;
 
         if (target == null)
         {
@@ -201,8 +203,8 @@ public class turret : MonoBehaviour
                 }
                 fireCountdown = 1f / fireRate;
             }
-            fireCountdown -= Time.deltaTime;
         }
+
 
 
 

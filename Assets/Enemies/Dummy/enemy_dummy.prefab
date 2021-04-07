@@ -360,7 +360,7 @@ MonoBehaviour:
   startSpeed: 10
   baseHealth: 10000
   worth: 50
-  healthDamage: 10
+  healthDamage: 0
   froze: 0
   deathEffect: {fileID: 6351645745013769158, guid: 06c3075a37b7e9f468ca30ecc9246c9c,
     type: 3}

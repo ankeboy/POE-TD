@@ -5126,7 +5126,6 @@ MonoBehaviour:
   spawnPoint: {fileID: 130914291}
   waveCountdownText: {fileID: 1198579739}
   gameManager: {fileID: 665861280}
-  bonusHouse: 0
 --- !u!4 &665861277
 Transform:
   m_ObjectHideFlags: 0
@@ -20414,6 +20413,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 9033311627870844227, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
+        type: 3}
+      propertyPath: sceneFader
+      value: 
+      objectReference: {fileID: 1549560166}
+    - target: {fileID: 9033311627870844228, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9033311628199386738, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -20449,6 +20458,11 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 665861282}
+    - target: {fileID: 9033311628205597145, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
+        type: 3}
+      propertyPath: m_Text
+      value: NEXT LEVEL
+      objectReference: {fileID: 0}
     - target: {fileID: 9033311628450533465, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
         type: 3}
       propertyPath: sceneFader

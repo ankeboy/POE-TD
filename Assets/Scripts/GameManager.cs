@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour
         completeLevelUI.SetActive(true);
         PlayerPrefs.SetInt("levelReached", levelToUnlock);
         GainLevelEXP(maxEXP);
-        sceneFader.FadeTo(nextLevel);
     }
 
     public void RoundBonusItem()

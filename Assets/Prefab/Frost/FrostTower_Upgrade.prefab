@@ -176,7 +176,7 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   impactLight: {fileID: 0}
   useSurroundAOE: 1
-  AOEeffectPrefab: {fileID: 799589092695210501, guid: d38af298578b7f3489edcc40556ca733,
+  AOEeffectPrefab: {fileID: 799589092695210501, guid: 38bf07f47b144514b994429259dbf447,
     type: 3}
   slowLength: 2
   enemyTag: Enemy
