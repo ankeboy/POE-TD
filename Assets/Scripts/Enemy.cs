@@ -15,6 +15,9 @@ public class Enemy : MonoBehaviour
     private float barHealth;
     public int worth = 50;
     public int healthDamage = 1;
+    public bool immunity = false;
+    public bool regeneration = false;
+    public float regen_rate = 0;
 
     [HideInInspector]
     public float froze = 0;
@@ -30,6 +33,9 @@ public class Enemy : MonoBehaviour
         speed = startSpeed;
         health = baseHealth * (float)Math.Pow(WaveSpawner.roundMultiplier, WaveSpawner.waveIndex) * Difficulty; //math.pow returns a double. Need to cast it to float.
         barHealth = health;
+
+        if (regeneration)
+            InvokeRepeating("Regen", 0f, 0.5f);
     }
 
     public void TakeDamage(float amount)    //void -> we dont want it to return anything
@@ -46,7 +52,8 @@ public class Enemy : MonoBehaviour
 
     public void Slow(float pct)
     {
-        speed = startSpeed * (1f - pct);
+        if (!immunity)
+            speed = startSpeed * (1f - pct);
     }
 
     void Die()
@@ -65,6 +72,22 @@ public class Enemy : MonoBehaviour
 
     public void frozen(float seconds)
     {
-        froze = seconds;
+        if (!immunity)
+            froze = seconds;
     }
+
+    void Regen()
+    {
+        if (health < (barHealth - (barHealth * regen_rate * 0.5f)))  //make sure it doesnt overheal. The missing health must be greater than the healing tick.
+        {
+            health += barHealth * regen_rate * 0.5f;    //since this function is being called 2 per second.
+            healthBar.fillAmount = health / barHealth;
+        }
+        else if (health < barHealth)
+        {
+            health = barHealth;
+            healthBar.fillAmount = 1;
+        }
+    }
+
 }

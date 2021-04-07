@@ -359,7 +359,7 @@ MonoBehaviour:
   speed: 10
   startSpeed: 5
   baseHealth: 4500
-  worth: 2500
+  worth: 3000
   healthDamage: 5
   froze: 0
   deathEffect: {fileID: 6351645745013769158, guid: bd97962595663fd448307189e3b1a99c,

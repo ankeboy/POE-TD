@@ -154,8 +154,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3220776533048413695}
   m_HandleRect: {fileID: 328587821332014051}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 1
+  m_Value: -0.0000022098945
+  m_Size: 0.76800007
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5028,7 +5028,7 @@ MonoBehaviour:
     upgradeCost: 1500
     upgradedPrefab2: {fileID: 1104493320346296955, guid: b30ccbadf74226e44ae2106f3d5041e9,
       type: 3}
-    upgradeCost2: 5000
+    upgradeCost2: 4500
   artillery:
     prefab: {fileID: 666413190874585459, guid: ee86b58d00e247748b5ba5717b877b7c, type: 3}
     turretName: Artillery
@@ -5038,7 +5038,7 @@ MonoBehaviour:
     upgradeCost: 1300
     upgradedPrefab2: {fileID: 666413190874585459, guid: d64ea5ff9a04653489d78fbf81da6d6a,
       type: 3}
-    upgradeCost2: 4500
+    upgradeCost2: 5000
   bonusHouse:
     prefab: {fileID: 1104493320346296955, guid: 2696d67f380ba1c46a1e548a561b680b,
       type: 3}
