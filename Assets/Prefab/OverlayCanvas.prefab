@@ -33,7 +33,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0.000030517578}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2586589902090251173
@@ -154,8 +154,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3220776533048413695}
   m_HandleRect: {fileID: 328587821332014051}
   m_Direction: 0
-  m_Value: -0.0000022098945
-  m_Size: 0.76800007
+  m_Value: 1
+  m_Size: 0.7013053
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -458,7 +458,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.00012207031, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: -0.000030517578}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3333199735422289360
@@ -1744,7 +1744,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -24.849976, y: 0}
+  m_AnchoredPosition: {x: -24.850098, y: 0}
   m_SizeDelta: {x: 49.84088, y: -200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &9033311627665635642
@@ -2936,7 +2936,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 53.329975, y: -50}
+  m_AnchoredPosition: {x: 53.33008, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9033311627906790395
@@ -4932,10 +4932,10 @@ RectTransform:
   m_Father: {fileID: 8688590008145405356}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00030517578, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -359.99997, y: 60}
+  m_SizeDelta: {x: 0, y: 120}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &9033311628564085633
 CanvasRenderer:
@@ -4992,10 +4992,10 @@ MonoBehaviour:
     cost: 200
     upgradedPrefab: {fileID: 666413190874585459, guid: 75847ee9243ac3542a7ab4fbd843b5f0,
       type: 3}
-    upgradeCost: 850
+    upgradeCost: 1200
     upgradedPrefab2: {fileID: 666413190874585459, guid: 811fda64621663844a25467820f82e01,
       type: 3}
-    upgradeCost2: 3800
+    upgradeCost2: 5800
   missileLauncher:
     prefab: {fileID: 5779221148087430696, guid: 6555d01a8fe1c3c4db131f72d19cd3e5,
       type: 3}
@@ -5003,10 +5003,10 @@ MonoBehaviour:
     cost: 300
     upgradedPrefab: {fileID: 5779221148087430696, guid: 48ff59feabf67184b8aab00cae148a42,
       type: 3}
-    upgradeCost: 1200
+    upgradeCost: 1400
     upgradedPrefab2: {fileID: 5779221148087430696, guid: 881fb6bcbbb79a44ba5db08ff4155818,
       type: 3}
-    upgradeCost2: 4300
+    upgradeCost2: 6300
   laserBeamer:
     prefab: {fileID: 7689726401333956286, guid: 301f52b14eb6eb543b1c5e53b8f731ad,
       type: 3}
@@ -5014,31 +5014,31 @@ MonoBehaviour:
     cost: 250
     upgradedPrefab: {fileID: 7689726401333956286, guid: a77a2337a7010194a8e20bc2bcb2b0ab,
       type: 3}
-    upgradeCost: 1000
+    upgradeCost: 1200
     upgradedPrefab2: {fileID: 7689726401333956286, guid: e3897d235672f644cb7fc812429abafe,
       type: 3}
-    upgradeCost2: 4000
+    upgradeCost2: 5900
   frostTower:
     prefab: {fileID: 1104493320346296955, guid: 82d5aaeb15d371647bf1129ad7d37b6d,
       type: 3}
     turretName: Frost Tower
-    cost: 300
+    cost: 350
     upgradedPrefab: {fileID: 1104493320346296955, guid: 2d8d575f17b92f44a90333d0ed830adf,
       type: 3}
-    upgradeCost: 1500
+    upgradeCost: 1600
     upgradedPrefab2: {fileID: 1104493320346296955, guid: b30ccbadf74226e44ae2106f3d5041e9,
       type: 3}
-    upgradeCost2: 4500
+    upgradeCost2: 6800
   artillery:
     prefab: {fileID: 666413190874585459, guid: ee86b58d00e247748b5ba5717b877b7c, type: 3}
     turretName: Artillery
-    cost: 250
+    cost: 300
     upgradedPrefab: {fileID: 666413190874585459, guid: ba027ea15cd566f44b5c0500ebc87ce5,
       type: 3}
-    upgradeCost: 1300
+    upgradeCost: 1500
     upgradedPrefab2: {fileID: 666413190874585459, guid: d64ea5ff9a04653489d78fbf81da6d6a,
       type: 3}
-    upgradeCost2: 5000
+    upgradeCost2: 6500
   bonusHouse:
     prefab: {fileID: 1104493320346296955, guid: 2696d67f380ba1c46a1e548a561b680b,
       type: 3}
@@ -6910,7 +6910,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 167.98993, y: -50}
+  m_AnchoredPosition: {x: 167.98975, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9033311629042338127
@@ -7979,6 +7979,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BonusHouse
       objectReference: {fileID: 0}
+    - target: {fileID: 5861419690243322082, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5861419690243322083, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
         type: 3}
       propertyPath: m_Pivot.x
@@ -8420,7 +8425,7 @@ PrefabInstance:
     - target: {fileID: 1724576939133906503, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
         type: 3}
       propertyPath: m_Text
-      value: $250
+      value: $300
       objectReference: {fileID: 0}
     - target: {fileID: 1724576939133906503, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
         type: 3}
@@ -8667,7 +8672,7 @@ PrefabInstance:
     - target: {fileID: 1724576939133906503, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
         type: 3}
       propertyPath: m_Text
-      value: $300
+      value: $350
       objectReference: {fileID: 0}
     - target: {fileID: 4129400293513021285, guid: 80e108ab3fbc8a8408a2e2e9a9e51a7d,
         type: 3}

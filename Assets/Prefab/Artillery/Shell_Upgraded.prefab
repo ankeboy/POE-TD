@@ -95,12 +95,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 50
   freezeSeconds: 0
-  speed: 10
+  speed: 7
   explosionRadius: 7
   impactEffect: {fileID: 3888857330306361136, guid: 767710b707eed8e49a118e801677a13c,
     type: 3}
   dir: {x: 0, y: 0, z: 0}
   dir2: {x: 0, y: 0, z: 0}
+  target2: {x: 0, y: 0, z: 0}
   bulletLife: 2
   missile: 0
   shell: 1

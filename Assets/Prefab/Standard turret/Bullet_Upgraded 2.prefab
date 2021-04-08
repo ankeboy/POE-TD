@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7787049986568362937}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 28.41, y: 3.612, z: -22.246944}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,12 +95,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 70
   freezeSeconds: 0
-  speed: 65
+  speed: 60
   explosionRadius: 0
   impactEffect: {fileID: 8670334570191013123, guid: dc69b245f3436c14fa611cfdc7c3dc75,
     type: 3}
   dir: {x: 0, y: 0, z: 0}
   dir2: {x: 0, y: 0, z: 0}
+  target2: {x: 0, y: 0, z: 0}
   bulletLife: 0.5
   missile: 0
   shell: 0

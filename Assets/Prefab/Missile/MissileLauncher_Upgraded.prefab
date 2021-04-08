@@ -163,9 +163,9 @@ MonoBehaviour:
   currentEquipment: []
   baserange: 23
   basefireRate: 0.5
-  basedamage: 80
+  basedamage: 210
   specialEffect: AOE
-  slowAmount: 0.5
+  slowAmount: 0
   freezeSeconds: 0
   range: 40
   fireRate: 0.4

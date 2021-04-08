@@ -21,7 +21,7 @@ public class turret : MonoBehaviour
     private float fireCountdown = 0f;
     public float basedamage = 20f;
     public string specialEffect = "None";
-    public float slowAmount = 0.5f;
+    public float slowAmount = 0f;
     public float freezeSeconds = 0f;
     [HideInInspector]
     private float projSpeedMod = 1f;
@@ -271,6 +271,8 @@ public class turret : MonoBehaviour
         bullet.speed = bullet.speed * projSpeedMod;
         bullet.freezeSeconds = freezeSeconds;
         bullet.dir2 = partToRotate.forward;
+        Debug.Log("target.position: " + target.position);
+        bullet.target2 = target.position;
 
         if (bullet != null)
             bullet.Seek(target);

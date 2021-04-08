@@ -13,7 +13,10 @@ public class Bullet : MonoBehaviour
     public GameObject impactEffect;
     [HideInInspector]
     public Vector3 dir;
+    [HideInInspector]
     public Vector3 dir2;
+    [HideInInspector]
+    public Vector3 target2;
     Vector3 impactLocation;
     public float bulletLife = 0.5f;
     Vector3 bulletPrevPos;                           //save the previous direction, for double shot when the enemy == null
@@ -26,7 +29,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        bulletPrevPos = transform.position;
+        bulletPrevPos = transform.position; //start position of bullet for Raycasting
         if (target != null)
         {
             dir = target.position - transform.position;
@@ -71,6 +74,13 @@ public class Bullet : MonoBehaviour
         }
         else if (shell == true)
         {
+            if (target == null)
+            {
+                //Debug.Log("target2: " + target2);
+                impactLocation = target2;
+                impactLocation.y = 0.8f;
+            }
+
             dir = impactLocation - transform.position;
             float distanceThisFrame = speed * Time.deltaTime;
 

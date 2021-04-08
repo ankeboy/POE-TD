@@ -160,7 +160,7 @@ MonoBehaviour:
   currentEquipment: []
   baserange: 10
   basefireRate: 0.3
-  basedamage: 50
+  basedamage: 75
   specialEffect: Freeze
   slowAmount: 1
   freezeSeconds: 0.5

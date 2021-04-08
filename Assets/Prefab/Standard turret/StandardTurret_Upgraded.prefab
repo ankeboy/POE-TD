@@ -80,11 +80,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numSlots: 3
   currentEquipment: []
-  baserange: 20
+  baserange: 18
   basefireRate: 1.5
-  basedamage: 60
+  basedamage: 90
   specialEffect: None
-  slowAmount: 0.5
+  slowAmount: 0
   freezeSeconds: 0
   range: 20
   fireRate: 5
@@ -227,7 +227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666413191165129894}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.70710677}
-  m_LocalPosition: {x: -0.001, y: 0.7359999, z: 1.7433}
+  m_LocalPosition: {x: -0.001, y: 0.7359999, z: 1.62}
   m_LocalScale: {x: 0.04413967, y: 0.04413966, z: 0.04227776}
   m_Children: []
   m_Father: {fileID: 666413190856511382}
@@ -386,7 +386,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666413192144765897}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.597, z: 2.194}
+  m_LocalPosition: {x: -0, y: 0.597, z: 0.843}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 666413190856511382}
