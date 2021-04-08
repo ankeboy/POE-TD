@@ -17,7 +17,9 @@ public class Enemy : MonoBehaviour
     public int healthDamage = 1;
     public bool immunity = false;
     public bool regeneration = false;
-    public float regen_rate = 0;
+    public float regen_rate = 0f;
+    public float invincibleTime = 0f;
+    bool invincible = false;
 
     [HideInInspector]
     public float froze = 0;
@@ -40,9 +42,17 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float amount)    //void -> we dont want it to return anything
     {
-        health -= amount;
+        if (!invincible)
+        {
+            health -= amount;
+            healthBar.fillAmount = health / barHealth;
+        }
 
-        healthBar.fillAmount = health / barHealth;
+        if (health < barHealth / 2)         //hard coded so that invincibility starts at half health.
+        {
+            if (invincibleTime > 0f)
+                StartCoroutine(invincibleON());
+        }
 
         if (health < 1 && !isDead)
         {
@@ -90,4 +100,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    IEnumerator invincibleON()
+    {
+        this.transform.Find("Halo").GetComponent<Renderer>().material.EnableKeyword("_EMISSION");   //turns on emission, so we know that enemy is invincible
+        invincible = true;
+        yield return new WaitForSeconds(invincibleTime);
+        invincible = false;
+
+
+        invincibleTime = 0f;        //this makes sure they can only be invincible once. 
+        this.transform.Find("Halo").GetComponent<MeshRenderer>().enabled = false;
+        //this.transform.Find("Halo").GetComponent<Renderer>().material.DisableKeyword("_EMISSION");    //this disables the emission when invincibility period is gone
+    }
 }

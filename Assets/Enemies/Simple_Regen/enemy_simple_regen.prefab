@@ -337,7 +337,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 3184487420036345973}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -461,6 +461,7 @@ MonoBehaviour:
   immunity: 0
   regeneration: 1
   regen_rate: 0.2
+  invincibleTime: 0
   froze: 0
   deathEffect: {fileID: 6351645745013769158, guid: 4e701782298db76409f2b1e4d6a2cb8a,
     type: 3}
@@ -566,7 +567,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 4033206069640093950}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -660,7 +661,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 7489270127228934992}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
