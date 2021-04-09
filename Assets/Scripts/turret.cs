@@ -238,8 +238,19 @@ public class turret : MonoBehaviour
 
     void Laser()
     {
-        targetEnemy.TakeDamage(damage * fireRate * Time.deltaTime);
-        targetEnemy.Slow(slowAmount);
+        float randValue = Random.value;
+        if (randValue < critChance)
+        {
+            //Debug.Log("CRITICAL");
+            targetEnemy.TakeDamage(damage * fireRate * Time.deltaTime * critDMGMult);
+            targetEnemy.frozen(0.5f * Time.deltaTime);     //fire rate doesnt affect how often the enemy ticks damage.
+            targetEnemy.Slow(slowAmount);
+        }
+        else
+        {
+            targetEnemy.TakeDamage(damage * fireRate * Time.deltaTime);
+            targetEnemy.Slow(slowAmount);
+        }
 
         if (!lineRenderer.enabled)
         {
@@ -314,7 +325,7 @@ public class turret : MonoBehaviour
             float randValue = Random.value;
             if (randValue < critChance)
             {
-                Debug.Log("CRITICAL");
+                //Debug.Log("CRITICAL");
                 e.TakeDamage(damage * critDMGMult);
                 e.frozen(0.8f / fireRate);        //hardcoded the stun to be 0.8 of the firerate. So, the higher the fire rate, the shorter the stun.
                 return;
