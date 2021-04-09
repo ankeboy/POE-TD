@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     private Transform target;
     private int wavepointIndex = 0;
     private Enemy enemy;
+    bool CR_running = false;
 
     void Start()
     {
@@ -16,9 +17,11 @@ public class EnemyMovement : MonoBehaviour
     }
     void Update()
     {
-        if (enemy.froze > 0f)
+        if (enemy.froze > 0f)                               //check that froze must be larger than 0
         {
-            StartCoroutine(frozen(enemy.froze));
+            if (CR_running == false)                        //the previous frozen state wont be overwritten by new ones (even if they are longer) while coroutine is runnning.
+                StartCoroutine(frozen(enemy.froze));
+            return;
         }
 
         Vector3 dir = target.position - transform.position;
@@ -55,8 +58,10 @@ public class EnemyMovement : MonoBehaviour
 
     public IEnumerator frozen(float seconds)
     {
+        CR_running = true;
         enemy.speed = 0f;
         yield return new WaitForSeconds(seconds);
+        CR_running = false;
         enemy.froze = 0f;
     }
 }

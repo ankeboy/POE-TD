@@ -17,20 +17,26 @@ public class turret : MonoBehaviour
 
     [Header("General")]
     public float baserange = 15f;
-    public float basefireRate = 1f;
-    private float fireCountdown = 0f;
-    public float basedamage = 20f;
-    public string specialEffect = "None";
-    public float slowAmount = 0f;
-    public float freezeSeconds = 0f;
-    [HideInInspector]
-    private float projSpeedMod = 1f;
     [HideInInspector]
     public float range;
+    public float basefireRate = 1f;
     [HideInInspector]
     public float fireRate;
+    private float fireCountdown = 0f;
+    public float basedamage = 20f;
     [HideInInspector]
     public float damage;
+    public float basecritChance = 0f;
+    [HideInInspector]
+    public float critChance = 0f;
+    public float basecritDMGMult = 2f;
+    [HideInInspector]
+    public float critDMGMult = 2f;
+    public string specialEffect = "None";
+    public float slowAmount = 0f;
+    [HideInInspector]
+    private float projSpeedMod = 1f;
+    public float freezeSeconds = 0f;
 
     [Header("Support Modifier")]    //need to make these private, otherwise got to change them on every turret
     private float incRange = 1.5f;     //done
@@ -39,11 +45,13 @@ public class turret : MonoBehaviour
     private float incFireRateSkillBonus = 0.1f;
     private float incDMG = 1.5f;       //done
     private float incDMGSkillBonus = 0.1f;
-    private float incProjSpeed = 2f;     //done. With multiple of these, the projectile might travel too fast and go through enemies.
+    private float incProjSpeed = 2f;     //done.
     private float incProjSpeedSkillBonus = 0.2f;
-    public bool doubleAttack = false;       //done (doesnt work with laser tower)
-    public bool critChance = false;     //crit chance and damage in one skill. Doesnt make sense when one gets crit damage before crit chance.
-    public bool generosity = false;     //need to recode, since money gained is not tower specific.
+    private bool doubleAttack = false;       //done (doesnt work with laser tower)
+    private float incCritChance = 0.2f;     //increase crit chance
+    private float incCritDMGMult = 1f;       //increase crit DMG
+    private float incCritDMGMultSkillBonus = 0.2f;     //increase crit chance 
+    //private bool generosity = false;     //need to recode, since money gained is not tower specific.
 
     [Header("Use Bullets (default)")]
     public GameObject bulletPrefab;
@@ -68,6 +76,7 @@ public class turret : MonoBehaviour
     // Start is called before the first frame update
     void Awake()    //Need to switch from Start() to Awake(), as Awake(), but not Start() is called upon instantiating an object. Start() is called before update (And thus calling equip() right after upgrading turret doesnt work as the Item[] slots are still 0). 
     {
+        //sets up basedamage of turrets based on passive skill tree
         if (this.name.StartsWith("StandardTurret"))
         {
             Debug.Log("Standard Turret Boost level: " + PlayerPrefs.GetInt("Standard Turret Boost", 0));
@@ -93,15 +102,22 @@ public class turret : MonoBehaviour
             Debug.Log("Artillery Boost level: " + PlayerPrefs.GetInt("Artillery Boost", 0));
             basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Artillery Boost", 0)));
         }
+        else if (this.name.StartsWith("Sniper"))
+        {
+            Debug.Log("Sniper Boost level: " + PlayerPrefs.GetInt("Sniper Boost", 0));
+            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Sniper Boost", 0)));
+        }
         else
         {
             Debug.Log(this.name + " has no bonuses.");
         }
 
+        //sets up item bonus qunatity based on skill tree
         incRange = incRange + (incRangeSkillBonus * PlayerPrefs.GetInt("Increased Range", 0));
         incFireRate = incFireRate + (incFireRateSkillBonus * PlayerPrefs.GetInt("Increased Fire Rate", 0));
         incDMG = incDMG + (incDMGSkillBonus * PlayerPrefs.GetInt("Increased Damage", 0));
         incProjSpeed = incProjSpeed + (incProjSpeedSkillBonus * PlayerPrefs.GetInt("Increased Projectile Speed", 0));
+        incCritDMGMult = incCritDMGMult + (incCritDMGMultSkillBonus * PlayerPrefs.GetInt("Increased Critical", 0));
 
         InvokeRepeating("UpdateTarget", 0f, 0.5f);  //makes the function update similar to Update(), with customizable start time and repeat rate
         currentEquipment = new Item[numSlots];
@@ -268,10 +284,14 @@ public class turret : MonoBehaviour
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         bullet.damage = damage;
+        bullet.critChance = critChance;
+        Debug.Log("critDMGMult: " + critDMGMult + ". incCritDMGMult: " + incCritDMGMult);
+        bullet.critDMGMult = critDMGMult;
         bullet.speed = bullet.speed * projSpeedMod;
         bullet.freezeSeconds = freezeSeconds;
+        bullet.sourceFireRate = fireRate;
         bullet.dir2 = partToRotate.forward;
-        Debug.Log("target.position: " + target.position);
+        //Debug.Log("target.position: " + target.position);
         bullet.target2 = target.position;
 
         if (bullet != null)
@@ -291,8 +311,19 @@ public class turret : MonoBehaviour
 
         if (e != null)
         {
-            e.TakeDamage(damage);
-            e.frozen(freezeSeconds);
+            float randValue = Random.value;
+            if (randValue < critChance)
+            {
+                Debug.Log("CRITICAL");
+                e.TakeDamage(damage * critDMGMult);
+                e.frozen(0.8f / fireRate);        //hardcoded the stun to be 0.8 of the firerate. So, the higher the fire rate, the shorter the stun.
+                return;
+            }
+            else
+            {
+                e.TakeDamage(damage);
+                e.frozen(freezeSeconds);
+            }
         }
     }
     IEnumerator SecondAttack()
@@ -317,6 +348,8 @@ public class turret : MonoBehaviour
         damage = basedamage;
         doubleAttack = false;
         projSpeedMod = 1f;
+        critChance = basecritChance;
+        critDMGMult = basecritDMGMult;
 
         //Checking the stat change on every loop can prevent bugs and reduce complexity.
         for (int i = 0; i < numSlots; i++)
@@ -342,6 +375,11 @@ public class turret : MonoBehaviour
                 else if (currentEquipment[i].name == "Increased Projectile Speed")
                 {
                     projSpeedMod = projSpeedMod * incProjSpeed;
+                }
+                else if (currentEquipment[i].name == "Increased Critical")
+                {
+                    critChance = Mathf.Clamp(critChance + incCritChance, 0f, 1f);   //clamps the value so that it cannot go below 0 or above 1.
+                    critDMGMult = critDMGMult + incCritDMGMult;
                 }
             }
         }

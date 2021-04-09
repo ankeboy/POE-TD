@@ -7,7 +7,13 @@ public class Bullet : MonoBehaviour
     [HideInInspector]
     public float damage = 50;       //damage value is taken from the tower
     [HideInInspector]
-    public float freezeSeconds = 0;
+    public float freezeSeconds = 0f;
+    [HideInInspector]
+    public float critChance = 0f;
+    [HideInInspector]
+    public float critDMGMult = 2f;
+    [HideInInspector]
+    public float sourceFireRate = 0f;
     public float speed = 70f;
     public float explosionRadius = 0f;
     public GameObject impactEffect;
@@ -171,8 +177,21 @@ public class Bullet : MonoBehaviour
 
         if (e != null)
         {
-            e.TakeDamage(damage);
-            e.frozen(freezeSeconds);
+            float randValue = Random.value;
+            Debug.Log("randValue: " + randValue + ". critChance: " + critChance);
+            if (randValue < critChance)
+            {
+                Debug.Log("CRITICAL BULLET");
+                Debug.Log("CritDMGMult: " + critDMGMult);
+                e.TakeDamage(damage * critDMGMult);
+                e.frozen(0.8f / sourceFireRate);        //hardcoded the stun to be 0.8 of the firerate. So, the higher the fire rate, the shorter the stun.
+                return;
+            }
+            else
+            {
+                e.TakeDamage(damage);
+                e.frozen(freezeSeconds);
+            }
         }
     }
 

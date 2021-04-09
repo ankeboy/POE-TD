@@ -81,17 +81,18 @@ MonoBehaviour:
   numSlots: 4
   currentEquipment: []
   baserange: 20
+  range: 20
   basefireRate: 2
-  basedamage: 200
+  fireRate: 5
+  basedamage: 220
+  damage: 70
+  basecritChance: 0
+  critChance: 0
+  basecritDMGMult: 2
+  critDMGMult: 2
   specialEffect: None
   slowAmount: 0
   freezeSeconds: 0
-  range: 20
-  fireRate: 5
-  damage: 70
-  doubleAttack: 0
-  critChance: 0
-  generosity: 0
   bulletPrefab: {fileID: 7787049986568362937, guid: 4f158fbfa38852d419134d817d1f4074,
     type: 3}
   useLaser: 0

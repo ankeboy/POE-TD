@@ -85,12 +85,18 @@ MonoBehaviour:
   basedamage: 30
   specialEffect: None
   slowAmount: 0
-  freezeSeconds: 0
+  basecritChance: 0
+  basecritDMGMult: 2
+  critChance: 0
+  critDMGMult: 2
   range: 15
   fireRate: 3
   damage: 50
+  freezeSeconds: 0
   doubleAttack: 0
-  critChance: 0
+  incCritChance: 0.2
+  incCritDMGMult: 1
+  incCritDMGMultSkillBonus: 0.2
   generosity: 0
   bulletPrefab: {fileID: 7787049986568362937, guid: 75c7908253c10e64bac0d13f4a13bfff,
     type: 3}

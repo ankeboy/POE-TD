@@ -8,7 +8,7 @@ public class RoundBonusItemUI : MonoBehaviour
     Button[] options;
     public Inventory inventory;
     public GameManager gameManager;
-    public Item[] itemlist = new Item[5];
+    public Item[] itemlist = new Item[6];
     int optionNo;
 
 

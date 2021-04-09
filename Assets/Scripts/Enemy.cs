@@ -82,7 +82,7 @@ public class Enemy : MonoBehaviour
 
     public void frozen(float seconds)
     {
-        if (!immunity)
+        if (!immunity && seconds > 0f)  //make sure that hitting them wont remove the frozen status. However can be overwritten with shorter slow.
             froze = seconds;
     }
 
