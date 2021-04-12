@@ -34,6 +34,8 @@ public class turret : MonoBehaviour
     public float critDMGMult = 2f;
     public string specialEffect = "None";
     public float slowAmount = 0f;
+    public float burningMult = 0.5f;
+
     [HideInInspector]
     private float projSpeedMod = 1f;
     public float freezeSeconds = 0f;
@@ -54,6 +56,8 @@ public class turret : MonoBehaviour
     private float incCritDMGMult = 1f;       //increase crit DMG
     private float incCritDMGMultSkillBonus = 0.2f;     //increase crit chance 
     //private bool generosity = false;     //need to recode, since money gained is not tower specific.
+    private float incBurningMult = 0.5f;            //base burning multiplier (i.e. 50% of damage per second)
+    private float incBurningMultSkillBonus = 0.1f;  //additional 0.1 burning multiplier per level (i.e. 100% of damage per second at level 5)
 
     [Header("Use Bullets (default)")]
     public GameObject bulletPrefab;
@@ -115,11 +119,12 @@ public class turret : MonoBehaviour
         }
 
         //sets up item bonus qunatity based on skill tree
-        incRange = incRange + (incRangeSkillBonus * PlayerPrefs.GetInt("Increased Range", 0));
-        incFireRate = incFireRate + (incFireRateSkillBonus * PlayerPrefs.GetInt("Increased Fire Rate", 0));
-        incDMG = incDMG + (incDMGSkillBonus * PlayerPrefs.GetInt("Increased Damage", 0));
-        incProjSpeed = incProjSpeed + (incProjSpeedSkillBonus * PlayerPrefs.GetInt("Increased Projectile Speed", 0));
-        incCritDMGMult = incCritDMGMult + (incCritDMGMultSkillBonus * PlayerPrefs.GetInt("Increased Critical", 0));
+        incRange += (incRangeSkillBonus * PlayerPrefs.GetInt("Increased Range", 0));
+        incFireRate += (incFireRateSkillBonus * PlayerPrefs.GetInt("Increased Fire Rate", 0));
+        incDMG += (incDMGSkillBonus * PlayerPrefs.GetInt("Increased Damage", 0));
+        incProjSpeed += (incProjSpeedSkillBonus * PlayerPrefs.GetInt("Increased Projectile Speed", 0));
+        incCritDMGMult += (incCritDMGMultSkillBonus * PlayerPrefs.GetInt("Increased Critical", 0));
+        incBurningMult += (incBurningMultSkillBonus * PlayerPrefs.GetInt("Increased Burning", 0));
 
         InvokeRepeating("UpdateTarget", 0f, 0.5f);  //makes the function update similar to Update(), with customizable start time and repeat rate
         currentEquipment = new Item[numSlots];
@@ -245,12 +250,14 @@ public class turret : MonoBehaviour
         {
             //Debug.Log("CRITICAL");
             targetEnemy.TakeDamage(damage * fireRate * Time.deltaTime * critDMGMult);
+            ApplyStats(targetEnemy, damage * burningMult * fireRate * Time.deltaTime * critDMGMult);
             targetEnemy.frozen(0.5f * Time.deltaTime);     //fire rate doesnt affect how often the enemy ticks damage.
             targetEnemy.Slow(slowAmount);
         }
         else
         {
             targetEnemy.TakeDamage(damage * fireRate * Time.deltaTime);
+            ApplyStats(targetEnemy, damage * burningMult * fireRate * Time.deltaTime);
             targetEnemy.Slow(slowAmount);
         }
 
@@ -303,6 +310,7 @@ public class turret : MonoBehaviour
         bullet.speed = bullet.speed * projSpeedMod;
         bullet.freezeSeconds = freezeSeconds;
         bullet.burning = burning;
+        bullet.BurningDoT = damage * burningMult;
         bullet.weaken = weaken;
         bullet.sourceFireRate = fireRate;
         bullet.dir2 = partToRotate.forward;
@@ -329,15 +337,15 @@ public class turret : MonoBehaviour
             if (randValue < critChance)
             {
                 //Debug.Log("CRITICAL");
-                ApplyStats(e, damage * critDMGMult);
                 e.TakeDamage(damage * critDMGMult);
+                ApplyStats(e, damage * burningMult * critDMGMult);
                 e.frozen(0.8f / fireRate);        //hardcoded the stun to be 0.8 of the firerate. So, the higher the fire rate, the shorter the stun.
                 return;
             }
             else
             {
-                ApplyStats(e, damage);
                 e.TakeDamage(damage);
+                ApplyStats(e, damage * burningMult);
                 e.frozen(freezeSeconds);
             }
         }
@@ -368,6 +376,7 @@ public class turret : MonoBehaviour
         critDMGMult = basecritDMGMult;
         burning = false;
         weaken = false;
+        burningMult = 0f;
 
         //Checking the stat change on every loop can prevent bugs and reduce complexity.
         for (int i = 0; i < numSlots; i++)
@@ -402,6 +411,7 @@ public class turret : MonoBehaviour
                 else if (currentEquipment[i].name == "Burning")
                 {
                     burning = true;
+                    burningMult += incBurningMult;
                 }
                 else if (currentEquipment[i].name == "Weaken")
                 {
@@ -411,20 +421,20 @@ public class turret : MonoBehaviour
         }
     }
 
-    public void ApplyStats(Enemy target, float damage)
+    public void ApplyStats(Enemy target, float BurningDoT)
     {
         if (burning == true)
         {
-            Debug.Log("burning turret damage: " + damage + "target.BurningDoT: " + target.BurningDoT);
-            if (target.BurningDoT == damage)                     //if the single hit damage is the same as the burning damage
+            Debug.Log("burning turret BurningDoT: " + BurningDoT + "target.BurningDoT: " + target.BurningDoT);
+            if (target.BurningDoT == BurningDoT)                     //if the single hit damage is the same as the burning damage
             {
-                Debug.Log("target.BurningDoT == damage");
+                Debug.Log("target.BurningDoT == BurningDoT");
                 target.CallingBurnFromEnemy();
             }
-            else if (target.BurningDoT < damage)            //if the single hit damage is greater than the current burning damage
+            else if (target.BurningDoT < BurningDoT)            //if the single hit damage is greater than the current burning damage
             {
-                Debug.Log("target.BurningDoT < damage");
-                target.BurningDoT = damage;                     //set the new burninig damage to the larger damage hit
+                Debug.Log("target.BurningDoT < BurningDoT");
+                target.BurningDoT = BurningDoT;                     //set the new burninig damage to the larger damage hit
                 target.CallingBurnFromEnemy();
             }
         }

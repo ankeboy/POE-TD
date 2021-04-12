@@ -74,6 +74,7 @@ public class SkillManager : MonoBehaviour
         PlayerPrefs.SetInt("Life Bonus", 0);
         PlayerPrefs.SetInt("Round Bonus Option", 0);
         PlayerPrefs.SetInt("Round Bonus Option2", 0);
+        PlayerPrefs.SetInt("Increased Burning", 0);
         fader.FadeTo(scene);
     }
 

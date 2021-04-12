@@ -26,6 +26,8 @@ public class Enemy : MonoBehaviour
     //public bool burning = false;
     public float BurningDoT = 0f;
     public bool weaken = false;
+    public GameObject burningEffect;
+    GameObject burningFX;
 
     [Header("Unity Stuff")]
     public GameObject deathEffect;
@@ -119,19 +121,23 @@ public class Enemy : MonoBehaviour
     public void CallingBurnFromEnemy()  //Ineumerator stops when the gameobject that calls it is destroyed. So as the bullets call the function, as soon as the bullets are destroyed, the coroutine also stops
     {
         StopCoroutine("burn");          //somehow the name of the coroutine must be a string for this "refresh" to work. Otherwise StopCoroutine only "pauses" it, instead of stopping it.
+        Destroy(burningFX, 0.5f);
         StartCoroutine("burn");
     }
 
     public IEnumerator burn()
     {
         Debug.Log("Burning: " + BurningDoT);
+        burningFX = (GameObject)Instantiate(burningEffect, transform.position, Quaternion.identity);
+        burningFX.transform.SetParent(transform);
         for (int i = 0; i < 6; i++)
         {
-            TakeDamage(BurningDoT * 0.25f);
+            TakeDamage(BurningDoT * 0.5f);              //half the burning DoT every half second
             Debug.Log("int i = 0; i < 6; i++" + i);
             yield return new WaitForSeconds(0.5f);
-            //Debug.Log("burning. health: " + health);
+            Debug.Log("burning. health: " + health);
         }
         BurningDoT = 0f;
+        Destroy(burningFX, 0.5f);
     }
 }

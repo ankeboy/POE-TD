@@ -361,6 +361,15 @@ MonoBehaviour:
   baseHealth: 400
   worth: 1000
   healthDamage: 3
+  immunity: 0
+  regeneration: 0
+  regen_rate: 0
+  invincibleTime: 0
+  froze: 0
+  BurningDoT: 0
+  weaken: 0
+  burningEffect: {fileID: 920405450845375045, guid: 6d874f60860f69e458d5b41b9bed4358,
+    type: 3}
   deathEffect: {fileID: 6351645745013769158, guid: 322ee0f8ece84ec40a87c8c75aa4087d,
     type: 3}
   healthBar: {fileID: 440390787}

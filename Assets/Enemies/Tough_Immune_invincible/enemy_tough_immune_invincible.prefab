@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 3564957405463383703}
   - component: {fileID: 2180061372109325271}
   m_Layer: 9
-  m_Name: enemy_tough_immune
+  m_Name: enemy_tough_immune_invincible
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -461,6 +461,10 @@ MonoBehaviour:
   regen_rate: 0
   invincibleTime: 3
   froze: 0
+  BurningDoT: 0
+  weaken: 0
+  burningEffect: {fileID: 920405450845375045, guid: d1ddc0de90a0c25499933df38b95a30f,
+    type: 3}
   deathEffect: {fileID: 6351645745013769158, guid: bd97962595663fd448307189e3b1a99c,
     type: 3}
   healthBar: {fileID: 440390787}

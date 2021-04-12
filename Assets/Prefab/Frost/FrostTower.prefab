@@ -170,6 +170,7 @@ MonoBehaviour:
   critDMGMult: 2
   specialEffect: Freeze
   slowAmount: 1
+  burningMult: 0.5
   freezeSeconds: 0.5
   bulletPrefab: {fileID: 0}
   useLaser: 0

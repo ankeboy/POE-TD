@@ -367,6 +367,10 @@ MonoBehaviour:
   regen_rate: 0
   invincibleTime: 2
   froze: 0
+  BurningDoT: 0
+  weaken: 0
+  burningEffect: {fileID: 920405450845375045, guid: 060655e6a303d0849a2ed39d558a01da,
+    type: 3}
   deathEffect: {fileID: 6351645745013769158, guid: 322ee0f8ece84ec40a87c8c75aa4087d,
     type: 3}
   healthBar: {fileID: 440390787}

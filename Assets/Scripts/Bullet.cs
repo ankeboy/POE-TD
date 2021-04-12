@@ -18,6 +18,8 @@ public class Bullet : MonoBehaviour
     public float critDMGMult = 2f;
     [HideInInspector]
     public float sourceFireRate = 0f;
+    [HideInInspector]
+    public float BurningDoT = 0f;
     public float speed = 70f;
     public float explosionRadius = 0f;
     public GameObject impactEffect;
@@ -187,14 +189,14 @@ public class Bullet : MonoBehaviour
                 //Debug.Log("CRITICAL BULLET");
                 //Debug.Log("CritDMGMult: " + critDMGMult);
                 e.TakeDamage(damage * critDMGMult);
-                ApplyStats(e, damage * critDMGMult);
+                ApplyStats(e, BurningDoT * critDMGMult);
                 e.frozen(0.8f / sourceFireRate);        //hardcoded the stun to be 0.8 of the firerate. So, the higher the fire rate, the shorter the stun.
                 return;
             }
             else
             {
                 e.TakeDamage(damage);
-                ApplyStats(e, damage);
+                ApplyStats(e, BurningDoT);
                 e.frozen(freezeSeconds);
             }
         }
@@ -206,20 +208,20 @@ public class Bullet : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
 
-    public void ApplyStats(Enemy target, float damage)
+    public void ApplyStats(Enemy target, float BurningDoT)
     {
         if (burning == true)
         {
-            Debug.Log("burning turret damage: " + damage + "target.BurningDoT: " + target.BurningDoT);
-            if (target.BurningDoT == damage)                     //if the single hit damage is the same as the burning damage
+            Debug.Log("burning bullet BurningDoT: " + BurningDoT + "target.BurningDoT: " + target.BurningDoT);
+            if (target.BurningDoT == BurningDoT)                     //if the single hit damage is the same as the burning damage
             {
-                Debug.Log("target.BurningDoT == damage");
+                Debug.Log("target.BurningDoT == BurningDoT");
                 target.CallingBurnFromEnemy();
             }
-            else if (target.BurningDoT < damage)            //if the single hit damage is greater than the current burning damage
+            else if (target.BurningDoT < BurningDoT)            //if the single hit damage is greater than the current burning damage
             {
-                Debug.Log("target.BurningDoT < damage");
-                target.BurningDoT = damage;                     //set the new burninig damage to the larger damage hit
+                Debug.Log("target.BurningDoT < BurningDoT");
+                target.BurningDoT = BurningDoT;                     //set the new burninig damage to the larger damage hit
                 target.CallingBurnFromEnemy();
             }
         }
