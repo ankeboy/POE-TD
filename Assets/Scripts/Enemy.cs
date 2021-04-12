@@ -21,8 +21,11 @@ public class Enemy : MonoBehaviour
     public float invincibleTime = 0f;
     bool invincible = false;
 
-    [HideInInspector]
+    [Header("Debuffs")]
     public float froze = 0;
+    //public bool burning = false;
+    public float BurningDoT = 0f;
+    public bool weaken = false;
 
     [Header("Unity Stuff")]
     public GameObject deathEffect;
@@ -111,5 +114,24 @@ public class Enemy : MonoBehaviour
         invincibleTime = 0f;        //this makes sure they can only be invincible once. 
         this.transform.Find("Halo").GetComponent<MeshRenderer>().enabled = false;
         //this.transform.Find("Halo").GetComponent<Renderer>().material.DisableKeyword("_EMISSION");    //this disables the emission when invincibility period is gone
+    }
+
+    public void CallingBurnFromEnemy()  //Ineumerator stops when the gameobject that calls it is destroyed. So as the bullets call the function, as soon as the bullets are destroyed, the coroutine also stops
+    {
+        StopCoroutine("burn");          //somehow the name of the coroutine must be a string for this "refresh" to work. Otherwise StopCoroutine only "pauses" it, instead of stopping it.
+        StartCoroutine("burn");
+    }
+
+    public IEnumerator burn()
+    {
+        Debug.Log("Burning: " + BurningDoT);
+        for (int i = 0; i < 6; i++)
+        {
+            TakeDamage(BurningDoT * 0.25f);
+            Debug.Log("int i = 0; i < 6; i++" + i);
+            yield return new WaitForSeconds(0.5f);
+            //Debug.Log("burning. health: " + health);
+        }
+        BurningDoT = 0f;
     }
 }

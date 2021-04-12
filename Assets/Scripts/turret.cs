@@ -48,6 +48,8 @@ public class turret : MonoBehaviour
     private float incProjSpeed = 2f;     //done.
     private float incProjSpeedSkillBonus = 0.2f;
     private bool doubleAttack = false;       //done (doesnt work with laser tower)
+    private bool burning = false;
+    private bool weaken = false;
     private float incCritChance = 0.2f;     //increase crit chance
     private float incCritDMGMult = 1f;       //increase crit DMG
     private float incCritDMGMultSkillBonus = 0.2f;     //increase crit chance 
@@ -296,13 +298,14 @@ public class turret : MonoBehaviour
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         bullet.damage = damage;
         bullet.critChance = critChance;
-        Debug.Log("critDMGMult: " + critDMGMult + ". incCritDMGMult: " + incCritDMGMult);
+        //Debug.Log("critDMGMult: " + critDMGMult + ". incCritDMGMult: " + incCritDMGMult);
         bullet.critDMGMult = critDMGMult;
         bullet.speed = bullet.speed * projSpeedMod;
         bullet.freezeSeconds = freezeSeconds;
+        bullet.burning = burning;
+        bullet.weaken = weaken;
         bullet.sourceFireRate = fireRate;
         bullet.dir2 = partToRotate.forward;
-        //Debug.Log("target.position: " + target.position);
         bullet.target2 = target.position;
 
         if (bullet != null)
@@ -326,12 +329,14 @@ public class turret : MonoBehaviour
             if (randValue < critChance)
             {
                 //Debug.Log("CRITICAL");
+                ApplyStats(e, damage * critDMGMult);
                 e.TakeDamage(damage * critDMGMult);
                 e.frozen(0.8f / fireRate);        //hardcoded the stun to be 0.8 of the firerate. So, the higher the fire rate, the shorter the stun.
                 return;
             }
             else
             {
+                ApplyStats(e, damage);
                 e.TakeDamage(damage);
                 e.frozen(freezeSeconds);
             }
@@ -361,6 +366,8 @@ public class turret : MonoBehaviour
         projSpeedMod = 1f;
         critChance = basecritChance;
         critDMGMult = basecritDMGMult;
+        burning = false;
+        weaken = false;
 
         //Checking the stat change on every loop can prevent bugs and reduce complexity.
         for (int i = 0; i < numSlots; i++)
@@ -392,7 +399,38 @@ public class turret : MonoBehaviour
                     critChance = Mathf.Clamp(critChance + incCritChance, 0f, 1f);   //clamps the value so that it cannot go below 0 or above 1.
                     critDMGMult = critDMGMult + incCritDMGMult;
                 }
+                else if (currentEquipment[i].name == "Burning")
+                {
+                    burning = true;
+                }
+                else if (currentEquipment[i].name == "Weaken")
+                {
+                    weaken = true;
+                }
             }
+        }
+    }
+
+    public void ApplyStats(Enemy target, float damage)
+    {
+        if (burning == true)
+        {
+            Debug.Log("burning turret damage: " + damage + "target.BurningDoT: " + target.BurningDoT);
+            if (target.BurningDoT == damage)                     //if the single hit damage is the same as the burning damage
+            {
+                Debug.Log("target.BurningDoT == damage");
+                target.CallingBurnFromEnemy();
+            }
+            else if (target.BurningDoT < damage)            //if the single hit damage is greater than the current burning damage
+            {
+                Debug.Log("target.BurningDoT < damage");
+                target.BurningDoT = damage;                     //set the new burninig damage to the larger damage hit
+                target.CallingBurnFromEnemy();
+            }
+        }
+        if (weaken == true)
+        {
+            target.weaken = true;
         }
     }
 }

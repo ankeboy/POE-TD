@@ -5228,7 +5228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba64e0f7bcbdfa4f8960845a7f42a2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 50000
+  startMoney: 500
   startLives: 20
 --- !u!114 &665861280
 MonoBehaviour:
@@ -20568,7 +20568,7 @@ PrefabInstance:
     - target: {fileID: 9033311628564085634, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -253.24927
+      value: -305.12057
       objectReference: {fileID: 0}
     - target: {fileID: 9033311628617807344, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
         type: 3}
