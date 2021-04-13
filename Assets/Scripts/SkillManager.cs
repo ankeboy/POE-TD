@@ -70,11 +70,15 @@ public class SkillManager : MonoBehaviour
         PlayerPrefs.SetInt("Missile Launcher Boost", 0);
         PlayerPrefs.SetInt("Laser Beamer Boost", 0);
         PlayerPrefs.SetInt("Frost Tower Boost", 0);
+        PlayerPrefs.SetInt("Sniper Boost", 0);
+        PlayerPrefs.SetInt("Artillery Boost", 0);
         PlayerPrefs.SetInt("Money Round Bonus", 0);
         PlayerPrefs.SetInt("Life Bonus", 0);
         PlayerPrefs.SetInt("Round Bonus Option", 0);
         PlayerPrefs.SetInt("Round Bonus Option2", 0);
         PlayerPrefs.SetInt("Increased Burning", 0);
+        PlayerPrefs.SetInt("Increased Weaken", 0);
+        PlayerPrefs.SetInt("Increased Critical", 0);
         fader.FadeTo(scene);
     }
 

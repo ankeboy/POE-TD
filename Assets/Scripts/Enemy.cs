@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     public bool immunity = false;
     public bool regeneration = false;
     public float regen_rate = 0f;
+    public float weakenMult = 0.25f;
+    public float incWeakenMultSkillBonus = 0.05f;
     public float invincibleTime = 0f;
     bool invincible = false;
 
@@ -27,7 +29,9 @@ public class Enemy : MonoBehaviour
     public float BurningDoT = 0f;
     public bool weaken = false;
     public GameObject burningEffect;
+    public GameObject weakenEffect;
     GameObject burningFX;
+    GameObject weakenFX;
 
     [Header("Unity Stuff")]
     public GameObject deathEffect;
@@ -40,7 +44,7 @@ public class Enemy : MonoBehaviour
         speed = startSpeed;
         health = baseHealth * (float)Math.Pow(WaveSpawner.roundMultiplier, WaveSpawner.waveIndex) * Difficulty; //math.pow returns a double. Need to cast it to float.
         barHealth = health;
-
+        weakenMult += (incWeakenMultSkillBonus * PlayerPrefs.GetInt("Increased Weaken", 0));
         if (regeneration)
             InvokeRepeating("Regen", 0f, 0.5f);
     }
@@ -49,7 +53,9 @@ public class Enemy : MonoBehaviour
     {
         if (!invincible)
         {
-            health -= amount;
+            //Debug.Log("ToInt32(weaken): " + Convert.ToInt32(weaken));
+            health -= (amount + (Convert.ToInt32(weaken) * amount * weakenMult));
+            //Debug.Log("health: " + health);
             healthBar.fillAmount = health / barHealth;
         }
 
@@ -95,7 +101,7 @@ public class Enemy : MonoBehaviour
     {
         if (health < (barHealth - (barHealth * regen_rate * 0.5f)))  //make sure it doesnt overheal. The missing health must be greater than the healing tick.
         {
-            health += barHealth * regen_rate * 0.5f;    //since this function is being called 2 per second.
+            health += (barHealth * regen_rate * 0.5f - (Convert.ToInt32(weaken) * barHealth * regen_rate * 0.5f * weakenMult));    //since this function is being called 2 per second.
             healthBar.fillAmount = health / barHealth;
         }
         else if (health < barHealth)
@@ -120,24 +126,47 @@ public class Enemy : MonoBehaviour
 
     public void CallingBurnFromEnemy()  //Ineumerator stops when the gameobject that calls it is destroyed. So as the bullets call the function, as soon as the bullets are destroyed, the coroutine also stops
     {
-        StopCoroutine("burn");          //somehow the name of the coroutine must be a string for this "refresh" to work. Otherwise StopCoroutine only "pauses" it, instead of stopping it.
-        Destroy(burningFX, 0.5f);
-        StartCoroutine("burn");
+        if (!immunity)
+        {
+            StopCoroutine("burn");          //somehow the name of the coroutine must be a string for this "refresh" to work. Otherwise StopCoroutine only "pauses" it, instead of stopping it.
+            Destroy(burningFX, 0.5f);
+            StartCoroutine("burn");
+        }
     }
 
     public IEnumerator burn()
     {
-        Debug.Log("Burning: " + BurningDoT);
+        //Debug.Log("Burning: " + BurningDoT);
         burningFX = (GameObject)Instantiate(burningEffect, transform.position, Quaternion.identity);
         burningFX.transform.SetParent(transform);
         for (int i = 0; i < 6; i++)
         {
             TakeDamage(BurningDoT * 0.5f);              //half the burning DoT every half second
-            Debug.Log("int i = 0; i < 6; i++" + i);
+            //Debug.Log("int i = 0; i < 6; i++" + i);
             yield return new WaitForSeconds(0.5f);
-            Debug.Log("burning. health: " + health);
+            //Debug.Log("burning. health: " + health);
         }
         BurningDoT = 0f;
         Destroy(burningFX, 0.5f);
+    }
+
+    public void CallingWeakFromEnemy()  //Ineumerator stops when the gameobject that calls it is destroyed. So as the bullets call the function, as soon as the bullets are destroyed, the coroutine also stops
+    {
+        if (!immunity)
+        {
+            StopCoroutine("weak");          //somehow the name of the coroutine must be a string for this "refresh" to work. Otherwise StopCoroutine only "pauses" it, instead of stopping it.
+            Destroy(weakenFX, 0.5f);
+            StartCoroutine("weak");
+        }
+    }
+    public IEnumerator weak()
+    {
+        //Debug.Log("weaken");
+        weaken = true;
+        weakenFX = (GameObject)Instantiate(weakenEffect, transform.position, Quaternion.identity);
+        weakenFX.transform.SetParent(transform);
+        yield return new WaitForSeconds(2f);
+        weaken = false;
+        Destroy(weakenFX, 0.5f);
     }
 }

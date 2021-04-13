@@ -215,19 +215,19 @@ public class Bullet : MonoBehaviour
             Debug.Log("burning bullet BurningDoT: " + BurningDoT + "target.BurningDoT: " + target.BurningDoT);
             if (target.BurningDoT == BurningDoT)                     //if the single hit damage is the same as the burning damage
             {
-                Debug.Log("target.BurningDoT == BurningDoT");
+                //Debug.Log("target.BurningDoT == BurningDoT");
                 target.CallingBurnFromEnemy();
             }
             else if (target.BurningDoT < BurningDoT)            //if the single hit damage is greater than the current burning damage
             {
-                Debug.Log("target.BurningDoT < BurningDoT");
+                //Debug.Log("target.BurningDoT < BurningDoT");
                 target.BurningDoT = BurningDoT;                     //set the new burninig damage to the larger damage hit
                 target.CallingBurnFromEnemy();
             }
         }
         if (weaken == true)
         {
-            target.weaken = true;
+            target.CallingWeakFromEnemy();
         }
     }
 }

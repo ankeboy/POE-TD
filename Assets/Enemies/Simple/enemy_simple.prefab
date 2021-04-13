@@ -364,11 +364,15 @@ MonoBehaviour:
   immunity: 0
   regeneration: 0
   regen_rate: 0
+  weakenMult: 0.25
+  incWeakenMultSkillBonus: 0.05
   invincibleTime: 0
   froze: 0
   BurningDoT: 0
   weaken: 0
   burningEffect: {fileID: 920405450845375045, guid: e5f50dfccfc780143b1dff5a58d98b72,
+    type: 3}
+  weakenEffect: {fileID: 3153494963938215220, guid: c00e2d471a0abad488d2ed23cac744f0,
     type: 3}
   deathEffect: {fileID: 6351645745013769158, guid: 4e701782298db76409f2b1e4d6a2cb8a,
     type: 3}

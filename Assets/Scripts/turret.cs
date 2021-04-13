@@ -303,14 +303,14 @@ public class turret : MonoBehaviour
     {
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
-        bullet.damage = damage;
+        bullet.damage = damage * (1 + (0.1f * PlayerPrefs.GetInt("Increased Projectile Speed", 0)));
         bullet.critChance = critChance;
         //Debug.Log("critDMGMult: " + critDMGMult + ". incCritDMGMult: " + incCritDMGMult);
         bullet.critDMGMult = critDMGMult;
         bullet.speed = bullet.speed * projSpeedMod;
         bullet.freezeSeconds = freezeSeconds;
         bullet.burning = burning;
-        bullet.BurningDoT = damage * burningMult;
+        bullet.BurningDoT = damage * (1 + (0.1f * PlayerPrefs.GetInt("Increased Projectile Speed", 0))) * burningMult;
         bullet.weaken = weaken;
         bullet.sourceFireRate = fireRate;
         bullet.dir2 = partToRotate.forward;
@@ -440,7 +440,7 @@ public class turret : MonoBehaviour
         }
         if (weaken == true)
         {
-            target.weaken = true;
+            target.CallingWeakFromEnemy();
         }
     }
 }
