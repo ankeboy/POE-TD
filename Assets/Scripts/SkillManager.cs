@@ -84,6 +84,10 @@ public class SkillManager : MonoBehaviour
 
     void UnlockSkill()
     {
+        // the interactable needs to be true or false, to activate/deactivate the button. Setting it to the statement that checks if the skill is lvl 5 also returns the boolean.
+        RoundBonusOption.interactable = (PlayerPrefs.GetInt("Life Bonus", 0) == 5);
+        RoundBonusOption2.interactable = (PlayerPrefs.GetInt("Money Round Bonus", 0) == 5);
+        /*
         if (PlayerPrefs.GetInt("Life Bonus", 0) == 5)
         {
             RoundBonusOption.interactable = true;
@@ -92,6 +96,8 @@ public class SkillManager : MonoBehaviour
         {
             RoundBonusOption.interactable = false;
         }
+        
+        
 
         if (PlayerPrefs.GetInt("Money Round Bonus", 0) == 5)
         {
@@ -101,5 +107,6 @@ public class SkillManager : MonoBehaviour
         {
             RoundBonusOption2.interactable = false;
         }
+        */
     }
 }
