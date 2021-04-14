@@ -13,6 +13,15 @@ public class SkillManager : MonoBehaviour
     //public Button[] buttons;
     public Button RoundBonusOption;
     public Button RoundBonusOption2;
+    public Button SniperButton;
+    public Button ArtilleryButton;
+    public Button FrostTowerButton;
+    public Button AllDMGButton;
+    public Button BurningButton;
+    public Button WeakenButton;
+    public Button RangeButton;
+    public Button CriticalButton;
+    public Button BonusBountyButton;
 
     private void Awake()
     {
@@ -79,6 +88,8 @@ public class SkillManager : MonoBehaviour
         PlayerPrefs.SetInt("Increased Burning", 0);
         PlayerPrefs.SetInt("Increased Weaken", 0);
         PlayerPrefs.SetInt("Increased Critical", 0);
+        PlayerPrefs.SetInt("All Damage Bonus", 0);
+        PlayerPrefs.SetInt("Extra Bounty Bonus", 0);
         fader.FadeTo(scene);
     }
 
@@ -87,6 +98,16 @@ public class SkillManager : MonoBehaviour
         // the interactable needs to be true or false, to activate/deactivate the button. Setting it to the statement that checks if the skill is lvl 5 also returns the boolean.
         RoundBonusOption.interactable = (PlayerPrefs.GetInt("Life Bonus", 0) == 5);
         RoundBonusOption2.interactable = (PlayerPrefs.GetInt("Money Round Bonus", 0) == 5);
+        SniperButton.interactable = (PlayerPrefs.GetInt("Standard Turret Boost", 0) == 5);
+        ArtilleryButton.interactable = (PlayerPrefs.GetInt("Missile Launcher Boost", 0) == 5);
+        FrostTowerButton.interactable = (PlayerPrefs.GetInt("Laser Beamer Boost", 0) == 5);
+        AllDMGButton.interactable = (PlayerPrefs.GetInt("Frost Tower Boost", 0) == 5 && PlayerPrefs.GetInt("Artillery Boost", 0) == 5 && PlayerPrefs.GetInt("Sniper Boost", 0) == 5);
+        BurningButton.interactable = (PlayerPrefs.GetInt("Increased Damage", 0) == 5);
+        WeakenButton.interactable = (PlayerPrefs.GetInt("Increased Damage", 0) == 5 && PlayerPrefs.GetInt("Increased Fire Rate", 0) == 5);
+        RangeButton.interactable = (PlayerPrefs.GetInt("Increased Projectile Speed", 0) == 5 && PlayerPrefs.GetInt("Increased Fire Rate", 0) == 5);
+        CriticalButton.interactable = (PlayerPrefs.GetInt("Increased Projectile Speed", 0) == 5);
+        BonusBountyButton.interactable = (PlayerPrefs.GetInt("Money Round Bonus", 0) == 5);
+
         /*
         if (PlayerPrefs.GetInt("Life Bonus", 0) == 5)
         {

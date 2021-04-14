@@ -462,7 +462,7 @@ MonoBehaviour:
   regen_rate: 0
   weakenMult: 0.25
   incWeakenMultSkillBonus: 0.05
-  invincibleTime: 3
+  invincibleTime: 5
   froze: 0
   BurningDoT: 0
   weaken: 0

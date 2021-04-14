@@ -83,35 +83,36 @@ public class turret : MonoBehaviour
     void Awake()    //Need to switch from Start() to Awake(), as Awake(), but not Start() is called upon instantiating an object. Start() is called before update (And thus calling equip() right after upgrading turret doesnt work as the Item[] slots are still 0). 
     {
         //sets up basedamage of turrets based on passive skill tree
+        float AllTowerDamageBonus = (1 + (0.02f * PlayerPrefs.GetInt("All Damage Bonus", 0)));
         if (this.name.StartsWith("StandardTurret"))
         {
             Debug.Log("Standard Turret Boost level: " + PlayerPrefs.GetInt("Standard Turret Boost", 0));
-            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Standard Turret Boost", 0)));
+            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Standard Turret Boost", 0))) * AllTowerDamageBonus;
         }
         else if (this.name.StartsWith("MissileLauncher"))
         {
             Debug.Log("Missile Launcher Boost level: " + PlayerPrefs.GetInt("Missile Launcher Boost", 0));
-            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Missile Launcher Boost", 0)));
+            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Missile Launcher Boost", 0))) * AllTowerDamageBonus;
         }
         else if (this.name.StartsWith("LaserBeamer"))
         {
             Debug.Log("Laser Beamer Boost level: " + PlayerPrefs.GetInt("Laser Beamer Boost", 0));
-            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Laser Beamer Boost", 0)));
+            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Laser Beamer Boost", 0))) * AllTowerDamageBonus;
         }
         else if (this.name.StartsWith("FrostTower"))
         {
             Debug.Log("Frost Tower Boost level: " + PlayerPrefs.GetInt("Frost Tower Boost", 0));
-            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Frost Tower Boost", 0)));
+            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Frost Tower Boost", 0))) * AllTowerDamageBonus;
         }
         else if (this.name.StartsWith("Artillery"))
         {
             Debug.Log("Artillery Boost level: " + PlayerPrefs.GetInt("Artillery Boost", 0));
-            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Artillery Boost", 0)));
+            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Artillery Boost", 0))) * AllTowerDamageBonus;
         }
         else if (this.name.StartsWith("Sniper"))
         {
             Debug.Log("Sniper Boost level: " + PlayerPrefs.GetInt("Sniper Boost", 0));
-            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Sniper Boost", 0)));
+            basedamage = basedamage * (1 + (0.1f * PlayerPrefs.GetInt("Sniper Boost", 0))) * AllTowerDamageBonus;
         }
         else
         {

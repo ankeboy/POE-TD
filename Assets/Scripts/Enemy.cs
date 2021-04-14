@@ -80,7 +80,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         isDead = true;
-        PlayerStats.Money += worth;
+        PlayerStats.Money += (worth + (int)(worth * 0.05f * PlayerPrefs.GetInt("Extra Bounty Bonus", 0)));
 
         GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(effect, 5f);

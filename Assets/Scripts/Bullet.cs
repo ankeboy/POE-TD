@@ -212,7 +212,7 @@ public class Bullet : MonoBehaviour
     {
         if (burning == true)
         {
-            Debug.Log("burning bullet BurningDoT: " + BurningDoT + "target.BurningDoT: " + target.BurningDoT);
+            //Debug.Log("burning bullet BurningDoT: " + BurningDoT + "target.BurningDoT: " + target.BurningDoT);
             if (target.BurningDoT == BurningDoT)                     //if the single hit damage is the same as the burning damage
             {
                 //Debug.Log("target.BurningDoT == BurningDoT");
