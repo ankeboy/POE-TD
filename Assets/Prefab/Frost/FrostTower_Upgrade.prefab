@@ -159,17 +159,19 @@ MonoBehaviour:
   numSlots: 3
   currentEquipment: []
   baserange: 13
+  range: 15
   basefireRate: 0.4
+  fireRate: 0.5
   basedamage: 190
+  damage: 100
+  basecritChance: 0
+  critChance: 0
+  basecritDMGMult: 2
+  critDMGMult: 2
   specialEffect: Freeze
   slowAmount: 1
+  burningMult: 0.5
   freezeSeconds: 0.5
-  range: 15
-  fireRate: 0.5
-  damage: 100
-  doubleAttack: 0
-  critChance: 0
-  generosity: 0
   bulletPrefab: {fileID: 0}
   useLaser: 0
   lineRenderer: {fileID: 0}
@@ -338,7 +340,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 669b27ffdd8db454aafe1c8c2a348c7d, type: 2}
+  - {fileID: 2100000, guid: 31dc8f5feb8b0ce489e9319eb43c0dc6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

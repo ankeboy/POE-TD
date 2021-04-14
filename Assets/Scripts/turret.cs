@@ -54,7 +54,7 @@ public class turret : MonoBehaviour
     private bool weaken = false;
     private float incCritChance = 0.2f;     //increase crit chance
     private float incCritDMGMult = 1f;       //increase crit DMG
-    private float incCritDMGMultSkillBonus = 0.2f;     //increase crit chance 
+    private float incCritDMGMultSkillBonus = 0.2f; //increase crit DMG multiplier
     //private bool generosity = false;     //need to recode, since money gained is not tower specific.
     private float incBurningMult = 0.5f;            //base burning multiplier (i.e. 50% of damage per second)
     private float incBurningMultSkillBonus = 0.1f;  //additional 0.1 burning multiplier per level (i.e. 100% of damage per second at level 5)
