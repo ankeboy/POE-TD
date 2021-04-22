@@ -358,8 +358,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1779527003}
   m_HandleRect: {fileID: 1779527002}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.71822035
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2065,6 +2065,7 @@ GameObject:
   - component: {fileID: 1494990087}
   - component: {fileID: 1494990086}
   - component: {fileID: 1494990085}
+  - component: {fileID: 1494990088}
   m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: Untagged
@@ -2183,6 +2184,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1494990083}
   m_CullTransparentMesh: 0
+--- !u!114 &1494990088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494990083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f5003cb04f9884ab12bd047800ec34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 15ccfb6fbc38beb4a810e849a5dfd551, type: 3}
+  _volume: 1
 --- !u!1 &1513684715
 GameObject:
   m_ObjectHideFlags: 0
@@ -2195,6 +2210,7 @@ GameObject:
   - component: {fileID: 1513684719}
   - component: {fileID: 1513684718}
   - component: {fileID: 1513684717}
+  - component: {fileID: 1513684720}
   m_Layer: 5
   m_Name: SkillTreeButton
   m_TagString: Untagged
@@ -2313,6 +2329,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1513684715}
   m_CullTransparentMesh: 0
+--- !u!114 &1513684720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513684715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f5003cb04f9884ab12bd047800ec34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 15ccfb6fbc38beb4a810e849a5dfd551, type: 3}
+  _volume: 1
 --- !u!1 &1757059088
 GameObject:
   m_ObjectHideFlags: 0
