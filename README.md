@@ -16,26 +16,38 @@ Items are gained at the start of each round (choose one item from the options). 
 * missile turret   -  a long range turret that shoots missiles that track enemies. Upon impact it explodes and deals damage to surrounding enemies
 * laser turret     -  a short range turret that aims laser at the enemy. The damage is instance and keeps damaging over time as long as the laser is active. It also slows enemies.
 * ice tower        -  a short range tower that damages all enemies in the area (WIP: slows enemies)
-* (WIP: artilery   -  a long range tower that throws slow moving projectile and deals AOE damage the projectile leaves burning ground that inflicts damage over time.)
+* artilery         -  a long range tower that throws slow moving projectile and deals AOE damage the projectile leaves burning ground that inflicts damage over time.)
+* sniper           -  a very long range tower with very high single target projectile damage but has a very slow fire rate. It has a basic chance to deal critical hits for extra damage and stun.
+* Bonus House      -  a "tower" that does not do anything special but gives you an additional item at the end of the round.
 
-### Items:
+### Items (skills):
 
-* Increased Fire Rate - Adds a fire rate multiplier (1.5x) *doesn't work on laser tower*
+* Increased Fire Rate - Adds a fire rate multiplier (1.5x)
 * Increased Damage    - Adds a damage modifier (1.5x)
-* Double attack       - deals an additional attack *doesn't work with laser tower* (WIP: currently are not stackable)
+* Double attack       - deals an additional attack *doesn't work with laser tower* (not stackable)
 * Increased Range     - Adds a range multiplier (1.5x)
-* (WIP: Critical Chance - Adds a chance to deal critical damage. The critical damge multiplier is increased)
+* Critical Chance     - Adds a chance to deal a critical hit. critical hits have increased damage and stun the target
+* Increased Projectile Speed - Adds a projectile speed modifier
+* burning             - Adds a Damage of Time (DoT) to hit enemies based on the damage of the hit.
+* weaken              - Adds a debuff to the enemy that increase the damage taken and reduces the regeneration rate.
 * (WIP: Generosity    - Enemies killed by the tower gives more Money)
-* (WIP: Increased Effect - Increases the effect of status ailments, e.g. Slow)
-* (WIP: Pierce        - Projectiles are able to pierce one additional enemy)
-* (WIP: Increased Projectile Speed - Adds a projectile speed modifier)
+* (cancellled: Increased Effect - Increases the effect of status ailments, e.g. Slow)
+* (cancellled: Pierce        - Projectiles are able to pierce one additional enemy)
+
 
 ### Other features:
 
-* Enemies can remove more than 1 live
-* Leaked enemies give double their bounty back
-* levels are unlocked in batches based on difficulty
-* Bullets have a limited lifespan
+* Randomized item generation so that player have to plan accordingly.
+* Enemies can remove more than 1 live.
+* Enemy variation: enemies can have "accessories" to give them unique characteristics.
+* Leaked enemies give double their bounty back.
+* levels are unlocked in batches based on difficulty.
+* Bullets have a limited lifespan.
+* Player has levels and gain experience whenever finishing a game based on how far the player progressed.
+* Passive Skill tree system. Players gain skill points to level up passive skills to make games easier.
+* Library: a collection of detailed information on all enemies, towers and items (skills).
+* Saves the highest wave reached for each level.
+* Tooltips
 
 ## Important restrictions
 
@@ -46,7 +58,4 @@ Items are gained at the start of each round (choose one item from the options). 
 
 ## Future additions
 
-* Add player level, which increases after each game
-* Add savedata
-* Add passive skill system that allows you to spend a number of points based on player level. These skills improve the efficiency of items and turrets as well as other bonuses
-* Add highscore system (Damage calculation on dummy target after the last wave and highest wave reached for each level)
+* Add highscore system (Damage calculation on dummy target after the last wave)
