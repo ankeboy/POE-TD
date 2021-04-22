@@ -5246,7 +5246,7 @@ MonoBehaviour:
   completeLevelUI: {fileID: 1457878650}
   RoundBonusUI: {fileID: 358633537}
   nextLevel: Level02
-  levelToUnlock: 4
+  levelToUnlock: 6
   sceneFader: {fileID: 1549560166}
 --- !u!114 &665861281
 MonoBehaviour:
@@ -20568,7 +20568,7 @@ PrefabInstance:
     - target: {fileID: 9033311628564085634, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -303.43405
+      value: -237.13834
       objectReference: {fileID: 0}
     - target: {fileID: 9033311628617807344, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
         type: 3}

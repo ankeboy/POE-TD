@@ -4,6 +4,8 @@ using System.Collections;
 
 public class node : MonoBehaviour
 {
+    public GameObject rangeIndicator;
+    GameObject _rangeIndicator;
     public Color hoverColor;
     public Color notEnoughMoneyColor;
     public GameObject notEnoughMoneyUI;
@@ -174,10 +176,14 @@ public class node : MonoBehaviour
         if (buildManager.HasMoney)
         {
             rend.material.color = hoverColor;
+            _rangeIndicator = (GameObject)Instantiate(rangeIndicator, transform.position, Quaternion.identity);
+            _rangeIndicator.transform.localScale = new Vector3(buildManager.turretRange * 2, 1, buildManager.turretRange * 2); //dont know why multiplying by 2 is corret. It just seems to fit.
+
         }
         else
         {
             rend.material.color = notEnoughMoneyColor;
+            //_rangeIndicator = (GameObject)Instantiate(rangeIndicator, transform.position, Quaternion.identity);
         }
 
     }
@@ -187,6 +193,8 @@ public class node : MonoBehaviour
     {
         if (rend.material.color != Color.green)
             rend.material.color = startColor;
+        if (_rangeIndicator)
+            Destroy(_rangeIndicator);
     }
 
     IEnumerator NotEnoughMoneyBlinking(float seconds)

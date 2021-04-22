@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public SceneFader sceneFader;
     public static int playerLevel;
     int levelEXP;
-    int maxEXP = 90;
+    int clearEXP = 100;
     string savedata;
 
     void Start()
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         GameIsOver = true;
         completeLevelUI.SetActive(true);
         PlayerPrefs.SetInt("levelReached", levelToUnlock);
-        GainLevelEXP(maxEXP);
+        GainLevelEXP((WaveSpawner.waveIndex * 3) + clearEXP);
     }
 
     public void RoundBonusItem()

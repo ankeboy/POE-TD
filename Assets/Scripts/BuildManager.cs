@@ -8,6 +8,7 @@ public class BuildManager : MonoBehaviour
     public GameObject buildEffect;
     public GameObject sellEffect;
     private TurretBlueprint turretToBuild;
+    public float turretRange = 0;
     private node selectedNode;
     public NodeUI nodeUI;
     public Inventory inventory;
@@ -62,6 +63,8 @@ public class BuildManager : MonoBehaviour
     public void SelectTurretToBuild(TurretBlueprint turret)
     {
         turretToBuild = turret;
+        turretRange = turret.prefab.GetComponent<turret>().baserange;
+        //Debug.Log("turretRange: " + turretRange);
         //DeselectNode();
     }
     public TurretBlueprint GetTurretToBuild()
