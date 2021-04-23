@@ -2169,12 +2169,16 @@ PrefabInstance:
     - target: {fileID: 8829973380062859474, guid: c7ab912115849a34bbe2a81c048adee6,
         type: 3}
       propertyPath: m_Text
-      value: 'Enemies with immunity hinder the execution of "weaken", "burning",
-        "slow" and "frozen" call.
+      value: 'Enemies with immunity hinder the execution of "burning", "slow" and
+        "frozen" call.
 
 
-        These can be considered regular enemies
-        and punish players who depend too much on debuffs.'
+        These can be considered regular enemies and punish
+        players who depend too much on debuffs.
+
+
+        Weaken has been excluded,
+        as regen + immune enemies become very difficult.'
       objectReference: {fileID: 0}
     - target: {fileID: 8829973380657785337, guid: c7ab912115849a34bbe2a81c048adee6,
         type: 3}
@@ -2299,8 +2303,8 @@ PrefabInstance:
     - target: {fileID: 8829973381884893561, guid: c7ab912115849a34bbe2a81c048adee6,
         type: 3}
       propertyPath: m_Text
-      value: Enemies wearing the green immunity belt are immune against all types
-        of debuff. This includes freeze, slow, stun, burn and weaken.
+      value: Enemies wearing the green immunity belt are immune against most types
+        of debuff. These are freeze, slow, stun and burn (not weaken).
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7ab912115849a34bbe2a81c048adee6, type: 3}
@@ -10547,7 +10551,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 11.131577, y: -25}
+  m_AnchoredPosition: {x: 11.131592, y: -25}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1753571410

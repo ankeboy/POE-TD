@@ -152,12 +152,12 @@ public class Enemy : MonoBehaviour
 
     public void CallingWeakFromEnemy()  //Ineumerator stops when the gameobject that calls it is destroyed. So as the bullets call the function, as soon as the bullets are destroyed, the coroutine also stops
     {
-        if (!immunity)
-        {
-            StopCoroutine("weak");          //somehow the name of the coroutine must be a string for this "refresh" to work. Otherwise StopCoroutine only "pauses" it, instead of stopping it.
-            Destroy(weakenFX, 0.5f);
-            StartCoroutine("weak");
-        }
+        //if (!immunity)                //turn off immunity to weaken. Otherwise immune_regen enemies are too difficult.
+        //{
+        StopCoroutine("weak");          //somehow the name of the coroutine must be a string for this "refresh" to work. Otherwise StopCoroutine only "pauses" it, instead of stopping it.
+        Destroy(weakenFX, 0.5f);
+        StartCoroutine("weak");
+        //}
     }
     public IEnumerator weak()
     {

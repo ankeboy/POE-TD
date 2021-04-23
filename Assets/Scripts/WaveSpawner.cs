@@ -12,7 +12,7 @@ public class WaveSpawner : MonoBehaviour
     public static int EnemiesAlive = 0; //static: allows it to change 
     public Wave[] waves;
     [Header("Round settings")]
-    public static float roundMultiplier = 1.2f;
+    public static float roundMultiplier = 1.15f; //health multiplier per round
     public float timeBetweenWaves = 5f;
     private float countdown = 2f;
     //public int roundBonus = 1;
