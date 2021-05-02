@@ -10,7 +10,7 @@ public class Shop : MonoBehaviour
     public TurretBlueprint artillery;
     public TurretBlueprint sniper;
     public TurretBlueprint bonusHouse;
-    
+
     //reference to build manager
     BuildManager buildManager;
     Image StadardTurretIcon;
@@ -32,6 +32,7 @@ public class Shop : MonoBehaviour
         FrostTowerIcon = this.transform.Find("FrostTower").GetComponent<Image>();
         artilleryIcon = this.transform.Find("ArtilleryItem").GetComponent<Image>();
         sniperIcon = this.transform.Find("SniperItem").GetComponent<Image>();
+        bonusHouseIcon = this.transform.Find("BonusHouse").GetComponent<Image>();
     }
 
     //select the type of turret from the shop by clicking on the turret icon. This then feeds the type of turret to the "SelectTurretToBuild" to the buildManager.cs script
@@ -97,5 +98,6 @@ public class Shop : MonoBehaviour
         FrostTowerIcon.color = new Color(1, 1, 1, 1f);
         artilleryIcon.color = new Color(1, 1, 1, 1f);
         sniperIcon.color = new Color(1, 1, 1, 1f);
+        bonusHouseIcon.color = new Color(1, 1, 1, 1f);
     }
 }
