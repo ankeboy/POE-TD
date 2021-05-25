@@ -59,3 +59,10 @@ Items are gained at the start of each round (choose one item from the options). 
 ## Future additions
 
 * Add highscore system (Damage calculation on dummy target after the last wave)
+* Improve library: Add shortcut to relevant sections, so that the player doesnt have to flip through all the pages.
+
+## Assets and Copyright
+
+All assets used in this game are placeholders and used under the Creative Commons license.
+* Some turrets are used from the [Brackeys TD tutorials](https://www.youtube.com/watch?v=beuoNuK2tbk&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0)
+* Item icons are credited to [pauliuw](https://opengameart.org/content/modified-and-cliped-magic-skill-item-icons) from OpenGameArt.
