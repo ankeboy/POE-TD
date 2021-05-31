@@ -7940,11 +7940,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6008cb1d98116404fb95de715aecd0c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panSpeed: 30
-  panBorderThickness: 10
-  scrollSpeed: 5
-  minY: 10
-  maxY: 80
+  minY: 20
+  maxY: 110
+  minX: 20
+  maxX: 60
+  minZ: -80
+  maxZ: 0
 --- !u!1 &967862788
 GameObject:
   m_ObjectHideFlags: 0
@@ -18044,7 +18045,7 @@ PrefabInstance:
     - target: {fileID: 9033311628564085634, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -132.68683
+      value: -299.61847
       objectReference: {fileID: 0}
     - target: {fileID: 9033311628617807344, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
         type: 3}

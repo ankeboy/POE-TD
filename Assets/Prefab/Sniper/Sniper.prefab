@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numSlots: 2
   currentEquipment: []
-  baserange: 50
+  baserange: 30
   range: 15
   basefireRate: 0.3
   fireRate: 3
@@ -187,6 +187,7 @@ MonoBehaviour:
   critDMGMult: 1
   specialEffect: Crit
   slowAmount: 0
+  burningMult: 0.5
   freezeSeconds: 0
   bulletPrefab: {fileID: 7787049986568362937, guid: 344c91ad418522d499e63487f7f7798c,
     type: 3}

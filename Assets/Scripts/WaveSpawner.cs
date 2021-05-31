@@ -13,8 +13,8 @@ public class WaveSpawner : MonoBehaviour
     public Wave[] waves;
     [Header("Round settings")]
     public static float roundMultiplier = 1.15f; //health multiplier per round
-    public float timeBetweenWaves = 5f;
-    private float countdown = 2f;
+    float timeBetweenWaves = 5f;
+    private float countdown = 3f;
     //public int roundBonus = 1;
     [Header("References")]
     public Transform spawnPoint;
@@ -72,7 +72,7 @@ public class WaveSpawner : MonoBehaviour
 
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
 
-        waveCountdownText.text = string.Format("{0:00.00}", countdown); //curly brackets controls format
+        waveCountdownText.text = string.Format("{0:0.00}", countdown); //curly brackets controls format
     }
 
     IEnumerator SpawnWave()

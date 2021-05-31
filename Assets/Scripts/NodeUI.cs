@@ -45,23 +45,26 @@ public class NodeUI : MonoBehaviour
 
         if (target.isUpgraded == 0)
         {
+            turretName.text = target.turretBlueprint.turretName;
             upgradeCost.text = "$" + target.turretBlueprint.upgradeCost;
             upgradeButton.interactable = true;
         }
         else if (target.isUpgraded == 1)
         {
+            turretName.text = target.turretBlueprint.turretName + " \u2605";
             upgradeCost.text = "$" + target.turretBlueprint.upgradeCost2;
             upgradeButton.interactable = true;
         }
         else
         {
+            turretName.text = target.turretBlueprint.turretName + " \u2605" + "\u2605";
             upgradeCost.text = "MAX";
             upgradeButton.interactable = false;
         }
 
         sellAmount.text = "$" + target.turretBlueprint.GetSellAmount();
 
-        turretName.text = target.turretBlueprint.turretName;
+
 
         //target = this specific node (from node script). turret = points to the GameObject (prefab) in the node script. GetComponent<turret> gets the numbers off the prefab based on the curret script 
         /* //moved to UpdateUI, not needed anymore.

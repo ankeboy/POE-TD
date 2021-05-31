@@ -5547,6 +5547,7 @@ MonoBehaviour:
     type: 3}
   sellEffect: {fileID: 4733479883743065143, guid: 81df55b6fed219746ac1837f8684d1f9,
     type: 3}
+  turretRange: 0
   nodeUI: {fileID: 235279343}
   inventory: {fileID: 665861282}
 --- !u!114 &665861279
@@ -7641,11 +7642,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6008cb1d98116404fb95de715aecd0c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panSpeed: 30
-  panBorderThickness: 10
-  scrollSpeed: 5
-  minY: 10
-  maxY: 80
+  minY: 20
+  maxY: 110
+  minX: 20
+  maxX: 60
+  minZ: -80
+  maxZ: 0
 --- !u!1001 &982646430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17411,7 +17413,7 @@ PrefabInstance:
     - target: {fileID: 9033311628564085634, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -237.1383
+      value: -299.6185
       objectReference: {fileID: 0}
     - target: {fileID: 9033311628617807344, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
         type: 3}

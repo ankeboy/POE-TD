@@ -2,12 +2,17 @@
 
 public class CameraController : MonoBehaviour
 {
-    public float panSpeed = 30f;
-    public float panBorderThickness = 10f;  // the distance to the edge of the border used as buffer for mouse movement
+    float panSpeed = 30f;
+    float panBorderThickness = 10f;  // the distance to the edge of the border used as buffer for mouse movement
 
-    public float scrollSpeed = 5f;
-    public float minY = 10f;
-    public float maxY = 80f;
+    float scrollSpeed = 2f;
+    public float minY = 20f;
+    public float maxY = 110f;
+
+    public float minX = 20f;
+    public float maxX = 60f;
+    public float minZ = -80f;
+    public float maxZ = 0;
 
     void Update()
     {
@@ -46,6 +51,8 @@ public class CameraController : MonoBehaviour
 
         pos.y -= scroll * 1000 * scrollSpeed * Time.deltaTime;
         pos.y = Mathf.Clamp(pos.y, minY, maxY);     //Clamp limits the first argument within the range of the other two arguments
+        pos.x = Mathf.Clamp(pos.x, minX, maxX);
+        pos.z = Mathf.Clamp(pos.z, minZ, maxZ);
 
         transform.position = pos;
     }

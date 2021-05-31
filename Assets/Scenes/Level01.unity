@@ -8058,7 +8058,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.6427876, y: 0, z: 0, w: 0.7660445}
-  m_LocalPosition: {x: 40.9, y: 90.1, z: -63.8}
+  m_LocalPosition: {x: 40, y: 100, z: -60}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8078,9 +8078,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panSpeed: 30
   panBorderThickness: 10
-  scrollSpeed: 5
-  minY: 10
-  maxY: 80
+  scrollSpeed: 2
+  minY: 20
+  maxY: 110
+  minX: 20
+  maxX: 60
+  minZ: -80
+  maxZ: 0
 --- !u!1001 &966095970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20674,7 +20678,7 @@ PrefabInstance:
     - target: {fileID: 9033311628564085634, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -237.13834
+      value: -299.6185
       objectReference: {fileID: 0}
     - target: {fileID: 9033311628617807344, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
         type: 3}
