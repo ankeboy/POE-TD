@@ -151,7 +151,7 @@ public class node : MonoBehaviour
 
     public void SellTurret()
     {
-        PlayerStats.Money += turretBlueprint.GetSellAmount();
+        PlayerStats.Money += turretBlueprint.GetSellAmount(isUpgraded);
 
         GameObject effect = (GameObject)Instantiate(buildManager.sellEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);

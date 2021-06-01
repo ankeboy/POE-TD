@@ -5284,7 +5284,6 @@ MonoBehaviour:
   - enemy: {fileID: 3209148935157363619, guid: c9062e02a1e621f449da0497d93b6b67, type: 3}
     count: 15
     rate: 2
-  timeBetweenWaves: 3
   spawnPoint: {fileID: 130914291}
   waveCountdownText: {fileID: 1198579739}
   gameManager: {fileID: 665861280}
@@ -8076,9 +8075,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6008cb1d98116404fb95de715aecd0c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panSpeed: 30
-  panBorderThickness: 10
-  scrollSpeed: 2
   minY: 20
   maxY: 110
   minX: 20
@@ -20678,7 +20674,7 @@ PrefabInstance:
     - target: {fileID: 9033311628564085634, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -299.6185
+      value: -253.83148
       objectReference: {fileID: 0}
     - target: {fileID: 9033311628617807344, guid: 5e7204a03ff78934fbc6470ba6d35bd1,
         type: 3}
