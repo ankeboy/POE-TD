@@ -59,7 +59,7 @@ Items are gained at the start of each round (choose one item from the options). 
 ## Future additions
 
 * Add highscore system (Damage calculation on dummy target after the last wave)
-* Improve library: Add shortcut to relevant sections, so that the player doesnt have to flip through all the pages.
+* Add upgrade choices and longer upgrade path
 
 ## Assets and Copyright
 
